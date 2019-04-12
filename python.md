@@ -13,4 +13,9 @@
    su più righe!
 '''
 
+"""
+   Posso usare anche i doppi apici
+   per fare commenti su più righe!
+"""
+
 ```
