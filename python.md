@@ -64,3 +64,21 @@ i nomi alle variabili, ci sono alcune regole da rispettare:
 |Si usano solo lettere, numeri e _ |variabile_1_valida| variabile$non valida!|
 |il nome della variabile inizia solo con una lettera| variabile_valida| 1_variabile|
 
+
+### Variabili: stilistica
+
+In Python è meglio seguire alcune regole base definite nello [Style Guide PEP8]:
+
+|Stile| Convenzionale| Non convenzionale|
+| ------ | ------ | ------ |
+|CamelCase | meglio_non_usarlo | MeglioNonUsarlo |
+|Prima lettera della variabile | si_usa_minuscola | Non_si_usa_maiuscola |
+|Nome costanti | COSTANTE_SEMPRE_IN_MAIUSCOLO | costanteNonInMaiuscolo|
+|Variabili "*private*" | _inizia_con_un_trattino_basso | scrivo_come_voglio |
+
+*Nota: le [variabili private] in Python **non esistono**. 
+Per convenzione, le variabili che si vogliono identificare come private, le si scrivono con un trattino basso iniziale.
+In questo modo vengono trattate come parte "non pubblica" da funzioni, metodi o data member
+
+[Style Guide PEP8]: <https://www.python.org/dev/peps/pep-0008/#naming-conventions>
+[variabili private]: <https://docs.python.org/3/tutorial/classes.html#private-variables>
