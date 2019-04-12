@@ -57,7 +57,8 @@ vuoto = ''
 
 Nonostante ci sia grande libertà di fantasia per dare
 i nomi alle variabili, ci sono alcune regole da rispettare:
-| Regola | Valido | Non valido
+
+| Regola | Valido | Non valido |
 | ------ | ------ | ------ |
 |Si usa solo una sola parola e senza spazi| variabile| varia bile|
 |Si usano solo lettere, numeri e _ |variabile_1_valida| variabile$non valida!|
