@@ -161,14 +161,104 @@ Ciao Gianfranco
 Nota:
 
 In Python, un oggetto è vero se:
-* è diverso da zero
-* è la costante True
-* non è vuoto
+- è diverso da zero
+- è la costante True
+- non è vuoto
 
 In Python, un oggetto è falso se:
-* vale zero
-* è la costante False
-* è la costante None
-* è vuoto
+- vale zero
+- è la costante False
+- è la costante None
+- è vuoto
+
+Tips: True è uguale a 1 e False è uguale a 0
 
 ```
+
+Operazioni sui booleani:
+
+| Operatore | Descrizione | Sintassi |
+|---|---|:-:|
+| and | Se entrambe le variabili sono valutate True, restituisce il secondo valore. Se la prima variabile che incontra è valutata False, restituisce il relativo valore | a == b|
+| or | Se entrambe le variabili sono False, restituisce il secondo valore. Se la prima variabile che incontra è valutata True, restituisce il relativo valore| a or b|
+| not | restituisce False se la variabile è True. Viceversa, restituisce True se la variabile è False | not a |
+
+```python
+>>> numero = 1
+>>> bool(numero)
+True
+>>> vuoto = ''
+>>> bool(vuoto)
+False
+>>> not True
+False
+>>> True and False
+False
+>>> True or False
+True
+```
+
+
+## Operatori binari
+
+| Operatore | Descrizione | Sintassi |
+|---|---|:-:|
+| & | Esegue un AND di bit tra due oggetti interi | a & b |
+| \| | Esegue un OR di bit tra due oggetti interi | a \| b |
+| ^ | Esegue uno XOR (OR esclusivo) di bit tra due oggetti interi | a ^ b |
+|<< | Esegue uno shif a sinistra di b posizioni dei bit di a | a << b|
+| >> | Esegue uno shif a destra di b posizioni dei bit di a | a >> b|
+| ~ | inverte il valore dei bit di a: gli 1 diventano 0 e gli zero 1 | ~a |
+
+
+
+## Operatori di concatenazione
+
+| Operatore | Descrizione | Sintassi |
+|---|---|:-:|
+| + | Concatenazione di più oggetti | a + b + c |
+| * | Concatenazione multipla: ripete n volte un oggetto | a * n |
+
+
+
+## TIPI DI DATI
+
+### Numerici
+
+```
+- interi: i [numeri interi] hanno una precisione illimitata
+- booleani: True equivale all'1 e False equivale allo 0
+- reali: i [numeri reali] sono i numeri a virgola mobile
+- complessi: i [numeri complessi] sono composti da una parte reale ed una immaginaria.
+```
+
+```python
+>>> sono_un_numero_grande = 9864552545854584
+>>> type(sono_un_numero_grande)
+<class 'int'>
+
+>>> type(True)
+<class 'bool'>
+>>> True == 1
+True
+
+>>> pi_greco = 3.14
+>>> type(pi_greco)
+<class 'float'>
+>>> numero_negativo = -1.111
+>>> type(numero_negativo)
+<class 'float'>
+
+>>> z = 3 + 7j
+>>> type(z)
+<class 'complex'>
+>>>
+>>> z.real # estrarre la parte reale
+3.0
+>>> z.imag # estrarre la parte complessa
+7.0
+```
+
+[numeri interi]: <https://it.wikipedia.org/wiki/Numero_intero>
+[numeri reali]: <https://it.wikipedia.org/wiki/Numero_reale>
+[numeri complessi]: <https://it.wikipedia.org/wiki/Numero_complesso>
