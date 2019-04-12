@@ -34,9 +34,12 @@ vuoto = ''
 ### Tipizzazione dinamica
 
 ```python
+
 '''
    In fase di esecuzione del codice, *in base al valore che **tu** 
    hai dato alla variabile*, Python ne determinerà il relativo tipo.
+'''
+
 >>> numero = 1
 >>> type(numero)
 <class 'int'>
@@ -45,4 +48,5 @@ vuoto = ''
 >>> type(frase)
 <class 'str'>
 >>>
+
 ```
