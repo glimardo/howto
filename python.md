@@ -89,6 +89,7 @@ In questo modo vengono trattate come parte "non pubblica" da funzioni, metodi o 
 
 In Python, ci sono delle parole che **non possono** essere utilizzate come nomi di variabili.
 Infatti, servono a definire la struttura del linguaggio stesso e sono:
+
 ```
 False      class      finally    is         return
 None       continue   for        lambda     try
@@ -123,5 +124,51 @@ Ciao, come ti chiami? Gianfranco
 >>> print("Ciao " + nome)
 Ciao Gianfranco
 >>>
+
+```
+
+
+## GLI OPERATORI
+
+### Operatori aritmetici
+
+| Operatore | Sintassi |
+|---|:-:|
+| Addizione | a + b | 
+| Sottrazione | a - b |
+| Moltiplicazione| a * b |
+| Potenza | a ** b|
+| Divisione | a / b|
+| Divisione (cioè restituisce la parte intera) | a // b|
+| Modulo (cioè il resto della divisione) | a % b|
+
+
+## Operatori di confronto
+
+| Operatore | Descrizione | Sintassi |
+|---|---|:-:|
+| == | Uguaglianza. &nbsp; Ritorna vero se sono uguali. Altrimenti Falso | a == b|
+| != | Disuguaglianza. &nbsp; Ritorna vero se sono diversi. Altrimenti Falso | a != b | 
+| >| Maggiore di. &nbsp; Ritorna vero se il primo numero è maggiore del secondo. Altrimenti Falso | a > b |
+| >= | Maggiore o uguale a. &nbsp; Ritorna vero se il primo numero è maggiore o uguale al secondo. Altrimenti Falso | a >= b |
+| <| Minore di. &nbsp; Ritorna vero se il primo numero è minore del secondo. Altrimenti Falso | a < b |
+| <= | Minore o uguale a. &nbsp; Ritorna vero se il primo numero è minore o uguale al secondo. Altrimenti Falso | a <= b |
+
+
+## Operatori booleani
+
+```
+Nota:
+
+In Python, un oggetto è vero se:
+* è diverso da zero
+* è la costante True
+* non è vuoto
+
+In Python, un oggetto è falso se:
+* vale zero
+* è la costante False
+* è la costante None
+* è vuoto
 
 ```
