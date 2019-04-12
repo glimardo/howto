@@ -225,12 +225,10 @@ True
 
 ### Numerici
 
-```
 - interi: i [numeri interi] hanno una precisione illimitata
 - booleani: True equivale all'1 e False equivale allo 0
 - reali: i [numeri reali] sono i numeri a virgola mobile
 - complessi: i [numeri complessi] sono composti da una parte reale ed una immaginaria.
-```
 
 ```python
 >>> sono_un_numero_grande = 9864552545854584
