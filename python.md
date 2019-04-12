@@ -30,3 +30,19 @@ nuova_variabile = 'Anche io sono una variabile!"
 numero = 1
 vuoto = ''
 ```
+
+### Tipizzazione dinamica
+
+```python
+'''
+   In fase di esecuzione del codice, *in base al valore che **tu** 
+   hai dato alla variabile*, Python ne determinerà il relativo tipo.
+>>> numero = 1
+>>> type(numero)
+<class 'int'>
+>>>
+>>> frase = "Funziona la tipizzazione dinamica!"
+>>> type(frase)
+<class 'str'>
+>>>
+```
