@@ -19,3 +19,14 @@
 """
 
 ```
+
+### Variabili
+
+```python
+# Nota: in Python non si mette nessun ; alla fine!
+
+variabile = "sono una variabile"
+nuova_variabile = 'Anche io sono una variabile!"
+numero = 1
+vuoto = ''
+```
