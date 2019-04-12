@@ -2,6 +2,7 @@
 
 ## I FONDAMENTALI
 
+
 ### Commenti
 
 ```python
@@ -39,7 +40,6 @@ hai dato alla variabile, Python ne determinerà il relativo tipo.
 
 ```
 
-
 ### Variabili
 
 ```python
@@ -52,6 +52,7 @@ numero = 1
 vuoto = ''
 
 ```
+
 
 ### Variabili: come dare i nomi
 
@@ -82,3 +83,45 @@ In questo modo vengono trattate come parte "non pubblica" da funzioni, metodi o 
 
 [Style Guide PEP8]: <https://www.python.org/dev/peps/pep-0008/#naming-conventions>
 [variabili private]: <https://docs.python.org/3/tutorial/classes.html#private-variables>
+
+
+### Parole riservate - *Keywords* -
+
+In Python, ci sono delle parole che **non possono** essere utilizzate come nomi di variabili.
+Infatti, servono a definire la struttura del linguaggio stesso e sono:
+```
+False      class      finally    is         return
+None       continue   for        lambda     try
+True       def        from       nonlocal   while
+and        del        global     not        with
+as         elif       if         or         yield
+assert     else       import     pass
+break      except     in         raise
+```
+
+
+### Print
+
+
+```python
+
+# Con print posso vedere in output il contenuto di una variabile od espressione
+frase = "Questa frase sarà stampata a video!"
+
+>>> print(frase)
+Questa frase sarà stampata a video!
+
+```
+
+
+### Input
+
+```python
+
+>>> nome = input("Ciao, come ti chiami? ") # salvo qui le informazioni fornite dall'utente
+Ciao, come ti chiami? Gianfranco
+>>> print("Ciao " + nome)
+Ciao Gianfranco
+>>>
+
+```
