@@ -547,3 +547,178 @@ True
 >>> '{fr[0]}'.format(fr=frutta)
 'mele'
 ```
+
+
+## LE STRUTTURE DATI
+
+
+### Liste
+
+```
+Quando usare una lista?
+- Quando ti serve una collezione di dati eterogenea
+- Quando vuoi avere dei dati ordinati
+- Quando hai bisogno di una coda di dati
+```
+
+#### Creazione di una lista
+
+```python
+>>> sono_una_lista = [1, 2, 3] # Le liste vengono chiamate array in altri linguaggi
+>>> sono_una_lista
+[1, 2, 3]
+>>> anche_io_sono_una_lista = [ 'uno', 'due', 'tre']
+>>> anche_io_sono_una_lista
+['uno', 'due', 'tre']
+>>> lista_mista = [ 1, "due", 3 ]
+>>> lista_mista
+[1, 'due', 3]
+```
+
+#### Visualizzare una lista
+
+```python
+>>> mia_lista = [1,2,3,4]
+>>>
+>>> mia_lista
+[1, 2, 3, 4]
+>>>
+>>> print(mia_lista)
+[1, 2, 3, 4]
+```
+
+
+#### Visualizzare un elemento di una lista
+
+|  | indice | |  0 |  | 1 |  | 2 |  | 3 | |  
+|---|---|---|---|---|---|---|---|---|---|---|
+| mia_lista | = | [ | 1 |, | 2 | , | 3 | , | 4 | ] |
+
+```python
+>>> mia_lista = [1,2,3,4]
+>>> mia_lista
+[1, 2, 3, 4]
+>>>
+>>> mia_lista[2]
+3
+>>>
+>>> mia_lista[7] # Non puoi cercare un carattere in una posizione che non esiste!
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+```
+
+
+#### Aggiungere un elemento in una lista
+
+```python
+>>> mia_lista = [1, 2, 3]
+>>> mia_lista.append(4)
+>>> mia_lista
+[1, 2, 3, 4]
+>>>
+>>> mia_lista.insert(1,5) # Posso aggiungere elementi anche in una posizione specifica
+>>> mia_lista
+[1, 5, 2, 3, 4]
+```
+
+
+#### Aggiungere più elementi ad una lista
+
+```python
+>>> mia_lista
+[1, 5, 2, 3, 4]
+>>>
+>>> mia_lista.extend([6, 7, 8, 9])
+>>> mia_lista
+[1, 5, 2, 3, 4, 6, 7, 8, 9]
+```
+
+#### Rimuovere un elemento da una lista
+
+```python
+>>> mia_lista
+[1, 5, 2, 3, 4, 6, 7, 8, 9]
+>>>
+>>> mia_lista.remove(4)
+>>>
+>>> mia_lista
+[1, 5, 2, 3, 6, 7, 8, 9]
+>>>
+>>> mia_lista.remove(10) # Non posso rimuovere un elemento che non c'è!
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
+>>>
+```
+
+
+#### Rimuovere tutti gli elementi da una lista
+
+```python
+>>> mia_lista
+[5, 2, 3, 4, 6, 7, 8]
+>>>
+>>> mia_lista.clear()
+>>>
+>>> mia_lista
+[]
+>>>
+```
+
+
+#### Dividere gli elementi di una stringa in una lista
+
+```python
+>>> mia_stringa = "1, 2, 3, 4, 5, 6"
+>>> mia_stringa
+'1, 2, 3, 4, 5, 6'
+>>>
+>>> mia_stringa.split()
+['1,', '2,', '3,', '4,', '5,', '6']
+>>>
+>>>
+>>> mia_lista =  mia_stringa.split()
+>>>
+>>> mia_lista
+['1,', '2,', '3,', '4,', '5,', '6']
+>>>
+```
+
+
+#### Contare quanti elementi sono presenti in una lista
+
+```python
+>>> mia_lista = [4,8,9,3,2,1,0]
+>>>
+>>> len(mia_lista)
+7
+```
+
+
+#### Verificare se un elemento è presente in una lista
+
+```python
+>>> mia_lista = [1,2,3]
+>>> mia_lista
+[1, 2, 3]
+>>>
+>>>
+>>> 1 in mia_lista # restituisce True se l'elemento è presente
+True
+>>>
+>>> 4 in mia_lista # restituisce False se l'elemento non è presente
+False
+```
+
+
+#### Concatenare più liste
+
+```python
+>>> lista_1 = [1,2,3]
+>>> lista_2 = [4,5,6]
+>>>
+>>> lista_3 = lista_1 + lista_2
+>>> lista_3
+[1, 2, 3, 4, 5, 6]
+```
