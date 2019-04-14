@@ -503,3 +503,47 @@ con lo slicing - affettare - si accedere ad una sequenza consecutiva di caratter
 'ciao'
 ```
 
+
+#### Come sapere se la stringa contiene caratteri alfanumerici
+
+```python
+>>> frase = "Quattro4"
+>>> frase.isalnum() # verifico se la stringa contiene caratteri alfanumerici
+True
+>>> frase = "Quattro4!"
+>>> frase
+'Quattro4!'
+>>> frase.isalnum()
+False # il ! non è alfanumerico!
+>>>
+```
+
+```python
+>>> frase = "Parola"
+>>> frase.isalpha() # verifico se la stringa contiene solo caratteri alfabetici
+True
+```
+
+```python
+>>> frase = "1234"
+>>> frase.isdigit() # verifico se la stringa contiene solo caratteri numerici
+True
+```
+
+
+#### Formattazione di una stringa
+
+```python
+>>> '{} {} {} {}'.format('Questo', 'è un tutorial', 'sulle', 'stringhe!')
+'Questo è un tutorial sulle stringhe!'
+>>>
+>>> '{3} {2} {1} {4} {0}'.format('stringhe', 'posizione', 'cambiare', 'Posso', 'delle')
+'Posso cambiare posizione delle stringhe'
+>>>
+>>> '{personaggio} è nipote di {altro_personaggio}'.format(personaggio='Paperino', altro_personaggio='Zio Paperone')
+'Paperino è nipote di Zio Paperone'
+>>>
+>>> frutta = ['mele', 'arance']
+>>> '{fr[0]}'.format(fr=frutta)
+'mele'
+```
