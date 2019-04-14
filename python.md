@@ -1556,3 +1556,71 @@ E quindi rimango nel ciclo while!
 (9, 'numero dispari')
 (10, 'numero pari')
 ```
+
+
+## LE COMPREHENSION
+
+```
+Le comprehension sono dei costrutti che ti permettono di creare 
+delle strutture dati - liste, dizionari, set - con una sintassi concisa.
+```
+
+### Come si crea una comprehension per la lista *-  list comprehension -*
+
+```
+Per creare una lista con la comprehension, occorre utilizzare la seguente sintassi:
+[```espressione(variabile) for variabile in lista_di_elementi```]
+
+Dove:
+- ```variabile``` è la variabile di base su cui gira la creazione della lista
+- ```espressione(variabile)``` è l'output che si vuole avere
+- ```lista_di_elementi``` è una lista di valori nei quali occorre iterare per creare la lista
+- ```for variabile in lista_di_elementi``` è l'iterazione che occorre utilizzare per poter creare la lista
+```
+
+```python
+>>> doppio_dei_numeri = [n*2 for n in [1, 2, 3, 4]]
+>>> doppio_dei_numeri
+[2, 4, 6, 8]
+```
+
+
+### Come si crea una comprehension per il dizionario *-  dict comprehension -*
+
+```
+Per creare una comprehension per il dizionario, si usa la seguente sintassi:
+{```espressione_chiave(variabile_chiave):espressione_valore(variabile_valore) for variabile_chiave, variabile_valore in elementi_iterabili```}
+
+Dove:
+- ```variabile_chiave``` è la variabile della chiave del dizionare su cui gira la creazione del dizionario
+- ```variabile_valore``` è la variabile del valore associato alla chiave del dizionare 
+  su cui gira la creazionedel dizionario
+- ```elementi_iterabili``` è un elenco di valori nei quali occorre iterare per creare il dizionario
+- ```for variabile_chiave, variabile_valore in elementi_iterabili``` è l'iterazione che occorre 
+   utilizzare per poter creare il dizionario
+```
+
+```python
+>>> {n: n**2 for n in range(1, 11) }
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
+```
+
+
+### Come si crea una comprehension per il set *-  set comprehension -*
+
+```
+Per creare una comprehension per il set, si usa la seguente sintassi:
+{espressione(variabile) for variabile in elementi_iterabili}
+
+Dove:
+- ```variabile``` è la variabile di base su cui gira la creazione del set
+- ```espressione(variabile)``` è l'output che si vuole avere
+- ```elementi_iterabili``` è una lista di valori nei quali occorre 
+  iterare per creare il set
+* ```for variabile in lista_di_elementi``` è l'iterazione che occorre utilizzare per poter creare la lista
+```
+
+```python
+>>> { n for n in [1,2,3,4,3,3,2,1,2]}
+{1, 2, 3, 4}
+```
