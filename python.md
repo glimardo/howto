@@ -1624,3 +1624,153 @@ Dove:
 >>> { n for n in [1,2,3,4,3,3,2,1,2]}
 {1, 2, 3, 4}
 ```
+
+
+## LA GESTIONE DEGLI ERRORI
+
+
+### Errori di sintassi
+
+```
+Gli errori di sintassi si commettono prima che il codice sia eseguito.
+Infatti, il problema non è nell'esecuzione del codice ma nella sua stesura.
+Non a caso, è un classico fare errori di sintassi quando di sta imparando a sviluppare!
+```
+
+```python
+>>> a = 1
+>>> b = 2
+>>> if a > b
+  File "<stdin>", line 1
+    if a > b
+           ^
+SyntaxError: invalid syntax
+
+>>> if a > b:
+... print(a)
+  File "<stdin>", line 2
+    print(a)
+        ^
+IndentationError: expected an indented block
+```
+
+
+### Eccezioni
+
+```
+Le eccezioni sono gli errori che si manifestano durante l'esecuzione del codice.
+In base alla natura che li fa scaturire, ne esistono di vari tipi.
+Per non appesantire la lettura, ti rimando a [questo link] con 
+l'elenco completo di tutte le eccezioni che puoi incontrare.
+```
+
+[questo link]: <https://docs.python.org/3.6/library/exceptions.html>
+
+```python
+>>> c + d
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'c' is not defined
+
+>>> 1 + '1'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+>>> int("mi sa che avrò un'eccezione!")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: "mi sa che avrò un'eccezione!"
+>>>
+
+>>> if a > b:
+KeyboardInterrupt
+>>>
+```
+
+
+### Gestire le eccezioni con try/except
+
+```python
+try:
+    tuo codice
+except eccezione:
+    gestione dell'eccezione
+```
+
+```python
+>>> try:
+...     if c > 1:
+...         print(c)
+... except NameError:
+...     print("Ti sei ricordato di definire la variabile c?")
+...
+Ti sei ricordato di definire la variabile c?
+```
+
+
+#### Gestione delle eccezioni multiple
+
+```python
+try:
+   istruzione
+except eccezione_1:
+    gestione_eccezione_1
+except eccezione_2:
+    gestione_eccezione_2
+except eccezione_n:
+    gestione_eccezione_n
+```
+
+```python
+>>> c = 1
+>>> d = "pippo"
+>>> try:
+...     if c > d:
+...         print(c)
+... except NameError:
+...     print("Ti sei ricordato di definire le variabili?")
+... except TypeError:
+...     print("Attento! C'è un errore di tipo TypeError: controlla il codice!")
+...
+Attento! C'è un errore di tipo TypeError: controlla il codice!
+```
+
+
+#### Dare un nome all'istanza dell'eccezione
+
+```python
+try:
+    istruzione
+except Eccezione as nome_eccezione_a_tuo_piacere:
+    print(nome_eccezione_a_tuo_piacere)
+```
+
+```python
+>>> try:
+...     1/0
+... except ZeroDivisionError as e:
+...     print(e)
+...
+division by zero
+```
+
+
+#### Gestire più eccezioni contemporaneamente
+
+```python
+try:
+    istruzione
+except (Eccezione_1, Eccezione_2, Eccezione_n):
+    print(Messaggio_comune)
+```
+
+```python
+>>> try:
+...     int("pippo") + '1'
+... except (ValueError, TypeError):
+...     print("Attento a quello che scrivi!")
+...
+Attento a quello che scrivi!
+```
+
