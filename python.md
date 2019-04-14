@@ -984,3 +984,234 @@ False
 >>> len(arcobaleno)
 7
 ```
+
+
+### Set
+
+```
+Il set è un parente della lista con alcune differenze:
+- è una collezione mutabile e non ordinata di elementi unici
+- il suo hash non deve cambiare mai durante il proprio ciclo di vita e può
+  essere comparato con altri oggetti. Questa caratteristica è chiamata [hashable]
+  
+Quando usare set
+- quando serve fare del testing sulle membership
+- quando occorre eliminare dei duplicati da delle sequenze
+- quando occorre eseguire delle operazioni matematiche standard su set quali intersezione, 
+  unione, differenza e differenza simmetrica.
+```
+
+
+#### Creazione di un set
+
+```python
+>>> primo_set = set([1,2,3])
+>>> primo_set
+{1, 2, 3}
+>>>
+>>> secondo_set = set({"uno": 1, "due": 2})
+>>> secondo_set
+{'due', 'uno'}
+>>>
+>>> terzo_set = set("parola")
+>>> terzo_set
+{'o', 'a', 'r', 'l', 'p'}
+>>> quarto_set = { 1,2,3, "a", "b", "c"}
+>>> quarto_set
+{1, 2, 3, 'b', 'a', 'c'}
+>>>
+>>> set_vuoto = set() 
+>>> type(set_vuoto)
+<class 'set'>
+>>>
+>>> set_vuoto = set{} # Un set vuoto si scrive set()
+  File "<stdin>", line 1
+    set_vuoto = set{}
+                   ^
+SyntaxError: invalid syntax
+```
+
+
+#### Visualizzare una set
+
+```python
+>>> sono_un_set = {1, 2, 3, "a", "parola", ""}
+>>> sono_un_set
+{'parola', 1, 2, 3, '', 'a'}
+```
+
+
+#### Eliminare duplicati con un set
+
+```python
+>>> parola_con_lettere_duplicate = set("massimo")
+>>> parola_con_lettere_duplicate
+{'o', 's', 'a', 'm', 'i'}
+>>>
+>>>
+>>> fiume_mississippi = set("Mississippi")
+>>> fiume_mississippi
+{'i', 's', 'M', 'p'}
+```
+
+
+#### Aggiungere un elemento in un set
+
+```python
+>>> nuovo_set = set()
+>>> nuovo_set.add("prima parola")
+>>> nuovo_set
+{'prima parola'}
+>>> type(nuovo_set)
+<class 'set'>
+```
+
+
+#### Rimuovere un elemento da un set
+
+```python
+>>> nuovo_set = set()
+>>> nuovo_set.add("prima parola")
+>>> nuovo_set
+{'prima parola'}
+>>>
+>>> nuovo_set.remove("prima parola")
+>>> nuovo_set
+set()
+```
+
+
+#### Rimuovere tutti gli elementi da un set
+
+```python
+>>> nuovo_set = set("123456")
+>>> nuovo_set
+{'6', '4', '5', '3', '1', '2'}
+>>>
+>>> nuovo_set.clear()
+>>> nuovo_set
+set()
+```
+
+
+#### Ordinare gli elementi di un set
+
+```python
+>>> nuovo_set = {5,6,1,4,2,3}
+>>> nuovo_set
+{1, 2, 3, 4, 5, 6}
+>>>
+>>> sorted(nuovo_set)
+[1, 2, 3, 4, 5, 6]
+```
+
+
+#### Contare quanti elementi sono presenti in un set
+
+```python
+>>> nuovo_set = set("123456")
+>>> len(nuovo_set)
+6
+```
+
+
+#### Visualizzare se un elemento è presente in un set
+
+```python
+>>> nuovo_set = {1, 2, 3, 4, 5, 6}
+>>> nuovo_set
+{1, 2, 3, 4, 5, 6}
+>>>
+>>> nuovo_set.issuperset([1])
+True
+>>>
+>>> nuovo_set.issuperset([1,2,4])
+True
+>>> nuovo_set.issuperset([1,0])
+False
+>>> nuovo_set.issuperset(())
+True
+```
+
+
+#### Differenza tra set
+
+```python
+>>> primo_set = {1,2,3,4,5,6}
+>>> secondo_set = {4,5,6,7,8,9}
+>>>
+>>> primo_set - secondo_set
+{1, 2, 3}
+```
+
+
+#### Intersezione tra set
+
+```python
+>>> primo_set = {1,2,3,4,5,6}
+>>> secondo_set = {4,5,6,7,8,9}
+>>>
+>>> primo_set & secondo_set
+{4, 5, 6}
+```
+
+
+#### Differenza simmetrica tra set
+
+```python
+>>> primo_set = {1,2,3,4,5,6}
+>>> secondo_set = {4,5,6,7,8,9}
+>>>
+>>> primo_set ^ secondo_set
+{1, 2, 3, 7, 8, 9}
+```
+
+
+#### Unione tra set
+
+```python
+>>> primo_set = {1,2,3,4,5,6}
+>>> secondo_set = {4,5,6,7,8,9}
+>>>
+>>> primo_set | secondo_set
+{1, 2, 3, 4, 5, 6, 7, 8, 9}
+```
+
+
+#### Operazioni relazionali su set
+
+|  Operatore | Descrizione | Cosa ritorna | Esempio |
+|---|---|---|---|
+| == | Uguaglianza tra set| Ritorna True se l'uguaglianza è verificata. Altrimenti False | ```primo_set == secondo_set``` |
+| !=  | Diversità tra set | Ritorna True se la diversità è verificata. Altrimenti False| ```primo_set != secondo_set```|
+| <  | Primo set minore del secondo | Ritorna True se il primo set è minore del secondo. Altrimenti False| ```primo_set < secondo_set```|
+| <= | Primo set minore o uguale al secondo| Ritorna True se il primo set è minore o uguale al secondo. Altrimenti False| ```primo_set <= secondo_set```|
+| > | Primo set maggiore del secondo | Ritorna True se il primo set è maggiore del secondo. Altrimenti False| ```primo_set > secondo_set```|
+| >= | Primo set maggiore o uguale al secondo| Ritorna True se il primo set è maggiore o uguale al secondo. Altrimenti False| ```primo_set >= secondo_set```|
+
+```python
+>>> primo_set = {1,2,3,4,5,6}
+>>> secondo_set = {4,5,6,7,8,9}
+>>>
+>>> primo_set == secondo_set
+False
+>>> primo_set != secondo_set
+True
+>>> primo_set < secondo_set
+False
+>>> primo_set <= secondo_set
+False
+>>> primo_set > secondo_set
+False
+>>> primo_set >= secondo_set
+False
+>>>
+>>> secondo_set < primo_set
+False
+>>> secondo_set <= primo_set
+False
+>>> secondo_set > primo_set
+False
+>>> secondo_set >= primo_set
+False
+```
