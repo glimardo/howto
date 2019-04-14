@@ -260,3 +260,116 @@ True
 [numeri interi]: <https://it.wikipedia.org/wiki/Numero_intero>
 [numeri reali]: <https://it.wikipedia.org/wiki/Numero_reale>
 [numeri complessi]: <https://it.wikipedia.org/wiki/Numero_complesso>
+
+
+### Stringhe
+
+Tutto ciò che è racchiuso tra doppi apici o apici singoli, è considerato una stringa:
+- "" è una stringa
+- ' ' è una stringa
+- 'a' è una stringa
+- '1' è una stringa
+
+```python
+
+>>> stringa_vuota = ""
+>>> type(stringa_vuota)
+<class 'str'>
+>>>
+>>> singolo_spazio = ' '
+>>> type(singolo_spazio)
+<class 'str'>
+>>>
+>>> lettera = 'a'
+>>> type(lettera)
+<class 'str'>
+>>>
+>>> numero = '1'
+>>> type(numero)
+<class 'str'>
+
+```
+
+#### Indicizzazione dei caratteri nelle stringhe
+
+In Python, una stringa è vista come una sequenza di caratteri a cui si può accedere singolarmente.
+Ogni carattere è identificato da un numero di posizione che inizia per zero:
+
+|  | indice | 0 | 1 | 2 | 3 | 4 | 5 | | 
+|---|---|---|---|---|---|---|---|---|
+| stringa = | " | P | y | t | h | o | n | " |
+
+```python
+>>> stringa = "Python"
+>>>
+>>> stringa[0]
+'P'
+>>> stringa[1]
+'y'
+>>> stringa[2]
+'t'
+>>> stringa[3]
+'h'
+>>> stringa[4]
+'o'
+>>> stringa[5]
+'n'
+```
+
+Per avere i caratteri partendo dall'ultima posizione, si utilizza un indice negativo 
+che partirà dall'ultimo carattere ed avrà come posizione -1:
+
+|  | indice | -6 | -5 | -4 | -3 | -2 | -1 | | 
+|---|---|---|---|---|---|---|---|---|
+| stringa = | " | P | y | t | h | o | n | " |
+
+```python
+>>> stringa[-1]
+'n'
+>>> stringa[-2]
+'o'
+>>> stringa[-3]
+'h'
+>>> stringa[-4]
+'t'
+>>> stringa[-5]
+'y'
+>>> stringa[-6]
+'P'
+```
+
+
+#### Slicing: affetta la stringa!
+
+con lo slicing - affettare - si accedere ad una sequenza consecutiva di caratteri:
+
+|  | indice | 0 | 1 | 2 | 3 | 4 | 5 | | 
+|---|---|---|---|---|---|---|---|---|
+| stringa = | " | P | y | t | h | o | n | " |
+
+```python
+>>> stringa
+'Python'
+>>>
+>>> stringa[0:3] # il carattere che corrisponde all'indice finale è escluso dall'estrazione
+'Pyt'
+>>> stringa[3:6]
+'hon'
+>>> stringa[2:4]
+'th'
+>>> stringa[-6:-3]
+'Pyt'
+>>> stringa[-3:-1]
+'ho'
+>>> stringa[0:] # se ometti l'indice finale, verrà estratto tutto a partire dall'indice iniziale fino alla fine della stringa
+'Python'
+>>> stringa[:6] # se ometti l'indice iniziale, verrà estratto tutto dall'inizio fino all'indice finale
+'Python'
+>>> stringa[:] # Se ometti entrambi gli indici, estrai tutta la stringa
+'Python'
+>>>
+>>> stringa[2:] 
+'thon'
+>>> stringa[:4]
+'Pyth'
+```
