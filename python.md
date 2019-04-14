@@ -847,3 +847,140 @@ KeyError: 'Pippo'
 >>> len(rubrica)
 4
 ```
+
+
+### Tuple
+
+'''
+Le tuple sono simili alle liste.
+La vera differenza tra le due riguarda la tipologia:
+mentre le liste sono oggetti mutabili, le tuple sono oggetti **immutabili**.
+Quindi, una volta creata una tupla, **non potrai** più modificare il contenuto.
+
+Quando usare le tuple
+- quando serve un elenco non mutabile di dati eterogenei
+- quando serve salvare un elenco statico di dati
+'''
+
+
+#### Creazione di una tupla
+
+```python
+>>> arcobaleno = ("rosso", "arancione", "giallo", "verde", "azzurro", "indaco", "viola")
+>>> arcobaleno
+('rosso', 'arancione', 'giallo', 'verde', 'azzurro', 'indaco', 'viola')
+>>> type(arcobaleno)
+<class 'tuple'>
+>>>
+>>> vuota = ()
+>>> type(vuota)
+<class 'tuple'>
+>>>
+>>> elenco_numeri = 1, 2, 3, 4
+>>> type(elenco_numeri)
+<class 'tuple'>
+>>>
+>>> elenco_lettere = "a", "b",
+>>>
+>>> type(elenco_lettere)
+<class 'tuple'>
+```
+
+
+#### Visualizzare una tupla
+
+```python
+>>> arcobaleno
+('rosso', 'arancione', 'giallo', 'verde', 'azzurro', 'indaco', 'viola')
+```
+
+
+
+#### Visualizzare un elemento in una tupla
+
+|  | indice | |  0 |  | 1 |  | 2 |  | 3 | | 4 | | 5 | | 6 | |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| arcobaleno | = | [ | 'rosso' |, | 'arancione' | , | 'giallo' | , | 'verde' | , | 'azzurro' | , | 'indaco' | , | 'viola' | ] |
+
+```python
+>>> arcobaleno[0]
+'rosso'
+>>> arcobaleno[5]
+'indaco'
+```
+
+
+#### Sovrascrivere un elemento
+
+```python
+>>> arcobaleno[0] = "nero"
+Traceback (most recent call last): # Non si può sovrascrivere un elemento!
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>>
+```
+
+
+#### Rimuovere un elemento da una tupla
+
+'''
+Non si può! XD
+'''
+
+
+#### Ordinare gli elementi di una tupla
+
+```python
+>>> numeri = (3,4,5,1,2,3)
+>>>
+>>> sorted(numeri)
+[1, 2, 3, 3, 4, 5]
+```
+
+
+#### Verificare se un elemento è presente in una tupla
+
+```python
+>>> arcobaleno
+('rosso', 'arancione', 'giallo', 'verde', 'azzurro', 'indaco', 'viola')
+>>>
+>>> "indaco" in arcobaleno # True se l'elemento si trova nella tupla
+True
+>>>
+>>> "bianco" in arcobaleno  False se l'elemento non si trova nella tupla
+False
+```
+
+
+#### Concatenare più tuple
+
+```python
+>>> due_numeri = 1,2
+>>> tre_numeri = (3,4,5)
+>>> altri_numeri = 6,7,
+>>>
+>>> type(due_numeri)
+<class 'tuple'>
+>>> type(tre_numeri)
+<class 'tuple'>
+>>> type(altri_numeri)
+<class 'tuple'>
+>>>
+>>> concateno_tuple = due_numeri + tre_numeri + altri_numeri
+>>> concateno_tuple
+(1, 2, 3, 4, 5, 6, 7)
+>>>
+>>> type(concateno_tuple)
+<class 'tuple'>
+```
+
+
+#### Contare quanti elementi sono presenti in una tupla
+
+```python
+>>> arcobaleno
+('rosso', 'arancione', 'giallo', 'verde', 'azzurro', 'indaco', 'viola')
+>>>
+>>> len(arcobaleno)
+7
+```
