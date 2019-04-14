@@ -6,7 +6,6 @@
 ### Commenti
 
 ```python
-
 # Questo è un commento su di una riga
 
 '''
@@ -18,7 +17,6 @@
    Posso usare anche i doppi apici
    per fare commenti su più righe!
 """
-
 ```
 
 
@@ -28,7 +26,6 @@ In fase di esecuzione del codice, in base al valore che tu
 hai dato alla variabile, Python ne determinerà il relativo tipo.
 
 ```python
-
 >>> numero = 1
 >>> type(numero)
 <class 'int'>
@@ -37,20 +34,17 @@ hai dato alla variabile, Python ne determinerà il relativo tipo.
 >>> type(frase)
 <class 'str'>
 >>>
-
 ```
 
 ### Variabili
 
 ```python
-
 # Nota: in Python non si mette nessun ; alla fine!
 
 variabile = "sono una variabile"
 nuova_variabile = 'Anche io sono una variabile!"
 numero = 1
 vuoto = ''
-
 ```
 
 
@@ -105,26 +99,22 @@ break      except     in         raise
 
 
 ```python
-
 # Con print posso vedere in output il contenuto di una variabile od espressione
 frase = "Questa frase sarà stampata a video!"
 
 >>> print(frase)
 Questa frase sarà stampata a video!
-
 ```
 
 
 ### Input
 
 ```python
-
 >>> nome = input("Ciao, come ti chiami? ") # salvo qui le informazioni fornite dall'utente
 Ciao, come ti chiami? Gianfranco
 >>> print("Ciao " + nome)
 Ciao Gianfranco
 >>>
-
 ```
 
 
@@ -172,7 +162,6 @@ In Python, un oggetto è falso se:
 - è vuoto
 
 Tips: True è uguale a 1 e False è uguale a 0
-
 ```
 
 Operazioni sui booleani:
@@ -211,14 +200,12 @@ True
 | ~ | inverte il valore dei bit di a: gli 1 diventano 0 e gli zero 1 | ~a |
 
 
-
 ## Operatori di concatenazione
 
 | Operatore | Descrizione | Sintassi |
 |---|---|:-:|
 | + | Concatenazione di più oggetti | a + b + c |
 | * | Concatenazione multipla: ripete n volte un oggetto | a * n |
-
 
 
 ## TIPI DI DATI
@@ -271,7 +258,6 @@ Tutto ciò che è racchiuso tra doppi apici o apici singoli, è considerato una 
 - '1' è una stringa
 
 ```python
-
 >>> stringa_vuota = ""
 >>> type(stringa_vuota)
 <class 'str'>
@@ -287,7 +273,23 @@ Tutto ciò che è racchiuso tra doppi apici o apici singoli, è considerato una 
 >>> numero = '1'
 >>> type(numero)
 <class 'str'>
+```
 
+
+#### Le stringhe sono immutabili
+
+I singoli caratteri di una stringa non possono essere modificati.
+Se ci provi, avrai un errore:
+
+```python
+>>> stringa = "Non puoi cambiare un singolo carattere"
+>>> stringa[0]
+'N'
+>>> stringa[0] = "B"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+>>>
 ```
 
 #### Indicizzazione dei caratteri nelle stringhe
@@ -373,3 +375,131 @@ con lo slicing - affettare - si accedere ad una sequenza consecutiva di caratter
 >>> stringa[:4]
 'Pyth'
 ```
+
+
+#### Lunghezza di una stringa
+
+```python
+>>> frase = "Questa è una frase!"
+>>> len(frase)
+19
+```
+
+
+#### Concatenare le stringhe
+
+```python
+>>> stringa_1 = "Noi siamo un insieme"
+>>> stringa_2 = "di stringhe"
+>>> stringa_3 = "concatenate!"
+>>>
+>>> frase = stringa_1 + " " + stringa_2 + " " + stringa_3 # Le stringhe si concatenano con il +
+>>>
+>>> frase
+'Noi siamo un insieme di stringhe concatenate!'
+>>>
+```
+
+
+#### Ricerare nelle stringhe
+
+```python
+>>> frase = "Questa è una frase di esempio per aiutarti a cercare qualche parola"
+>>>
+>>> frase.find("esempio")
+22
+>>>
+>>> frase.find("pippo") # Se la funzione find non trova nulla, restituisce -1
+-1
+>>>
+```
+
+
+#### Sostituzione in una stringa
+
+```python
+>>> frase = "Sostituisci qualche parola"
+>>> frase
+'Sostituisci qualche parola'
+>>>
+>>> frase.replace("qualche", "una")
+'Sostituisci una parola'
+>>>
+```
+
+
+#### Eliminare gli spazi in una frase
+
+```python
+>>> frase = "     ma quanti spazi ci sono?     "
+>>> frase
+'     ma quanti spazi ci sono?     '
+>>>
+```
+
+```python
+>>> frase.strip() # Elimina gli spazi a sinistra e a destra della frase
+'ma quanti spazi ci sono?'
+>>>
+```
+
+```python
+>>> frase.lstrip() # Elimina gli spazi solo a sinistra della frase
+'ma quanto spazi ci sono?     '
+>>>
+```
+
+```python
+>>> frase.rstrip() # Elimina gli spazi solo a destra della frase
+'     ma quanto spazi ci sono?'
+>>>
+```
+
+
+#### Dividere gli elementi di una stringa
+
+```python
+>>> frutta = "mele pere arance"
+>>> frutta.split()
+['mele', 'pere', 'arance']
+>>>
+```
+
+```python
+>>> frutta = "mele-pere-arance"
+>>> frutta
+'mele-pere-arance'
+>>> frutta.split(sep="-")   # se specifichi il separatore, verrà utilizzato
+['mele', 'pere', 'arance']  # come indicatore per separare gli elementi
+>>>
+```
+
+
+#### Creare una stringa da più elementi
+
+```python
+>>> " ".join(['mele', 'pere', 'arance'])
+'mele pere arance'
+>>>
+>>> ", ".join(['mele', 'pere', 'arance'])
+'mele, pere, arance'
+>>>
+>>> "-".join(['mele', 'pere', 'arance'])
+'mele-pere-arance'
+```
+
+
+#### Cambiare la stringa tutta in MAIUSCOLO o minuscolo
+
+```python
+>>> saluto="ciao"
+>>> saluto.upper() # trasformo la stringa tutta in maiuscolo
+'CIAO'
+```
+
+```
+>>> saluto="CIAO"
+>>> saluto.lower() # trasformo la stringa tutta in minuscolo
+'ciao'
+```
+
