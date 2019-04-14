@@ -555,10 +555,13 @@ True
 ### Liste
 
 ```
+In Python le liste sono oggetti **mutabili**.
+Per chi proviene da altri linguaggi di programmazione, una *lista* è definita come *array*.
+
 Quando usare una lista?
-- Quando ti serve una collezione di dati eterogenea
-- Quando vuoi avere dei dati ordinati
-- Quando hai bisogno di una coda di dati
+- quando ti serve una collezione di dati eterogenea
+- quando vuoi avere dei dati ordinati
+- quando hai bisogno di una coda di dati
 ```
 
 #### Creazione di una lista
@@ -721,4 +724,126 @@ False
 >>> lista_3 = lista_1 + lista_2
 >>> lista_3
 [1, 2, 3, 4, 5, 6]
+```
+
+
+### Dizionari
+
+'''
+I dizionari sono delle collezioni **mutabili** e non ordinate di coppie di chiave-valore.
+Le chievi dentro un dizionario **devono** essere uniche e permettono di ottenere il valore associato in modo efficace *- hashable -*.
+
+Per chi provenisse da altri linguaggi, i dizionari sono l'equivalente Python delle *tabelle di hash* o degli *array associativi*.
+
+Quando usare un dizionario:
+- quando serve una associazione logica tra le coppie chiave-valore
+- quando devi accerede velocemente ai dati
+- quando hai dei dati che possono cambiare e ti serve che la chiave sia immutabile
+'''
+
+
+#### Creazione di un dizionario
+
+```python
+>>> rubrica = { "Tyrion": "123-456", "Cersei": "789-123", "Daenerys": "123-789", "Jon": "345-567" }
+>>> rubrica
+{'Tyrion': '123-456', 'Cersei': '789-123', 'Daenerys': '123-789', 'Jon': '345-567'}
+```
+
+
+#### Visualizzare un dizionario
+
+```python
+>>> rubrica
+{'Tyrion': '123-456', 'Cersei': '789-123', 'Daenerys': '123-789', 'Jon': '345-567'}
+>>>
+>>> print(rubrica)
+{'Tyrion': '123-456', 'Cersei': '789-123', 'Daenerys': '123-789', 'Jon': '345-567'}
+```
+
+
+#### Accedere al valore di una chiave
+
+```python
+>>> rubrica['Tyrion']
+'123-456'
+>>> rubrica['Cersei']
+'789-123'
+>>> rubrica['Daenerys']
+'123-789'
+>>> rubrica['Jon']
+'345-567'
+>>>
+>>> rubrica.get("Cersei") # Si può usare questa funzione per ottenere il valore di una chiave
+'789-123'
+```
+
+
+#### Modificare il valore di una chiave
+
+```python
+>>> rubrica['Jon'] = '708-147'
+>>> rubrica
+{'Tyrion': '123-456', 'Cersei': '789-123', 'Daenerys': '123-789', 'Jon': '708-147'}
+>>>
+>>>
+>>> rubrica['Margaery'] = '340-512' # Se la chiave non fosse presente, 
+>>> rubrica                         # verrà creata una nuova coppia chiave-valore
+{'Tyrion': '123-456', 'Cersei': '789-123', 'Daenerys': '123-789', 'Jon': '708-147', 'Margaery': '340-512'}
+```
+
+
+#### Visualizzare la lista di coppie di chiave-valore presenti nel dizionario
+
+```python
+>>> rubrica.items()
+dict_items([('Tyrion', '123-456'), ('Cersei', '789-123'), ('Daenerys', '123-789'), ('Jon', '345-567')])
+```
+
+
+#### Visualizzare solo le chiavi presenti nel dizionario
+
+```python
+>>> rubrica.keys()
+dict_keys(['Tyrion', 'Cersei', 'Daenerys', 'Jon'])
+```
+
+
+#### Visualizzare solo i valori presenti nel dizionario
+
+```python
+>>> rubrica.values()
+dict_values(['123-456', '789-123', '123-789', '345-567'])
+```
+
+
+#### Cancellare una coppia chiave-valore
+
+```python
+>>> del rubrica["Margaery"]
+>>>
+>>> rubrica
+{'Tyrion': '123-456', 'Daenerys': '123-789', 'Jon': '708-147', 'Cersei': '789-123'}
+>>> del rubrica["Pippo"] # Non puoi cancellare una chiave che non esiste!
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'Pippo'
+```
+
+
+#### Cancellare tutto il contenuto di un dizionario
+
+```python
+>>> rubrica.clear()
+>>> rubrica
+{}
+```
+
+
+#### Contare quanti elementi sono presenti in un dizionario
+
+```python
+>>> rubrica = { "Tyrion": "123-456", "Cersei": "789-123", "Daenerys": "123-789", "Jon": "345-567" }
+>>> len(rubrica)
+4
 ```
