@@ -1215,3 +1215,344 @@ False
 >>> secondo_set >= primo_set
 False
 ```
+
+
+## LA LOGICA
+
+
+### L'istruzione IF
+
+```python
+>>> if 1 + 2 == 3:
+...     print("1 + 2 fa 3!")
+... 
+1 + 2 fa 3!
+```
+
+
+#### ELSE ed ELIF
+
+```python
+>>> if 1 + 2 == 4:
+...     print("Mi sa che devi rifare il calcolo!")
+... else:
+...     print("Ehm... 1 + 2 fa 3 non 4!")
+... 
+Ehm... 1 + 2 fa 3 non 4!
+```
+
+```python
+>>> conto_in_banca = 100
+>>> if conto_in_banca > 1000:
+...     print("Sei ricco!")
+... elif conto_in_banca > 100:           
+...     print("Continua a risparmiare!")
+... else:                               
+...     print("Ehi! Devi risparmiare!")
+... 
+Ehi! Devi risparmiare!
+```
+
+
+### CICLO FOR
+
+```python
+>>> frutta = ['mirtilli', 'lamponi', 'mele', 'pere', 'arance']
+>>> for frutto in frutta:
+...     print(frutto)
+... 
+mirtilli
+lamponi
+mele
+pere
+arance
+```
+
+
+#### range
+
+
+##### range(valore minimo, valore massimo)
+
+```python
+>>> for numero in range(1,10):
+...     print(numero)
+... 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+
+##### range(valore)
+
+```python
+>>> for n in range(5):
+...     print(n)
+... 
+0
+1
+2
+3
+4
+```
+
+
+##### range(valore_minimo, valore_massimo, passo)
+
+```python
+>>> for n in range(1,11,2):
+...     print(n)
+... 
+1
+3
+5
+7
+9
+```
+
+
+
+#### Ciclo for con iterazione inversa
+
+```python
+>>> for n in reversed(range(1,5)):
+...     print(n)
+... 
+4
+3
+2
+1
+```
+
+
+#### Ciclo for dentro un ciclo for
+
+```python
+>>> for n in range (4):
+...     for m in ["a", "b", "c"]:
+...         print("n: ", n, "m: ", m)
+... 
+('n: ', 0, 'm: ', 'a')
+('n: ', 0, 'm: ', 'b')
+('n: ', 0, 'm: ', 'c')
+('n: ', 1, 'm: ', 'a')
+('n: ', 1, 'm: ', 'b')
+('n: ', 1, 'm: ', 'c')
+('n: ', 2, 'm: ', 'a')
+('n: ', 2, 'm: ', 'b')
+('n: ', 2, 'm: ', 'c')
+('n: ', 3, 'm: ', 'a')
+('n: ', 3, 'm: ', 'b')
+('n: ', 3, 'm: ', 'c')
+```
+
+
+#### Ciclo for e liste
+
+```python
+>>> colori = ["rosso", "verde", "giallo", "blu"]
+>>> 
+>>> for colore in colori:
+...     print(colore)
+... 
+rosso
+verde
+giallo
+blu
+```
+
+
+#### Ciclo for e i dizionari
+
+```python
+>>> numeri = { "uno": 1, "due": 2, "tre": 3, "quattro": 4}
+>>> 
+>>> for numero in numeri.values():
+...     print(numero)
+... 
+4
+3
+2
+1
+>>>
+>>> for chiave in numeri.keys():
+...     print(chiave)
+... 
+quattro
+tre
+due
+uno
+>>>
+>>> for chiave in numeri:
+...     print(chiave)
+... 
+quattro
+tre
+due
+uno
+>>>
+>>> for chiave_valore in numeri.items():
+...     print(chiave_valore)
+... 
+('quattro', 4)
+('tre', 3)
+('due', 2)
+('uno', 1)
+>>> 
+>>> for chiave, valore in numeri.items():
+...     print(chiave, valore)
+... 
+('quattro', 4)
+('tre', 3)
+('due', 2)
+('uno', 1)
+```
+
+
+#### Ciclo for e le tuple
+
+```python
+>>> caratteri_a_caso = ("a", "z", "rosso", "ciao", 2)
+>>> 
+>>> for carattere in caratteri_a_caso:
+...     print(carattere)
+... 
+a
+z
+rosso
+ciao
+2
+```
+
+
+#### Ciclo for e set
+
+
+```python
+>>> scrivania = {"portatile", "mouse", "cuffie", "alimentatore", "monitor esterno"}
+>>> 
+>>> for oggetto in scrivania:
+...     print(oggetto)
+... 
+cuffie
+monitor esterno
+mouse
+alimentatore
+portatile
+```
+
+
+### IL CICLO WHILE
+
+```python
+>>> numero = 1
+>>> while numero < 6:
+...    print("numero vale: ", numero)
+...    print("E quindi rimango nel ciclo while!")
+...    numero = numero + 1
+... 
+('numero vale: ', 1)
+E quindi rimango nel ciclo while!
+('numero vale: ', 2)
+E quindi rimango nel ciclo while!
+('numero vale: ', 3)
+E quindi rimango nel ciclo while!
+('numero vale: ', 4)
+E quindi rimango nel ciclo while!
+('numero vale: ', 5)
+E quindi rimango nel ciclo while!
+```
+
+
+### BREAK
+
+
+#### BREAK con il ciclo for
+
+```python
+>>> for n in range(10):
+...     if n == 5:
+...         break
+...     print(n)
+... 
+0
+1
+2
+3
+4
+
+``` 
+
+
+#### BREAK con il ciclo while
+
+```python
+>>> n = 1
+>>> while (n < 10):
+...     print(n)
+...     if n == 5:
+...         break
+...     n = n +1
+... 
+1
+2
+3
+4
+5
+```
+
+
+### CONTINUE
+
+
+#### CONTINUE con il ciclo for 
+
+```python
+>>> for n in range(1,11):
+...     if n %2 == 0:
+...         print(n, " numero pari")
+...         continue
+...     print(n, " numero dispari")
+... 
+(1, ' numero dispari')
+(2, ' numero pari')
+(3, ' numero dispari')
+(4, ' numero pari')
+(5, ' numero dispari')
+(6, ' numero pari')
+(7, ' numero dispari')
+(8, ' numero pari')
+(9, ' numero dispari')
+(10, ' numero pari')
+```
+
+
+#### CONTINUE con il ciclo while
+
+```python
+>>> n  = 0
+>>> while n < 10:
+...     n = n + 1
+...     if n % 2 == 0:
+...         print(n, "numero pari")
+...         continue
+...     print(n, "numero dispari")
+... 
+(1, 'numero dispari')
+(2, 'numero pari')
+(3, 'numero dispari')
+(4, 'numero pari')
+(5, 'numero dispari')
+(6, 'numero pari')
+(7, 'numero dispari')
+(8, 'numero pari')
+(9, 'numero dispari')
+(10, 'numero pari')
+```
