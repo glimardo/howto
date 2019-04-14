@@ -851,7 +851,7 @@ KeyError: 'Pippo'
 
 ### Tuple
 
-'''
+```
 Le tuple sono simili alle liste.
 La vera differenza tra le due riguarda la tipologia:
 mentre le liste sono oggetti mutabili, le tuple sono oggetti **immutabili**.
@@ -860,7 +860,7 @@ Quindi, una volta creata una tupla, **non potrai** più modificare il contenuto.
 Quando usare le tuple
 - quando serve un elenco non mutabile di dati eterogenei
 - quando serve salvare un elenco statico di dati
-'''
+```
 
 
 #### Creazione di una tupla
@@ -923,9 +923,9 @@ TypeError: 'tuple' object does not support item assignment
 
 #### Rimuovere un elemento da una tupla
 
-'''
+```
 Non si può! XD
-'''
+```
 
 
 #### Ordinare gli elementi di una tupla
