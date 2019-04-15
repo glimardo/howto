@@ -1774,3 +1774,110 @@ except (Eccezione_1, Eccezione_2, Eccezione_n):
 Attento a quello che scrivi!
 ```
 
+
+#### Gestire le eccezioni con raise
+
+```
+Raise permette di forzare che accada un determinato tipo di eccezione, 
+lasciando che l'eccezione originale si continui a vedere
+```
+
+```python
+>>> try:
+...     1 + '1'
+... except TypeError:
+...     raise NotImplementedError("C'è una eccezione da gestire!")
+...
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+NotImplementedError: C'è una eccezione da gestire!
+```
+
+```python
+>>> try:
+...     raise NotImplementedError("Questo è un errore non implementato")
+... except NotImplementedError:
+...     print("Sono dentro l'eccezione: verifica il codice!")
+...     raise
+...
+Sono dentro l'eccezione: verifica il codice!
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+NotImplementedError: Questo è un errore non implementato
+```
+
+
+#### Utilizzo della clausola else
+
+```
+Con la clausola else si protegge il codice dal gestire accidentalmente un'eccezione 
+sollevata da qualche altra parte di codice.
+```
+
+```python
+try:
+    istruzione
+except Eccezione:
+     istruzione
+else:
+    fai_qualcosa
+```
+
+```python
+>>> a = 4
+>>> b = 3
+>>>
+>>> try:
+...     if a > b:
+...         print("a > b")
+... except TypeError as e:
+...     print(e)
+... else:
+...     print("Operazione riuscita!")
+...
+a > b
+Operazione riuscita! # Sono entrato nel ramo else
+```
+
+```python
+>>> a = "Pippo"
+>>> b = 3
+>>>
+>>> try:
+...     if a > b:
+...          print("a > b")
+... except TypeError as e:
+...     print(e)
+... else:
+...     print("Operazione riuscita!")
+...
+'>' not supported between instances of 'str' and 'int' # Non entro nel ramo else
+                                                       # e mostro l'errore
+```
+
+
+#### Utilizzo della clausola finally
+
+```
+La clausola *finally* viene **sempre** eseguita prima di uscire dal blocco *try*.
+E questo vuol dire che:
+- è indipendente dalla manifestazione o meno di un'eccezione
+- non gestisce alcuna eccezione
+- è eseguita anche se sono presenti break, continue, return
+
+```
+
+```python
+try:
+    istruzione
+except eccezione:
+    istruzione_2
+finally:
+    istruzione_3
+```
