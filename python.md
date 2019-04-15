@@ -1975,3 +1975,41 @@ $ chmod +x primo_script.py
 $ ./primo_script.py 
   Primo script
 ```
+
+
+## FUNZIONI
+
+```
+La funzione non è altro che un "mini programma" che esegue una funzionalità 
+che accetta dei parametri in input e fornisce un output.
+```
+
+```python
+def nome_funzione(parametro_1, parametro_2, parametro_n):
+    istruzione_1
+    istruzione_2
+    istruzione_n
+    return istruzione_1, istruzione_n # return è opzionale:
+                                      # se viene inserito, ci sarà un valore di ritorno
+                                      # se non viene inserito, la funzione restituirà 
+                                      # implicitamente None     
+```
+
+Scrivi questo esempio e salvalo nel file moltiplicazione.py:
+
+```python
+def moltiplica_due_numeri(primo_numero, secondo_numero):
+    moltiplicazione = primo_numero * secondo_numero
+    return print("Moltiplicando {} per {} ottengo {} \n".format(primo_numero, secondo_numero, moltiplicazione)
+    
+    
+moltiplica_due_numeri(1,2)
+moltiplica_due_numeri(3,4)
+```
+
+Eseguendo il file moltiplicazione.py, avrai questo output:
+
+```python
+Moltiplicando 1 per 2 si ottiene 2
+Moltiplicando 3 per 4 si ottiene 12
+```
