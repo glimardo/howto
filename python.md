@@ -2033,3 +2033,123 @@ Eseguendo il file saluto.py, avrai questo output:
 Ciao!
 Sono una funzione che non restituirà alcun valore!
 ```
+
+
+## MODULI
+
+```
+In Python, un modulo è un file con estensione *.py* che contiene del codice e dei dati che risultano riusabili.
+
+- Mmm... Ma se è un file .py, che differenza c'è tra un modulo ed uno script?*
+  Uno script è creato per esegurie del codice.
+  Un modulo, invece, nasce con l'obiettivo di essere importato in altri file e fornire delle funzionalità.
+```
+
+### Creazione di un modulo
+
+```
+- creare un file con l'estensione ***.py***.
+- inserire delle funzionalità (funzioni o dati)
+```
+
+Esempio:
+Creare il file modulo_somma.py contenente il seguente codice:
+
+```python
+def somma(a, b):
+    risultato = a + b
+    return print("La somma tra {} e {} fa {}".format(a, b, risultato))
+```
+
+
+### Importare un modulo
+
+```
+Per importare un modulo, occorre scrivere:
+import nome_modulo
+```
+
+Continuando l'esempio precedente, si può creare il file main.py che contiene il seguente codice:
+
+```python
+import modulo_somma
+
+print("Esegui la somma tra due numeri:")
+primo_numero = input("Inserisci il primo numero: ")
+secondo_numero = input("Inserici il secondo numero: ")
+
+try:
+    modulo.somma(int(primo_numero), int(secondo_numero))
+except Exception:
+    print("Ehi: devi inserire solo numeri!")
+```
+
+output:
+
+```python
+Esegui la somma tra due numeri:
+Inserisci il primo numero: 1
+Inserici il secondo numero: 2
+La somma tra 1 e 2 fa 3
+```
+
+
+### Importare gli oggetti di un modulo
+
+```
+Per importare gli oggetti modulo, occorre scrivere:
+
+- per tutti gli oggetti:
+  import nome_modulo
+  
+ - per uno/alcuni moduli:
+   from nome_modulo import funzione1, funzione_n
+```
+
+Esempio:
+
+Scrivi questo modulo:
+
+```python
+# modulo modulo_operazioni.py
+
+def somma(a, b):
+    risultato = a + b
+    return print("La somma tra {} e {} fa {}".format(a, b, risultato))
+
+
+def sottrazione(a, b):
+    risultato = a - b
+    return print("La differenza tra {} e {} fa {}".format(a, b, risultato))
+
+
+def moltiplicazione(a, b):
+    risultato = a * b
+    return print("La moltiplicazione tra {} e {} fa {}".format(a, b, risultato))
+
+
+def divisione(a, b):
+    risultato = a / b
+    return print("La divisione tra {} e {} fa {}".format(a, b, risultato))
+```
+
+```python
+# file prova_modulo_operazioni.py
+from modulo_operazioni import *
+
+somma(1, 2)
+
+sottrazione(3, 4)
+
+moltiplicazione(5, 6)
+
+divisione(7, 8)
+```
+
+Output:
+```python
+La somma tra 1 e 2 fa 3
+La differenza tra 3 e 4 fa -1
+La moltiplicazione tra 5 e 6 fa 30
+La divisione tra 7 e 8 fa 0.875
+```
