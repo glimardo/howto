@@ -1865,7 +1865,7 @@ Operazione riuscita! # Sono entrato nel ramo else
 #### Utilizzo della clausola finally
 
 ```
-La clausola *finally* viene **sempre** eseguita prima di uscire dal blocco *try*.
+La clausola finally viene sempre eseguita prima di uscire dal blocco try.
 E questo vuol dire che:
 - è indipendente dalla manifestazione o meno di un'eccezione
 - non gestisce alcuna eccezione
@@ -1880,4 +1880,35 @@ except eccezione:
     istruzione_2
 finally:
     istruzione_3
+```
+
+```python
+>>> a = 2
+>>> b = 3
+>>> try:
+...     if a > b:
+...         print(a)
+... except TypeError as e:
+...     print(e)
+... finally:
+...     print("Vengo eseguito sempre!")
+...
+Vengo eseguito sempre! # Clausola sempre eseguita
+```
+
+
+```python
+>>> a = 3
+>>> b = "pippo"
+>>>
+>>> try:
+...     if a > b:
+...         print(a)
+... except TypeError as e:
+...     print(e)
+... finally:
+...     print("Vengo eseguito sempre!")
+...
+'>' not supported between instances of 'int' and 'str'
+Vengo eseguito sempre! # Clausola sempre eseguita
 ```
