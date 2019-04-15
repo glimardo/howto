@@ -1912,3 +1912,66 @@ Vengo eseguito sempre! # Clausola sempre eseguita
 '>' not supported between instances of 'int' and 'str'
 Vengo eseguito sempre! # Clausola sempre eseguita
 ```
+
+
+## SCRIPTING
+
+```
+Uno script in Python non è altro che una serie di istruzioni scritte su 
+di un file che deve essere salvato con l'estensione .py
+```
+
+### Cosa utilzzare per scrivere uno script in Python
+
+```
+Per scrivere uno script, puoi usare qualsiasi editor di testo!
+Basta che salvi il file con l'estensione .py!
+```
+
+Apri l'editor di testo che preferisci e scrivi:
+
+```python
+print("Primo script")
+```
+
+ e salvalo come primo_script.py
+ 
+ 
+ ### Come eseguire uno script
+
+ Uno script Python deve essere eseguito da terminale:
+ 
+| Sistema operativo | Terminale |
+|:-:|:-:|
+| Windows | Prompt dei comandi oppure la PowerShell |
+| macOS | Terminale oppure iTerm|
+| Distro Linux | terminale |
+ 
+
+Nel caso dell'esempio "primo_script.py", quindi, basterà recarsi nella cartella dove
+è stato salvato e scrivere:
+
+```bash
+$ python primo_script.py
+Primo script
+```
+
+
+### Come rendere eseguibile uno script
+
+Per rendere eseguibili gli script Python, occorre procedere nel seguente modo:
+
+| Sistema operativo | Come rendere eseguibile lo script | Come eseguirlo |
+|:-:|:-:|:-:|
+| Windows | lo script è già eseguibile | ```nome_script.py``` |
+| macOS | ```chmod +x nome_script.py```  |  ```./nome_script.py``` |
+| Distro Linux | ```chmod +x nome_script.py```  |  ```./nome_script.py``` |
+
+
+Da una distro Linux, nel caso dell'esempio "primo_script.py", farei nel seguente modo:
+
+```bash
+$ chmod +x primo_script.py 
+$ ./primo_script.py 
+  Primo script
+```
