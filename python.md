@@ -1982,6 +1982,9 @@ $ ./primo_script.py
 ```
 La funzione non è altro che un "mini programma" che esegue una funzionalità 
 che accetta dei parametri in input e fornisce un output.
+
+regola aurea:
+se la funzione non l'hai ancora definita, non chiamarla!
 ```
 
 ```python
@@ -2012,4 +2015,21 @@ Eseguendo il file moltiplicazione.py, avrai questo output:
 ```python
 Moltiplicando 1 per 2 si ottiene 2
 Moltiplicando 3 per 4 si ottiene 12
+```
+
+Scrivi questo esempio e salvalo nel file saluto.py:
+
+```python
+def saluto():
+    print("Ciao!\nSono una funzione che non restituirà alcun valore!")
+
+
+saluto()
+```
+
+Eseguendo il file saluto.py, avrai questo output:
+
+```python
+Ciao!
+Sono una funzione che non restituirà alcun valore!
 ```
