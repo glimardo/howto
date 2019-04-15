@@ -2153,3 +2153,66 @@ La differenza tra 3 e 4 fa -1
 La moltiplicazione tra 5 e 6 fa 30
 La divisione tra 7 e 8 fa 0.875
 ```
+
+
+## LA VARIABILE GLOBALE \_\_name\_\_
+
+Per discriminare se un file viene eseguito come script o importato come modulo, 
+occorre controllare il valore della *variabile globale* ***\_\_name\_\_***:
+- se il file viene eseguito come script, la variabile ha come valore "***\_\_main\_\_***"
+- se il file viene importato come modulo, la variabile ha come valore il nome del modulo
+
+Per ***non commettere errori*** durante l'esecuzione del codice, 
+occorre scrivere in fondo al file questo controllo:
+
+```python
+if __name__ == '__main__':
+    istruzione
+```
+
+Così facendo sarai sicuro che:
+- se il file viene eseguito come script, allora dovrà eseguire determinate azioni
+- se il file viene eseguito come modulo, invece, dovrà eseguire altre azioni
+
+Ad esempio, scrivi questo file:
+
+```python
+# file modulo_name.py
+
+def eseguito_come_script():
+    print("modulo_name.py è stato eseguito come script!")
+    print("Valore della variabile globale __name__: {}".format(__name__))
+
+
+def eseguito_come_modulo():
+    print("modulo_name.py è stato importato come modulo")
+    print("Valore della variabile globale __name__: {}".format(__name__))
+
+
+if __name__ == '__main__':
+    eseguito_come_script()
+    
+else:
+    eseguito_come_modulo()
+```
+
+Se esegui il file modulo_name.py come script, avrai il seguente comportamento:
+
+```bash
+$ python modulo_name.py
+modulo_name.py è stato eseguito come script!
+Valore della variabile globale __name__: __main__
+```
+
+Se esegui il file modulo_name.py come modulo, avrai quest'altro comportamento:
+
+```python
+# main_modulo_name.py
+import modulo_name as m
+```
+
+```bash
+$ python main_modulo_name.py
+modulo_name.py è stato importato come modulo
+Valore della variabile globale __name__: modulo_name
+```
