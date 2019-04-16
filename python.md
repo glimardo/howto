@@ -548,6 +548,28 @@ True
 'mele'
 ```
 
+#### Interpolazione di una stringa
+
+```
+Solo con Python >=3.6!
+
+f"{stringa}"
+```
+
+```python
+>>> nome = "Pippo"
+>>>
+>>> f"Ciao {nome}! Come stai?"
+'Ciao Pippo! Come stai?'
+>>>
+```
+
+```python
+>>> f"Con l'interpolazione delle stringhe, posso anche die che {{1 + 2}} fa { 1 + 2}!"
+"Con l'interpolazione delle stringhe, posso anche die che {1 + 2} fa 3!"
+>>>
+```
+
 
 ## LE STRUTTURE DATI
 
