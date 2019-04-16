@@ -1999,6 +1999,47 @@ $ ./primo_script.py
 ```
 
 
+#### Passare parametri ad uno script
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description="Passaggio di parametri!") # puoi anche non inserire la description
+parser.add_argument("parametro", dest="nome parametro", help="Inserire a cosa serve il parametro")
+args = parser.parse_args() # Creo la lista di parametri
+```
+
+Esempio:
+
+```python
+# saluto.py
+import argparse
+
+parser = argparse.ArgumentParser(description="Lo script ti saluta!")
+parser.add_argument("-n", "--name", dest="name", help="Inserire il nome")
+args = parser.parse_args()
+
+# main
+if __name__ == '__main__':
+    print("Ciao {}!".format(args.name))
+```
+
+```bash
+$ python saluto.py -h # Guardo l'help dello script
+usage: saluto.py [-h] [-n NAME]
+
+Lo script ti saluta!
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n NAME, --name NAME  Inserire il nome
+
+
+$ python saluto.py -n Pippo # uso il parametro -n con il nome Pippo
+Ciao Pippo!
+```
+
+
 ## FUNZIONI
 
 ```
