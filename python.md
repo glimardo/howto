@@ -2355,3 +2355,131 @@ un
 
 file di prova!
 ```
+
+
+### SCRIVERE UN FILE
+
+#### Scrivere in un file
+
+```python
+
+nome_file = "file_da_scrivere"
+
+with open(nome_file, 'w', encoding="utf-8") as f:
+    dati = "riga da scrivere\n"
+    f.write(dati)
+```
+
+Esempio:
+
+```python
+# write_file.py
+
+nome_file = "file_di_prova.txt"
+
+with open(nome_file, 'w', encoding="utf-8") as f:
+    dati_da_scrivere = "Sono la prima riga\nSono la seconda riga"
+    
+    f.write(dati_da_scrivere)
+```
+
+Aprendo il file file_di_prova.txt avresti il seguente contenuto:
+
+```
+Sono la prima riga
+Sono la seconda riga
+```
+
+
+#### Aggiungere una riga ad un file già esistente
+
+```python
+nome_file = "file_da_scrivere"
+
+with open(nome_file, 'a', encoding="utf-8") as f:
+    dati = "riga da scrivere\n"
+    f.write(dati)
+```
+
+Esempio:
+
+```python
+# write_file.py
+
+nome_file = "file_di_prova.txt"
+
+with open(nome_file, 'a', encoding="utf-8") as f:
+    dati_da_scrivere = "\nSono la terza riga"
+    
+    f.write(dati_da_scrivere)
+```
+
+Aprendo il file file_di_prova.txt avresti il seguente nuovo contenuto:
+
+```
+Sono la prima riga
+Sono la seconda riga
+Sono la terza riga
+```
+
+
+### Eliminare un file
+
+```python
+import os
+
+nome_file = "file_da_eliminare"
+
+os.remove(nomefile)
+```
+
+
+Esempio:
+
+```python
+# delete_file.py
+
+import os
+
+nome_file = "file_di_prova.txt"
+
+os.remove(nome_file)
+```
+
+Possiamo migliorare lo script restituendo un errore
+nel caso in cui il file non esistesse:
+
+```python
+# delete_file.py
+
+import os
+
+nome_file = "file_di_prova.txt"
+
+try:
+    os.remove(nome_file)
+except OSError as e:
+    print(f"Il file {nome_file} non esiste!\n{e.strerror}")
+```
+
+Esempio:
+
+```python
+# delete_file.py
+
+import os
+
+nome_file = "file_di_prova.txt"
+
+try:
+    os.remove(nome_file)
+except OSError as e:
+    print(f"Il file {nome_file} non esiste!\n{e.strerror}")
+```
+
+output:
+
+```bash
+Il file file_di_prova.txt non esiste!
+Impossibile trovare il file specificato
+```
