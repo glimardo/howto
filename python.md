@@ -2,7 +2,9 @@
 
 # Indice
 
-- I Fondamentali
+- [I Fondamentali]
+
+[I Fondamentali]: https://github.com/glimardo/howto/blob/master/python.md#i-fondamentali
 
 ## I FONDAMENTALI
 
