@@ -2483,3 +2483,103 @@ output:
 Il file file_di_prova.txt non esiste!
 Impossibile trovare il file specificato
 ```
+
+### Rinominare un file
+
+```python
+import os
+
+vecchio_nome = "file da rinominare"
+nuovo_nome = "nuovo nome del file"
+
+try:
+    os.rename(vecchio_nome, nuovo_nome)
+except OSError as e:
+    print(f"Il file {vecchio_nome} non può essere rinominato!\n{e.strerror}")
+```
+
+Esempio:
+
+```python
+# rename_file.py
+
+import os
+
+vecchio_nome = "file_di_prova.txt"
+nuovo_nome = "nuovo_file_di_prova.txt"
+
+try:
+    os.rename(vecchio_nome, nuovo_nome)
+except OSError as e:
+    print(f"Il file {vecchio_nome} non può essere rinominato!\n{e.strerror}")
+```
+
+Se il file si riesce a rinominare, si potrà vedere il nuovo nome del file.
+Nel caso in cui non si riuscisse a rinominarlo, si avrebbe il seguente output:
+
+```bash
+Il file file_di_prova.txt non può essere rinominato!
+Impossibile trovare il file specificato
+```
+
+
+### Copiare un file
+
+```python
+import shutil
+
+origine = "path di origine/nome file"
+destinazione = "path di destinazione"
+
+try:
+    shutil.copy2(origine, destinazione) # con copy2 preservo tutte le info sul file
+except OSError as e:                    # come l'ultimo accesso, i permessi ecc...
+    print(f"Il file {origine} non può essere copiato!\n{e.strerror}")
+```
+
+Esempio:
+
+```python
+# copy_file.py
+
+import shutil
+
+origine = "file_di_prova.txt"
+destinazione = "subdir/file_di_prova.txt"
+
+try:
+    shutil.copy2(origine, destinazione)
+except OSError as e:
+    print(f"Il file {origine} non può essere copiato!\n{e.strerror}")
+```
+
+
+### Spostare un file
+
+```python
+import shutil
+
+origine = "path/file da spostare"
+destinazione = "path di destinazione/"
+
+try:
+    shutil.move(origine, destinazione)
+except OSError as e:
+    print(f"Il file {origine} non può essere spostato!\n{e.strerror}")
+```
+
+Esempio:
+
+```python
+# move_file.py
+
+import shutil
+
+origine = "subdir/file_di_prova.txt"
+destinazione = "subdir2/"
+
+try:
+    shutil.move(origine, destinazione)
+except OSError as e:
+    print(f"Il file {origine} non può essere spostato!\n{e.strerror}")
+```
