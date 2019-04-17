@@ -1,5 +1,9 @@
 # PYTHON
 
+# Indice
+
+- I Fondamentali
+
 ## I FONDAMENTALI
 
 
