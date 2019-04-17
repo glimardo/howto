@@ -4,7 +4,7 @@
 
 - [I Fondamentali]
 
-[I Fondamentali]: https://github.com/glimardo/howto/blob/master/python.md#i-fondamentali
+[I Fondamentali]: #i-fondamentali
 
 ## I FONDAMENTALI
 
