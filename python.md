@@ -2279,3 +2279,79 @@ $ python main_modulo_name.py
 modulo_name.py è stato importato come modulo
 Valore della variabile globale __name__: modulo_name
 ```
+
+
+## LA GESTIONE DEI FILE
+
+
+### LEGGERE UN FILE
+
+#### Leggere un file tutto in una volta
+
+Se il file non è di dimensioni eccessive, puoi leggerlo in una sola volta:
+
+```python
+nome_file = "file_da_leggere"
+
+with open(nome_file, 'r') as f:
+    print(f.read())
+```
+
+Esempio:
+
+```python
+# read_file.py
+
+nome_file = "test.txt"
+
+with open(nome_file, 'r') as f:
+    print(f.read())
+```
+
+output:
+
+```bash
+Sono
+un
+file di prova!
+```
+
+
+#### Leggere un file riga per riga
+
+Se vuoi leggere un file riga per riga, occorre scrivere:
+
+```python
+nome_file = "file_da_leggere"
+
+with open(nome_file, 'r') as f:
+    contenuto = f.readlines()
+    
+    for riga in contenuto:
+        print(riga)
+```
+
+Esempio:
+
+```python
+# read_file.py
+
+nome_file = "test.txt"
+
+
+with open(nome_file, 'r') as f:
+    contenuto = f.readlines()
+    
+    for riga in contenuto:
+        print(riga)
+```
+
+output:
+
+```bash
+Sono
+
+un
+
+file di prova!
+```
