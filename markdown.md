@@ -85,12 +85,7 @@ Output:
 
 # Evidenziazione del codice
 
-`
-testo
-
+```Python
+print("Sono del codice Python!")
 ```
-Io non sono del codice!
 
-```
-testo
-`
