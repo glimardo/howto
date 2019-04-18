@@ -47,3 +47,23 @@ Output:
         1. sottopunto
 2. Secondo punto
 3. Terzo punto
+
+
+## Non ordinate
+
+Markdown:
+
+```markdown
+- Primo punto
+    - primo sottopunto
+        - sottopunto
+- Secondo punto
+- Terzo punto
+```
+
+Output:
+- Primo punto
+    - primo sottopunto
+        - sottopunto
+- Secondo punto
+- Terzo punto
