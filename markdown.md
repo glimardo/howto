@@ -22,6 +22,19 @@ MARKDOWN
 | ``` *Corsivo* ``` | <i>Grassetto</i> |
 
 
+# Citazioni
+
+Markdown:
+
+```markdown
+> Sono una citazione!
+```
+
+Output:
+
+> Sono una citazione!
+
+
 # Liste
 
 ## Ordinate
@@ -67,3 +80,16 @@ Output:
         - sottopunto
 - Secondo punto
 - Terzo punto
+
+
+
+# Evidenziazione del codice
+
+```
+
+```
+Io non sono del codice!
+
+```
+
+```
