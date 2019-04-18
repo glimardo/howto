@@ -17,10 +17,11 @@ Indice
     + [Input](#input)
   * [GLI OPERATORI](#gli-operatori)
     + [Operatori aritmetici](#operatori-aritmetici)
-  * [Operatori di confronto](#operatori-di-confronto)
-  * [Operatori booleani](#operatori-booleani)
-  * [Operatori binari](#operatori-binari)
-  * [Operatori di concatenazione](#operatori-di-concatenazione)
+    + [Operatori di confronto](#operatori-di-confronto)
+    + [Operatori booleani](#operatori-booleani)
+    + [Operatori binari](#operatori-binari)
+    + [Operatori di concatenazione](#operatori-di-concatenazione)
+    + [Operatore is](#operatore-is)
   * [TIPI DI DATI](#tipi-di-dati)
     + [Numerici](#numerici)
     + [Stringhe](#stringhe)
@@ -280,7 +281,7 @@ Ciao Gianfranco
 | Modulo (cioè il resto della divisione) | a % b|
 
 
-## Operatori di confronto
+### Operatori di confronto
 
 | Operatore | Descrizione | Sintassi |
 |---|---|:-:|
@@ -292,7 +293,7 @@ Ciao Gianfranco
 | <= | Minore o uguale a. &nbsp; Ritorna vero se il primo numero è minore o uguale al secondo. Altrimenti Falso | a <= b |
 
 
-## Operatori booleani
+### Operatori booleani
 
 ```
 Nota:
@@ -335,7 +336,7 @@ True
 ```
 
 
-## Operatori binari
+### Operatori binari
 
 | Operatore | Descrizione | Sintassi |
 |---|---|:-:|
@@ -347,12 +348,40 @@ True
 | ~ | inverte il valore dei bit di a: gli 1 diventano 0 e gli zero 1 | ~a |
 
 
-## Operatori di concatenazione
+### Operatori di concatenazione
 
 | Operatore | Descrizione | Sintassi |
 |---|---|:-:|
 | + | Concatenazione di più oggetti | a + b + c |
 | * | Concatenazione multipla: ripete n volte un oggetto | a * n |
+
+
+### Operatore is
+
+is verifica l'identità tra due elementi:
+
+```
+elemento_1 is elemento_2
+
+# Output
+True se l'identità degli elementi è la stessa
+False se non è la stessa
+```
+
+Esempio:
+
+```
+>>> 1 == 1.0
+True            # 1 è uguale ad 1.0, giusto?
+>>> type(1)      
+<class 'int'>   # Però 1 è di classe int
+>>> type(1.0)  
+<class 'float'> # Ed 1.0 è di classe float
+>>>
+>>> 1 is 1.0   
+False           # Quindi un int è diverso da 
+>>>             # un float, giusto?
+```
 
 
 ## TIPI DI DATI
