@@ -85,11 +85,12 @@ Output:
 
 # Evidenziazione del codice
 
-```
+`
+testo
 
 ```
 Io non sono del codice!
 
 ```
-
-```
+testo
+`
