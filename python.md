@@ -2759,3 +2759,49 @@ try:
 except OSError as e:
     print(f"Il file {origine} non può essere spostato!\n{e.strerror}")
 ```
+
+
+## LA GESTIONE DEI FILE CSV
+
+```
+per gli esempi sarà utilizzato il seguente file csv:
+
+#test.csv
+"Nome", "Cognome", "Email"
+"Mario", "Rossi", "rossi@notemail.com"
+"Luca", "Verdi", "verdi@notemail.com"
+"Marco", "Gialli", "gialli@notemail.com"
+```
+
+### LEGGERE UN FILE CSV
+
+```python
+import csv
+
+with open('nome file.csv', 'r', newline='') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for row in csv_reader:
+        print(", ".join(row)) # se avessi messo print(row) avrei stampato
+                              # una lista di righe racchiuse tra []
+                              # prova e vedrai la differenza di output!
+```
+
+Esempio:
+
+```python
+import csv
+
+with open('test.csv', 'r', newline='') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    for row in csv_reader:
+        print(", ".join(row))
+```
+
+Output:
+
+```bash
+"Nome", "Cognome", "Email"
+"Mario", "Rossi", "rossi@notemail.com"
+"Luca", "Verdi", "verdi@notemail.com"
+"Marco", "Gialli", "gialli@notemail.com"
+```
