@@ -26,6 +26,20 @@ MARKDOWN
 
 ## Ordinate
 
+Markdown:
+
+```markdown
+1. Primo punto  
+    1. primo sottopunto  
+        1. sottopunto  
+    2. secondo sottopunto   
+        1. sottopunto
+2. Secondo punto
+3. Terzo punto
+```
+
+Output:
+
 1. Primo punto  
     1. primo sottopunto  
         1. sottopunto  
