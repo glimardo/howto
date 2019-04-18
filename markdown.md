@@ -85,11 +85,34 @@ Output:
 
 # Evidenziazione del codice
 
-``
+Markdown:
+
+<pre>
+
+```
+Sono un blocco di codice... anche se di nessun linguaggio!
+```
 
 ```Python
 print("Sono del codice Python!")
 ```
 
-``
+```Ruby
+puts "Sono del codice Ruby!"
+```
 
+</pre>
+
+Output:
+
+```
+Sono un blocco di codice... anche se di nessun linguaggio!
+```
+
+```Python
+print("Sono del codice Python!")
+```
+
+```Ruby
+puts "Sono del codice Ruby!"
+```
