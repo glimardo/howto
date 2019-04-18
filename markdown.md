@@ -27,9 +27,9 @@ MARKDOWN
 ## Ordinate
 
 1. Primo punto  
-  - primo sottopunto  
-    - sottopunto  
-  - secondo sottopunto   
-    - sottopunto
+    - primo sottopunto  
+      - sottopunto  
+    - secondo sottopunto   
+      - sottopunto
 2. Secondo punto
 3. Terzo punto
