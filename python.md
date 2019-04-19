@@ -2763,24 +2763,25 @@ except OSError as e:
 
 ## LA GESTIONE DEI FILE CSV
 
-```
-per gli esempi sarà utilizzato il seguente file csv:
 
-#test.csv
+### LEGGERE UN FILE CSV
+
+```
+per l'esempio sarà utilizzato il seguente file csv:
+
+# test.csv
 "Nome", "Cognome", "Email"
 "Mario", "Rossi", "rossi@notemail.com"
 "Luca", "Verdi", "verdi@notemail.com"
 "Marco", "Gialli", "gialli@notemail.com"
 ```
 
-### LEGGERE UN FILE CSV
-
 ```python
 import csv
 
-with open('nome file.csv', 'r', newline='') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
-    for row in csv_reader:
+with open('nome file.csv', newline='', encoding='utf-8') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',') # in questo caso il delimitatore è la virgola 
+    for row in csv_reader:                           
         print(", ".join(row)) # se avessi messo print(row) avrei stampato
                               # una lista di righe racchiuse tra []
                               # prova e vedrai la differenza di output!
@@ -2791,10 +2792,10 @@ Esempio:
 ```python
 import csv
 
-with open('test.csv', 'r', newline='') as csv_file:
+with open('test.csv', newline='', encoding='utf-8') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
-        print(", ".join(row))
+        print(",".join(row))
 ```
 
 Output:
@@ -2804,4 +2805,38 @@ Output:
 "Mario", "Rossi", "rossi@notemail.com"
 "Luca", "Verdi", "verdi@notemail.com"
 "Marco", "Gialli", "gialli@notemail.com"
+```
+
+
+### SCRIVERE UN FILE CSV
+
+```python
+import csv
+
+with open('nome file.csv', 'w', newline='') as csv_file:
+    scrivi_riga = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+    scrivi_riga.writerow(['Intestazione colonna 1', 'Intestazione colonna 2'])
+    scrivi_riga.writerow(['colonna 1', 'colonna 2'])
+```
+
+Esempio:  
+
+```python
+# write_csv.py
+
+import csv
+
+with open('new_file.csv', 'w', newline='') as csv_file:
+    scrivi_riga = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+    scrivi_riga.writerow(['Nome', 'Cognome'])
+    scrivi_riga.writerow(['Mario', 'Rossi'])
+    scrivi_riga.writerow(['Marco', 'Bianchi'])
+```
+
+Output:
+
+```
+"Nome","Cognome"
+"Mario","Rossi"
+"Marco","Bianchi"
 ```
