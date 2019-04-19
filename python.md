@@ -145,6 +145,9 @@ Indice
     + [Rinominare un file](#rinominare-un-file)
     + [Copiare un file](#copiare-un-file)
     + [Spostare un file](#spostare-un-file)
+  * [LA GESTIONE DEI FILE CSV](#la-gestione-dei-file-csv)
+    + [LEGGERE UN FILE CSV](#leggere-un-file-csv)
+    + [SCRIVERE UN FILE CSV](#scrivere-un-file-csv)
 
 <!-- /toc -->
 
