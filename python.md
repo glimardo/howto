@@ -1421,7 +1421,7 @@ False
 ## LA LOGICA
 
 
-### L'istruzione IF
+### L'istruzione if
 
 ```python
 >>> if 1 + 2 == 3:
@@ -1431,7 +1431,7 @@ False
 ```
 
 
-#### ELSE ed ELIF
+#### Else ed elif
 
 ```python
 >>> if 1 + 2 == 4:
@@ -1455,7 +1455,7 @@ Ehi! Devi risparmiare!
 ```
 
 
-### CICLO FOR
+### Ciclo for
 
 ```python
 >>> frutta = ['mirtilli', 'lamponi', 'mele', 'pere', 'arance']
@@ -1650,7 +1650,7 @@ portatile
 ```
 
 
-### IL CICLO WHILE
+### Ciclo while
 
 ```python
 >>> numero = 1
@@ -1672,10 +1672,10 @@ E quindi rimango nel ciclo while!
 ```
 
 
-### BREAK
+### Break
 
 
-#### BREAK con il ciclo for
+#### Break con il ciclo for
 
 ```python
 >>> for n in range(10):
@@ -1692,7 +1692,7 @@ E quindi rimango nel ciclo while!
 ``` 
 
 
-#### BREAK con il ciclo while
+#### Break con il ciclo while
 
 ```python
 >>> n = 1
@@ -1710,10 +1710,10 @@ E quindi rimango nel ciclo while!
 ```
 
 
-### CONTINUE
+### Continue
 
 
-#### CONTINUE con il ciclo for 
+#### Continue con il ciclo for 
 
 ```python
 >>> for n in range(1,11):
@@ -1735,7 +1735,7 @@ E quindi rimango nel ciclo while!
 ```
 
 
-#### CONTINUE con il ciclo while
+#### Continue con il ciclo while
 
 ```python
 >>> n  = 0
@@ -2571,7 +2571,7 @@ Valore della variabile globale __name__: modulo_name
 ## LA GESTIONE DEI FILE
 
 
-### LEGGERE UN FILE
+### Leggere un file
 
 #### Leggere un file tutto in una volta
 
@@ -2644,7 +2644,7 @@ file di prova!
 ```
 
 
-### SCRIVERE UN FILE
+### Scrivere un file
 
 #### Scrivere in un file
 
@@ -2875,7 +2875,7 @@ except OSError as e:
 ## LA GESTIONE DEI FILE CSV
 
 
-### LEGGERE UN FILE CSV
+### Leggere un file csv
 
 ```
 per l'esempio sarà utilizzato il seguente file csv:
@@ -2919,7 +2919,7 @@ Output:
 ```
 
 
-### SCRIVERE UN FILE CSV
+### Scrivere un file csv
 
 ```python
 import csv
