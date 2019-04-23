@@ -2582,7 +2582,7 @@ Se il file non è di dimensioni eccessive, puoi leggerlo in una sola volta:
 ```python
 nome_file = "file_da_leggere"
 
-with open(nome_file, 'r') as f:
+with open(nome_file, 'r', encoding="utf-8") as f:
     print(f.read())
 ```
 
@@ -2593,7 +2593,7 @@ Esempio:
 
 nome_file = "test.txt"
 
-with open(nome_file, 'r') as f:
+with open(nome_file, 'r', encoding="utf-8") as f:
     print(f.read())
 ```
 
@@ -2613,7 +2613,7 @@ Se vuoi leggere un file riga per riga, occorre scrivere:
 ```python
 nome_file = "file_da_leggere"
 
-with open(nome_file, 'r') as f:
+with open(nome_file, 'r', encoding="utf-8") as f:
     contenuto = f.readlines()
     
     for riga in contenuto:
@@ -2628,7 +2628,7 @@ Esempio:
 nome_file = "test.txt"
 
 
-with open(nome_file, 'r') as f:
+with open(nome_file, 'r', encoding="utf-8") as f:
     contenuto = f.readlines()
     
     for riga in contenuto:
