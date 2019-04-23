@@ -2277,6 +2277,114 @@ Sono una funzione che non restituirà alcun valore!
 ```
 
 
+### Lo scope delle variabili nelle funzioni
+
+```
+scope globale: le variabili definite fuori dalle funzioni sono visibili da quest'ultime indistintamente
+scope locale: le variabili sono visibili solo all'interno della funzione
+```
+
+Esempio:
+
+```python
+# scope.py
+
+a = "Sono una variabile globale!"
+
+
+def prova_scope():
+
+    b = "Sono una variabile locale"
+
+    print(a)
+    print(b)
+
+prova_scope()
+print(b)
+```
+
+Output:
+
+```bash
+Sono una variabile globale! # prova_scope può stampare a video il valore di a 
+                            # perchè è una variabile globale
+Sono una variabile locale   # prova_scope può stampare a video il valore di b
+                            # perchè è una sua variabile
+                            
+Traceback (most recent call last):
+  File "scope2.py", line 14, in <module>
+    print(b)
+NameError: name 'b' is not defined # l'ultimo print(b) non può stampare il valore
+                                   # di b perchè fuori dalla funzione prova_scope
+                                   # b non esiste!
+```
+
+
+#### globals() e locals()
+
+```
+La funzione globals() permette di vedere il contenuto delle variabili globali
+La funzione locals() permette di vedere il contenuto delle variabili locali
+```
+
+Esempio:
+
+```python
+# scope.py
+
+a = "Sono una variabile globale!"
+
+
+def prova_scope():
+
+    b = "Sono una variabile locale"
+    c = "Anche io sono una variabile locale!"
+
+    print(globals()['a'])
+    print(locals())
+
+
+prova_scope()
+```
+
+Output:
+
+```bash
+Sono una variabile globale! # Valore della variabile globale a
+{'c': 'Anche io sono una variabile locale!', 'b': 'Sono una variabile locale'} # Elenco delle variabili locali
+```
+
+globals() e locals() possono essere utilizzate per verificare se una variabile è globale o locale:
+
+```python
+# scope.py
+
+a = "variabile globale"
+
+
+def prova_scope():
+
+    b = "variabile locale"
+
+    print("a è una variabile globale?", 'a' in globals())
+    print("a è una variabile locale?", 'a' in locals())
+    print("b è una variabile globale?", 'b' in globals())
+    print("b è una variabile locale?", 'b' in locals())
+
+
+prova_scope()
+```
+
+Output:
+
+```bash
+a è una variabile globale? True
+a è una variabile locale? False
+b è una variabile globale? False
+b è una variabile locale? True
+```
+
+
 ## MODULI
 
 ```
