@@ -129,6 +129,7 @@ Indice
   * [Come rendere eseguibile uno script](#come-rendere-eseguibile-uno-script)
     + [Passare parametri ad uno script](#passare-parametri-ad-uno-script)
 - [FUNZIONI](#funzioni)
+  * [Cosa sono le funzioni](#cosa-sono-le-funzioni)
   * [Lo scope delle variabili nelle funzioni](#lo-scope-delle-variabili-nelle-funzioni)
     + [globals() e locals()](#globals-e-locals)
 - [MODULI](#moduli)
@@ -2223,6 +2224,7 @@ Ciao Pippo!
 
 ## FUNZIONI
 
+### Cosa sono le funzioni
 ```
 La funzione non è altro che un "mini programma" che esegue una funzionalità 
 che accetta dei parametri in input e fornisce un output.
