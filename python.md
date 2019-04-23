@@ -2955,3 +2955,110 @@ Output:
 "Mario","Rossi"
 "Marco","Bianchi"
 ```
+
+
+## LA GESTIONE DEI FILE JSON
+
+
+### Scrivere un file json
+
+```python
+import json
+
+dati_da_inserire = { # dati in formato JSON }
+
+with open("nome file.json", "w", encoding="utf-8") as scrivi_json:
+    json.dump(dati_da_inserire, scrivi_json, ensure_ascii=False, indent=4) # ensure_ascii=False mi permette di avere
+                                                                           # nel file json codificati i caratteri 
+                                                                           # speciali e non l'equivalente ASCII
+```
+
+Conversione da oggetti Python a JSON:
+
+| Python | JSON |
+|---|---|
+| dizionario | oggetto |
+| lista, tupla | array |
+| stringa |	stringa |
+| int, long, float | numerico |
+| True | true |
+| False | false |
+| None | null |
+
+Esempio:
+
+```python
+# prova_json.py
+
+import json
+
+dati_da_inserire = { 
+    "developer": {
+                    "nome": "John",
+                    "cognome": "Doe",
+                    "età": 35
+    }
+
+ }
+
+with open("esempio.json", "w", encoding="utf-8") as scrivi_json:
+    json.dump(dati_da_inserire, scrivi_json, ensure_ascii=False, indent=4)
+```
+
+Output:
+
+```json
+# esempio.json
+
+{
+    "developer": {
+        "nome": "John",
+        "cognome": "Doe",
+        "età": 35
+    }
+}
+```
+
+
+### Leggere un file json
+
+```python
+import json
+
+with open("file di esempio.json", "r", encoding="utf-8") as file_json:
+    dati_da_leggere = json.load(file_json)
+
+    print(dati_da_leggere)
+```
+
+Conversione da JSON ad oggetti Python:  
+
+| JSON | Python |
+|---|---|
+| object | dict  |
+| array  | list  |
+| string | str   |
+| int 	 | int   |
+| real 	 | float |
+| true 	 | True  |
+| false  | False |
+| null 	 | None  |
+
+Esempio:
+
+```python
+
+# leggerejson.py
+import json
+
+with open("esempio.json", "r", encoding="utf-8") as file_json:
+    dati_da_leggere = json.load(file_json)
+
+    print(dati_da_leggere)
+```
+
+Output:
+
+```bash
+{'developer': {'nome': 'John', 'cognome': 'Doe', 'età': 35}}
+```
