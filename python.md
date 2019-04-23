@@ -151,7 +151,10 @@ Indice
 - [LA GESTIONE DEI FILE CSV](#la-gestione-dei-file-csv)
   * [Leggere un file csv](#leggere-un-file-csv)
   * [Scrivere un file csv](#scrivere-un-file-csv)
-
+- [LA GESTIONE DEI FILE JSON](#la-gestione-dei-file-json)
+  * [Scrivere un file json](#scrivere-un-file-json)
+  * [Leggere un file json](#leggere-un-file-json)
+  
 <!-- /toc -->
 
 ## I FONDAMENTALI
