@@ -1,4 +1,4 @@
-SQL
+SQL (bozza)
 ====
 
 # DDL(Data Definition Language)
