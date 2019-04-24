@@ -5,9 +5,8 @@ ESPRESSIONI REGOLARI (bozza)
 
 Serve a cercare un pattern di caratteri all'interno di un testo.
 
-```
 Prova gli esempi indicati su https://regexr.com/!
-```
+
 
 ## Ricerca esatta
 
