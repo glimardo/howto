@@ -286,3 +286,12 @@ Fast-forward
  create mode 100644 esempio1.txt
  create mode 100644 esempio2.txt
 ```
+
+
+## REPOSITORY REMOTI
+
+### Creare un repository remoto
+
+```git
+git remote add origin <indirizzo IP>/nome_repository.git
+```
