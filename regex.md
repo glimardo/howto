@@ -52,3 +52,12 @@ Serve a cercare un pattern di caratteri all'interno di un testo.
 | \S | Trova qualsiasi carattere che non sia lo spazio | \S | Mangerò 10 cupcake e 5 fette di cheesecake! | 
 | (caratteri)\b | Trova le parole che terminano con (caratteri) | (e)\b | Mangerò 10 cupcake e 5 fette di cheesecake! | 
 | \b(caratteri) | Trova le parole che iniziano con (caratteri) | \b(c) | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+
+
+## Flag
+
+| Flag | Descrizione | 
+| :--: | --|
+| g | global: cerca in tutto il testo |
+| m | multiline: cerca in tutte le righe del testo |
+| i | case insensitive: cerca ignorando le lettere se sono maiuscole o minuscole |
