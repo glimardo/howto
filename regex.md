@@ -38,3 +38,17 @@ Serve a cercare un pattern di caratteri all'interno di un testo.
 | [^] | Tutto tranne i caratteri compresi nelle [] | [^a-z] | Mangerò 10 cupcake e 5 fette di cheesecake! | 
 | [0123] | viene cercato uno dei numeri presenti nelle [] | [01] | Mangerò 10 cupcake e 5 fette di cheesecake! |
 | [0-9] |  vengono cercati tutti i numeri compresi tra le [] | [5-9] | Mangerò 10 cupcake e 5 fette di cheesecake! |
+
+
+## Set di catatteri... in breve!
+
+| Carattere | Descrizione | Esempio | Testo in cui cercare |
+| :--: | --| --| --| 
+| \w | Trova qualsiasi carattere alfanumerico | \w | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+| \W | Trova qualsiasi carattere non alfanumerico | \W | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+| \d | Trova qualsiasi carattere numerico | \d | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+| \D | Trova qualsiasi carattere non numerico  | \D | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+| \s | Trova qualsiasi spazio nel testo | \s | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+| \S | Trova qualsiasi carattere che non sia lo spazio | \S | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+| (caratteri)\b | Trova le parole che terminano con (caratteri) | (e)\b | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+| \b(caratteri) | Trova le parole che iniziano con (caratteri) | \b(c) | Mangerò 10 cupcake e 5 fette di cheesecake! | 
