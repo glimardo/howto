@@ -15,7 +15,7 @@ Serve a cercare un pattern di caratteri all'interno di un testo.
 ## Metacaratteri
 
 | Carattere | Descrizione | Esempio | Testo in cui cercare |
-| --| --| --| --| 
+| :--: | --| --| --| 
 | ^ | La parola inizia con | ^cupcake | cupcake e cheesecake! |
 | $ | La parola termina con | cacke!$ | cupcake e cheesecake! |
 | . | Qualsiasi carattere | cup...e | cupcake e cheesecake! |
