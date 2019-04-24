@@ -24,7 +24,7 @@ Serve a cercare un pattern di caratteri all'interno di un testo.
 | [] | Un set di catatteri (compresi gli estremi) | [a-z] | cupcake e cheesecake! | 
 | [^] | Tutto tranne un set di caratteri | [^a-z] | cupcake e cheesecake! | 
 | {} | Esattamente questo numero di caratteri | e{2} | cupcake e cheesecake! | 
-| '|' | significa "o questo o quello" | cup|cheese | cupcake e cheesecake! | 
+| \| | significa "o questo o quello" | cup\|cheese | cupcake e cheesecake! | 
 | () | tutti i caratteri compresi nelle parentesi in quell'ordine | (cake) | cupcake e cheesecake! | 
 
 
