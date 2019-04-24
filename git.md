@@ -218,3 +218,16 @@ Date:   Plu Apr 31 00:00:28 2219 +0200
     Aggiunto il file file_di_prova.txt
 
 ```
+
+
+## BRANCHING
+
+```
+In un team, più persone dovranno lavorare su parti diverse di un progetto.
+Per non intaccare il progetto originale, ogni membro del team può creare un branch
+- una sezione separata dall'originale - dove poter sviluppare tranquillamente la propria parte.
+Terminata quest'ultima, poi si potrà riunirla con il progetto principale attraverso un'azione
+chiamata merge.
+Finchè non viene aggiunto il proprio branch al progetto originale, questo risulterà inaccessibile
+agli altri membri del team.
+```
