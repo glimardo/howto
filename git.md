@@ -231,3 +231,58 @@ chiamata merge.
 Finchè non viene aggiunto il proprio branch al progetto originale, questo risulterà inaccessibile
 agli altri membri del team.
 ```
+
+### Creare un branch
+
+```git
+git checkout -b nuovo_branch
+```
+
+Esempio:
+
+```bash
+$ git checkout -b nuova_feature
+Switched to a new branch 'nuova_feature'
+
+$ git status
+On branch nuova_feature
+nothing to commit, working directory clean
+```
+
+### Mostrare tutti i branch di un progetto
+
+```git
+git branch
+```
+
+Esempio:
+
+```bash
+$ git branch
+  master
+* nuova_feature
+```
+
+
+### Merge dei branch con quello principale
+
+```git
+git checkout master    # prima si torna al ramo principale
+git merge nuovo_branch # poi si uniscono i branch
+```
+
+Esempio:
+
+```bash
+$ git checkout master
+Switched to branch 'master'
+
+$ git merge nuova_feature
+Updating 3144cfe..a938ddb
+Fast-forward
+ esempio1.txt | 1 +
+ esempio2.txt | 1 +
+ 2 files changed, 2 insertions(+), 0 deletions(-)
+ create mode 100644 esempio1.txt
+ create mode 100644 esempio2.txt
+```
