@@ -1,11 +1,11 @@
 ESPRESSIONI REGOLARI (bozza)
 ====
 
-## A COSA SERVE UN ESPRESSIONE REGOLARE
+## A COSA SERVE UN'ESPRESSIONE REGOLARE
 
 Serve a cercare un pattern di caratteri all'interno di un testo.
 
-Prova gli esempi indicati su https://regexr.com/!
+Prova gli esempi indicati su https://regexr.com/
 
 
 ## Ricerca esatta
