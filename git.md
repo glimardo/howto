@@ -376,9 +376,139 @@ Fast-forward
 
 ## REPOSITORY REMOTI
 
-### Creare un repository remoto
+### Pubblicare su GitHub un progetto
+
+1 - Creare un repository su GitHub
+
+Accedi a GitHub e crea un nuovo repository
+
+2 - Inizializza il progetto
 
 ```git
-git remote add origin <indirizzo IP>/nome_repository.git
+git init
 ```
 
+Esempio:
+
+```bash
+$ git init
+```
+
+3 - Aggiungi i file necessari al repository
+
+```git
+git add .
+git commit -m "Motivo del commit"
+```
+
+Esempio:
+
+```bash
+$ git add .
+$ git commit -m "Primo commit di esempio"
+[master (root-commit) d34a35d] Primo commit di esempio
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 esempio1.txt
+ create mode 100644 esempio2.txt
+```
+
+4 - Aggiungere il repository remoto
+
+```git
+git remote add origin <indirizzo GitHub>/<repository>.git
+```
+
+Esempio:
+
+```bash
+$ git remote add origin https://github.com/glimardo/esercizi.git
+```
+
+5 - Allinea il repository locale con quello di GitHub
+
+```git
+git push -u origin master
+```
+
+Esempio:
+
+```bash
+$ git push -u origin master
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 235 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/glimardo/esercizi.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+```
+
+```
+Verificando sul repository di GitHub, troverai i nuovi file!
+```
+
+
+### Clonare un progetto remoto in locale
+
+```git
+git clone <indirizzo repository remoto>/<repository>.git
+```
+
+Esempio:
+
+```bash
+$ git clone https://github.com/glimardo/esercizi.git
+Cloning into 'esercizi'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+Checking connectivity... done.
+```
+
+
+### Aggiornare un progetto remoto con le nuove modifiche presenti in locale
+
+```git
+git push origin master
+```
+
+Esempio:
+
+```bash
+$ git push origin master
+Counting objects: 2, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 259 bytes | 0 bytes/s, done.
+Total 2 (delta 0), reused 0 (delta 0)
+To https://github.com/glimardo/esercizi.git
+   d34a35d..95b7bee  master -> master
+```
+
+
+### Aggiornare un progetto locale con le nuove modifiche presenti in remoto
+
+```git
+git pull
+```
+
+Esempio:
+
+```bash
+$ git pull
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/glimardo/esercizi
+   95b7bee..bd1d6a0  master     -> origin/master
+Updating 95b7bee..bd1d6a0
+Fast-forward
+ esempio4.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 esempio4.txt
+```
