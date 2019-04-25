@@ -1,11 +1,9 @@
 PYTHON (bozza)
 ======
 
+<!-- toc -->
 Indice
 ======
-
-<!-- toc -->
-
 - [I FONDAMENTALI](#i-fondamentali)
   * [Commenti](#commenti)
   * [Tipizzazione dinamica](#tipizzazione-dinamica)
