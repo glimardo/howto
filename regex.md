@@ -11,21 +11,21 @@ Prova gli esempi indicati su https://regexr.com/
 ## Ricerca esatta
 
 ```regex
-/testo da cercare/g    # cerco "testo da cercare" in modo globale (/g) in tutto il testo
+/pattern/g    # cerco il pattern in modo globale (/g) in tutto il testo
 ```
 
 ## Metacaratteri
 
 | Carattere | Descrizione | Esempio | Testo in cui cercare |
 | :--: | --| --| --| 
-| ^ | La parola inizia con | ^cupcake | cupcake e cheesecake! |
-| $ | La parola termina con | cacke!$ | cupcake e cheesecake! |
+| ^ | Il pattern inizia con | ^cupcake | cupcake e cheesecake! |
+| $ | Il pattern termina con | cacke!$ | cupcake e cheesecake! |
 | . | Qualsiasi carattere | cup...e | cupcake e cheesecake! |
 | * | Zero o più caratteri presenti | ca.e | cupcake e cheesecake! | 
 | + | Uno o più caratteri presenti | che+se | cupcake e cheesecake! | 
-| {} | Esattamente questo numero di caratteri | e{2} | cupcake e cheesecake! | 
+| {n} | Esattamente questo numero di caratteri | e{2} | cupcake e cheesecake! | 
 | \| | significa "o questo o quello" | cup\|cheese | cupcake e cheesecake! | 
-| () | tutti i caratteri compresi nelle parentesi in quell'ordine | (cake) | cupcake e cheesecake! | 
+| (abc) | tutti i caratteri compresi nelle parentesi in quell'ordine | (cake) | cupcake e cheesecake! | 
 
 
 ## Set di caratteri
