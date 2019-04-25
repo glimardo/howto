@@ -61,8 +61,8 @@ Prova gli esempi indicati su https://regexr.com/
 
 ## Flag
 
-| Flag | Descrizione | 
-| :--: | --|
-| g | global: cerca in tutto il testo |
-| m | multiline: cerca in tutte le righe del testo |
-| i | case insensitive: cerca ignorando le lettere se sono maiuscole o minuscole |
+| Flag | Descrizione | Esempio | Testo in cui cercare |
+| :--: | --| --| --|
+| pattern/g | global: cerca in tutto il testo | cupcake/g | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+| pattern/m  | multiline: cerca in tutte le righe del testo | cupcake/m | Mangerò 10 cupcake e 5 fette di cheesecake! | 
+| pattern/i | case insensitive: cerca ignorando le lettere se sono maiuscole o minuscole | cupcake/i | Mangerò 10 cupcake e 5 fette di cheesecake! | 
