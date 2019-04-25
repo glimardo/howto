@@ -1,7 +1,10 @@
 ESPRESSIONI REGOLARI (bozza)
 ====
 
+
 <!-- toc -->
+Indice
+======
 - [A cosa serve un'espressione regolare](#a-cosa-serve-un-espressione-regolare)
 - [Metacaratteri](#metacaratteri)
 - [Set di caratteri](#set-di-caratteri)
