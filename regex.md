@@ -1,7 +1,7 @@
 ESPRESSIONI REGOLARI (bozza)
 ====
 
-## A COSA SERVE UN'ESPRESSIONE REGOLARE
+## A cosa serve un'espressione regolare
 
 Serve a cercare un pattern di caratteri all'interno di un testo.
 
