@@ -1,6 +1,48 @@
 GIT (bozza)
 ===
 
+<!-- toc -- >
+Indice
+======
+
+<!-- /toc --> 
+
+
+## SETUP DI BASE
+
+### Impostare l'utente che effettua i commit
+
+```git
+git config --global user.name "Nome Cognome"
+git config --global user.email tuaemail@esempio.com
+```
+
+Esempio:
+
+```bash
+$ git config --global user.name "Gian Doe"
+$ git config --global user.email gian@doesempio.com
+```
+
+
+### Verificare la configurazione di git
+
+```git
+git config --list
+```
+
+Esempio:
+
+```bash
+$ git config --list
+user.name=Gian Doe
+user.email=gian@doesempio.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+```
+
 
 ## CREARE UN NUOVO REPOSITORY
 
@@ -31,45 +73,11 @@ Esempio:
 
 ```bash
 $ git init
-Initialized empty Git repository in /home/gian/esempio/.git/
+Initialized empty Git repository in /home/giandoe/esempio/.git/
 ```
 
 
-## IMPOSTARE L'UTENTE CHE EFFETTUA I COMMIT
-
-```git
-git config --global user.name "Nome Cognome"
-git config --global user.email tuaemail@esempio.com
-```
-
-Esempio:
-
-```bash
-$ git config --global user.name "Gian Doe"
-$ git config --global user.email gian@doesempio.com
-```
-
-
-## VERIFICARE LA CONFIGURAZIONE DI GIT
-
-```git
-git config --list
-```
-
-Esempio:
-
-```bash
-$ git config --list
-user.name=Gian Doe
-user.email=gian@doesempio.com
-core.repositoryformatversion=0
-core.filemode=true
-core.bare=false
-core.logallrefupdates=true
-```
-
-
-## VERIFICARE LO STATO DELLA CARTELLA DI LAVORO
+### Verificare lo stato della cartella di lavoro
 
 ```git
 git status
@@ -94,7 +102,7 @@ nothing to commit (create/copy files and use "git add" to track)
 ```
 
 
-## AGGIUNGERE UN NUOVO FILE 
+### Aggiungere un nuovo file 
 
 ```git
 git add nome_file # aggiunge solo nome_file
@@ -133,7 +141,25 @@ Changes to be committed:
 ```
 
 
-## SALVARE I CAMBIAMENTI NELLA CARTELLA DI LAVORO (COMMIT)
+### Eliminare un file 
+
+```git
+git rm file_da_eliminare
+```
+
+Esempio:
+
+```bash
+$ git rm prova1.txt
+rm 'prova1.txt'
+$ git commit -m "master: eliminato il file prova1.txt"
+[master 91acf07] master: eliminato il file prova1.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 prova1.txt
+```
+
+
+### Salvare i cambiamenti (commit)
 
 ```git
 git commit -m "Motivo del commit"
@@ -152,7 +178,7 @@ nothing to commit, working directory clean
 ```
 
 
-## NON AGGIUNGERE DEI FILE AI COMMIT  
+### Non aggiungere dei file ai commit  
 
 ```
 Quando effettui i git commit, non devi committare tutta la cartella!
@@ -167,10 +193,6 @@ Salva solo i file necessari al progetto, quindi niente:
 Come fare per ignorare questi file?
 Occorre creare il file .gitignore ed inserire in colonna ogni file e 
 cartella che si deve ignorare
-```
-
-```
-.gitignore
 ```
 
 Esempio:
@@ -190,7 +212,7 @@ nothing to commit, working directory clean
 ```
 
 
-## VISUALIZZARE LO STORICO DEI COMMIT
+### Visualizzare lo storico dei commit
 
 ```git
 git log
@@ -201,19 +223,19 @@ git log
 $ git log
 commit 1141ccbd47c12970fd6e82bbdc735503d375f067
 Author: Gian Doe <gian@doesempio.com>
-Date:   Plu Apr 31 00:00:07 2219 +0200
+Date:   Plu Apr 31 00:00:88 2219 +0200
 
     aggiunto il file .gitignore
 
 commit 8f66b5fa3dbd66ed7d7f461e808127e7c63c7520
 Author: Gian Doe <gian@doesempio.com>
-Date:   Plu Apr 31 00:00:56 2219 +0200
+Date:   Plu Apr 31 00:00:88 2219 +0200
 
     Aggiunto il file file_di_prova2.txt
 
 commit 83708e9381c86d845e46979be2a26d9719e72e20
 Author: Gian Doe <gian@doesempio.com>
-Date:   Plu Apr 31 00:00:28 2219 +0200
+Date:   Plu Apr 31 00:00:88 2219 +0200
 
     Aggiunto il file file_di_prova.txt
 
@@ -261,6 +283,70 @@ Esempio:
 $ git branch
   master
 * nuova_feature
+```
+
+
+### Cambiare branch su cui lavorare
+
+```git
+git checkout nome_branch
+```
+
+Esempio:
+
+```bash
+$ git checkout branch2
+Switched to branch 'branch2'
+```
+
+
+### Visualizzare i commit effettuati su di un branch ma non su di un altro
+
+```git
+git log primo_branch..secondo_branch
+
+Visualizzo i commit presenti su secondo_branch ma che non ci sono su primo_branch
+```
+
+Esempio:
+
+```bash
+$ git log branch1..branch2
+commit 374881fb96eb5eb13c1cc088a0a4884cb98ae038
+Author: Gian Doe <gian@doesempio.com>
+Date:   Plu Apr 31 00:00:88 2219 +0200
+
+    branch2: aggiunti file3 e file4
+```
+
+
+### Visualizzare le differenze presenti tra due branch
+
+```git
+git diff primo_branch..secondo_branch
+
+Visualizzo le cose presenti in secondo_branch ma che non ci sono su primo_branch
+```
+
+
+Esempio:
+
+```bash
+$ git diff branch1..branch2
+diff --git a/file3.txt b/file3.txt
+new file mode 100644
+index 0000000..50139bc
+--- /dev/null
++++ b/file3.txt
+@@ -0,0 +1 @@
++testo
+diff --git a/file4.txt b/file4.txt
+new file mode 100644
+index 0000000..50139bc
+--- /dev/null
++++ b/file4.txt
+@@ -0,0 +1 @@
++testo
 ```
 
 
