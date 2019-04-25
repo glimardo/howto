@@ -1,9 +1,34 @@
-GIT (bozza)
+GIT
 ===
 
-<!-- toc -- >
+<!-- toc -->
 Indice
 ======
+
+- [SETUP DI BASE](#setup-di-base)
+  * [Impostare l'utente che effettua i commit](#impostare-lutente-che-effettua-i-commit)
+  * [Verificare la configurazione di git](#verificare-la-configurazione-di-git)
+- [CREARE UN NUOVO REPOSITORY](#creare-un-nuovo-repository)
+  * [Creare la cartella di lavoro](#creare-la-cartella-di-lavoro)
+  * [Creare un nuovo repository git](#creare-un-nuovo-repository-git)
+  * [Verificare lo stato della cartella di lavoro](#verificare-lo-stato-della-cartella-di-lavoro)
+  * [Aggiungere un nuovo file](#aggiungere-un-nuovo-file)
+  * [Eliminare un file](#eliminare-un-file)
+  * [Salvare i cambiamenti (commit)](#salvare-i-cambiamenti-commit)
+  * [Non aggiungere dei file ai commit](#non-aggiungere-dei-file-ai-commit)
+  * [Visualizzare lo storico dei commit](#visualizzare-lo-storico-dei-commit)
+- [BRANCHING](#branching)
+  * [Creare un branch](#creare-un-branch)
+  * [Mostrare tutti i branch di un progetto](#mostrare-tutti-i-branch-di-un-progetto)
+  * [Cambiare branch su cui lavorare](#cambiare-branch-su-cui-lavorare)
+  * [Visualizzare i commit effettuati su di un branch ma non su di un altro](#visualizzare-i-commit-effettuati-su-di-un-branch-ma-non-su-di-un-altro)
+  * [Visualizzare le differenze presenti tra due branch](#visualizzare-le-differenze-presenti-tra-due-branch)
+  * [Merge dei branch con quello principale](#merge-dei-branch-con-quello-principale)
+- [REPOSITORY REMOTI](#repository-remoti)
+  * [Pubblicare su GitHub un progetto](#pubblicare-su-github-un-progetto)
+  * [Clonare un progetto remoto in locale](#clonare-un-progetto-remoto-in-locale)
+  * [Aggiornare un progetto remoto con le nuove modifiche presenti in locale](#aggiornare-un-progetto-remoto-con-le-nuove-modifiche-presenti-in-locale)
+  * [Aggiornare un progetto locale con le nuove modifiche presenti in remoto](#aggiornare-un-progetto-locale-con-le-nuove-modifiche-presenti-in-remoto)
 
 <!-- /toc --> 
 
