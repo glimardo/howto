@@ -1,6 +1,14 @@
 ESPRESSIONI REGOLARI (bozza)
 ====
 
+<!-- toc >
+- [A cosa serve un'espressione regolare](#a-cosa-serve-un-espressione-regolare)
+- [Metacaratteri](#metacaratteri)
+- [Set di caratteri](#set-di-caratteri)
+- [Set di catatteri... in breve!](#set-di-catatteri-in-breve-)
+- [Flag](#flag)
+<\!-- /toc -- >
+
 ## A cosa serve un'espressione regolare
 
 Serve a cercare un pattern di caratteri all'interno di un testo.
