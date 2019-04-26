@@ -152,7 +152,18 @@ Indice
 - [LA GESTIONE DEI FILE JSON](#la-gestione-dei-file-json)
   * [Scrivere un file json](#scrivere-un-file-json)
   * [Leggere un file json](#leggere-un-file-json)
-  
+- [PROGRAMMAZIONE AD OGGETTI (OOP)](#programmazione-ad-oggetti-oop)
+  * [Classe](#classe)
+    + [Definizione di una classe](#definizione-di-una-classe)
+    + [Inizializzare una classe](#inizializzare-una-classe)
+    + [Aggiungere attributi di classe](#aggiungere-attributi-di-classe)
+    + [Aggiungere metodi di classe](#aggiungere-metodi-di-classe)
+    + [Instanziare una classe](#instanziare-una-classe)
+      - [Accedere ai metodi implementati](#accedere-ai-metodi-implementati)
+  * [Ereditarietà](#ereditarietà)
+- [Polimorfismo](#polimorfismo)
+  * [Override - Sovrascrivere le funzionalità di una classe](#override-sovrascrivere-le-funzionalit-di-una-classe)
+  * [Overloading - Comportamenti differenti in base ai parametri passati](#overloading-comportamenti-differenti-in-base-ai-parametri-passati)
 <!-- /toc -->
 
 ## I FONDAMENTALI
