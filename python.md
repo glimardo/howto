@@ -3063,3 +3063,357 @@ Output:
 ```bash
 {'developer': {'nome': 'John', 'cognome': 'Doe', 'età': 35}}
 ```
+
+
+## PROGRAMMAZIONE AD OGGETTI (OOP)
+
+### Classe
+
+```
+Una classe è un concetto astratto.
+Serve per creare una struttura dati che contiene
+delle informazioni scelte da te.
+
+Puoi pensare ad una classe come al concetto di tv.
+Tutte hanno uno schermo, si attaccano alla corrente, servono
+per vedere dei canali, giusto?
+Però ne esistono di marche, dimensioni e funzioni diverse, no?
+Ma nascono tutte dallo stesso concetto!
+```
+
+
+#### Definizione di una classe
+
+```python
+class Nomeclasse:
+  # attributi
+  # metodi
+```
+
+Quando viene definita una classe:
+- crei un oggetto classe
+- non la istanzi
+
+Esempio:
+
+```python
+class Tv:
+  pass
+```
+
+
+#### Inizializzare una classe
+
+```
+Quando inizializzi una classe, specifichi degli attributi iniziali
+che deve avere di default.
+Per poterlo fare occorre:
+- definire il metodo __init__
+- passare almeno un argomento: self (che referenzia l'oggetto stesso)
+
+Ricorda: 
+il metodo __init__ non viene mai chiamato!
+Viene chiamato in automatico nel momento in cui si istanzia la classe.
+Questo tipo di metodo è chiamato costruttore.
+```
+
+```python
+class Nomeclasse:
+    
+    # Inizializzo la classe
+    def __init__(self, attributo1, attributon):
+        self.attributo1 = attributo1
+        self.attributon = attributon
+```
+
+Esempio:
+
+```python
+class Tv:
+    
+    # Inizializzo la classe
+    def __init__(self, marca, modello, dim_schermo):
+        self.marca = marca
+        self.modello = modello
+        self.dim_schermo = dim_schermo
+```
+
+
+#### Aggiungere attributi di classe
+
+```
+Gli attributi di classe non sono altro che delle variabili che
+saranno le stesse per ogni istanza che sarà creata.
+
+Usa solo sostantivi per dare i nomi agli attributi.
+
+Se vuoi creare degli attributi privati, aggiungi un _ davanti al nome.
+```
+
+
+```python
+class Nomeclasse:
+    
+    # Attributi di classe
+    attributo = valore
+    _attributo = valore # attributo privato
+    __attributo = valore # attributo ancora più privato
+```
+
+Esempio:
+
+```python
+class Tv:
+    
+    # Attributi di classe
+    forma = "rettangolare"
+
+    # Inizializzo la classe
+    def __init__(self, marca, modello, dim_schermo):
+        self.marca = marca
+        self.modello = modello
+        self.dim_schermo = dim_schermo
+```
+
+
+#### Aggiungere metodi di classe
+
+```
+I metodi di classe servono ad implementare le funzionalità dell'oggetto.
+Come la classe __init__, devono avere sempre il parametro self.
+
+Usa solo verbi per dare i nomi ai metodi.
+```
+
+```python
+class Nomeclasse:
+    
+    # metodo di classe
+    def metodo1(self):
+      # azioni
+    
+    def metodo2,(self, attributo):
+      # azioni
+```
+
+Esempio:
+
+```python
+class Tv:
+
+    # Attributi di classe
+    forma = "rettangolare"
+
+    # Inizializzo la classe
+    def __init__(self, marca, modello, dim_schermo):
+        self.marca = marca
+        self.modello = modello
+        self.dim_schermo = dim_schermo
+
+
+    # Metodi di classe
+    def mostra_specifiche(self):
+        return f"Marca tv: {self.marca}\nModello tv: {self.modello}\nDimensione schermo: {self.dim_schermo}"
+
+    def mostra_marca(self):
+        return f"Marca tv: {self.marca}"
+    
+    def mostra_modello(self):
+        print(f"Modello tv: {self.modello}")
+    
+    def mostra_dim_schermo(self):
+        print(f"Dimensione schermo: {self.dim_schermo}")
+
+```
+
+
+#### Instanziare una classe
+
+```
+Instanziare una classe non vuol dire altro che creare un nuovo unico oggetto di quella classe
+```
+
+```python
+variabile = Nomeclasse()
+```
+
+Esempio:
+
+```python
+mia_tv = Tv("Sony", "1234", 50)
+```
+
+##### Accedere ai metodi implementati
+
+```python
+variabile.metodo()
+variabile.metodo(parametro1, parametro_n)
+```
+
+Esempio:
+
+```python
+print(mia_tv.forma)
+print(mia_tv.mostra_specifiche())
+```
+
+Output:
+
+```bash
+rettangolare
+Marca tv: Sony
+Modello tv: 1234
+Dimensione schermo: 50
+```
+
+
+### Ereditarietà
+
+```
+Hai presente i tratti che hai preso dai tuoi genitori che chiami ereditarietà?
+Nella programmazione ad oggetti il concetto è lo stesso.
+Puoi creare una nuova classe che eredità tutti i metodi e gli attributi di un'altra classe che viene chiamata "padre".
+```
+
+```python
+class ClasseDerivata(ClassePadre):
+    # attributi
+    # metodi
+```
+
+```
+Posso creare classi che ereditano da più classi padri?
+Certo:
+```
+
+```python
+class ClasseDerivata(ClassePadre1, ClassePadre2, ClassePadreN):
+    # attributi
+    # metodi
+```
+
+Esempio:
+
+```python
+class SmartTV(Tv):
+    pass
+
+
+nuova_smarttv = SmartTV("Samsung", "90123", 65)
+
+print(nuova_smarttv.forma)
+print(nuova_smarttv.mostra_specifiche())
+```
+
+Output:
+
+```bash
+rettangolare
+Marca tv: Samsung
+Modello tv: 90123
+Dimensione schermo: 65
+```
+
+
+## Polimorfismo
+
+```
+Con il polimorfismo si può sovrascrivere le funzionalità di una classe (override) oppure di comportarsi in modo differente a seconda dei parametri passati (overloading)
+```
+
+
+### Override - Sovrascrivere le funzionalità di una classe
+
+```
+Le classi figlio possono modificare le funzionalità di una classe padre semplicemente mantenendo il nome ma ridefinendole nel contenuto!
+```
+
+```python
+class ClasseDerivata(ClassePadre1):
+
+    # Attributi di classe
+    attributo = nuovo valore 
+
+    # metodo di classe
+    def metodo1(self, nuovo parametro):
+      # nuove azioni della classe figlio
+```
+
+Esempio:
+
+```python
+class SmartTV(Tv):
+    
+    # Inizializzo la classe
+    def __init__(self, marca, modello, dim_schermo, tipo_smart):
+        self.marca = marca
+        self.modello = modello
+        self.dim_schermo = dim_schermo
+        self.tipo_smart = tipo_smart # ridefinisco il metodo con questo nuovo parametro
+    
+    # Metodi di classe
+    def mostra_specifiche(self): # ridefinisco il metodo 
+        return f"Marca tv: {self.marca}\nModello tv: {self.modello}\nDimensione schermo: {self.dim_schermo}\nOS smart tv: {self.tipo_smart}"
+
+nuova_smarttv = SmartTV("Samsung", "90123", 65, "Android TV")
+
+print(nuova_smarttv.mostra_specifiche())
+```
+
+Output:
+
+```bash
+rettangolare
+Marca tv: Samsung
+Modello tv: 90123
+Dimensione schermo: 65
+```
+
+
+### Overloading - Comportamenti differenti in base ai parametri passati
+
+```
+La classe può comportarsi in modo differente a seconda dei parametri passati
+```
+
+Esempio:
+
+```python
+class SmartTV(Tv):
+    
+    # Inizializzo la classe
+    def __init__(self, marca, modello, dim_schermo, smart_android=None):
+        self.marca = marca
+        self.modello = modello
+        self.dim_schermo = dim_schermo
+        self.smart_android = smart_android
+
+    
+    # Metodi di classe
+    def mostra_specifiche(self):
+
+        if self.smart_android is None:
+                self.smart_android = "Non è presente un Android TV"
+
+        return f"Marca tv: {self.marca}\nModello tv: {self.modello}\nDimensione schermo: {self.dim_schermo}\nOS smart tv: {self.smart_android}"
+
+
+prima_smarttv= SmartTV("Samsung", "90123", 65, "Android TV") # Uso un nuovo valore per il parametro "smart_android"
+print(prima_smarttv.mostra_specifiche() + "\n")
+seconda_smarttv = SmartTV("Sony", "5678", 50) # Uso il valore originale del parametro "smart_android"
+print(seconda_smarttv.mostra_specifiche())
+```
+
+Output:
+
+```bash
+Marca tv: Samsung
+Modello tv: 90123
+Dimensione schermo: 65
+OS smart tv: Android TV
+
+Marca tv: Sony
+Modello tv: 5678
+Dimensione schermo: 50
+OS smart tv: Non è presente un Android TV
+```
