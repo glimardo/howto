@@ -162,8 +162,8 @@ Indice
       - [Accedere ai metodi implementati](#accedere-ai-metodi-implementati)
   * [Ereditarietà](#ereditarietà)
   * [Polimorfismo](#polimorfismo)
-    + [Override - Sovrascrivere le funzionalità di una classe](#override-sovrascrivere-le-funzionalit-di-una-classe)
-    + [Overloading - Comportamenti differenti in base ai parametri passati](#overloading-comportamenti-differenti-in-base-ai-parametri-passati)
+    + [Override - Sovrascrivere le funzionalità di una classe](#override---sovrascrivere-le-funzionalit-di-una-classe)
+    + [Overloading - Comportamenti differenti in base ai parametri passati](#overloading---comportamenti-differenti-in-base-ai-parametri-passati)
 <!-- /toc -->
 
 ## I FONDAMENTALI
