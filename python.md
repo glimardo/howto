@@ -3326,14 +3326,14 @@ Dimensione schermo: 65
 ```
 
 
-## Polimorfismo
+### Polimorfismo
 
 ```
 Con il polimorfismo si può sovrascrivere le funzionalità di una classe (override) oppure di comportarsi in modo differente a seconda dei parametri passati (overloading)
 ```
 
 
-### Override - Sovrascrivere le funzionalità di una classe
+#### Override - Sovrascrivere le funzionalità di una classe
 
 ```
 Le classi figlio possono modificare le funzionalità di una classe padre semplicemente mantenendo il nome ma ridefinendole nel contenuto!
@@ -3381,7 +3381,7 @@ Dimensione schermo: 65
 ```
 
 
-### Overloading - Comportamenti differenti in base ai parametri passati
+#### Overloading - Comportamenti differenti in base ai parametri passati
 
 ```
 La classe può comportarsi in modo differente a seconda dei parametri passati
