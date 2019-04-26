@@ -1,4 +1,4 @@
-PYTHON (bozza)
+PYTHON
 ======
 
 <!-- toc -->
