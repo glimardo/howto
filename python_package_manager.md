@@ -37,10 +37,10 @@ Nel caso ci fossero problemi, puoi leggere [la pagina ufficiale](https://pip.pyp
 ```python
 pip install <nome pacchetto>             # Installa l'ultima versione
                                          # utile del pacchetto
-                                         # 
+                                          
 pip install <nome pacchetto>==<versione> # Installa esattamente questa 
                                          # versione del pacchetto
-                                         # 
+                                         
 pip install <nome pacchetto>>=<versione> # Indica la versione minima del 
                                          # pacchetto da installare
 ```
