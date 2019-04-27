@@ -1,9 +1,20 @@
 PYTHON PACKAGE MANAGER (bozza)
 ======
 
-<!-- toc -- >
+<!-- toc -->
 Indice
 ======
+- [Pip - il package manager di Python](#pip---il-package-manager-di-python)
+  * [Sito ufficiale](#sito-ufficiale)
+  * [Installare pip](#installare-pip)
+  * [Comandi fondamentali](#comandi-fondamentali)
+    + [Installare un pacchetto](#installare-un-pacchetto)
+    + [Installare dei pacchetti da una lista](#installare-dei-pacchetti-da-una-lista)
+    + [Disinstallare un pacchetto](#disinstallare-un-pacchetto)
+    + [Visualizzare la lista di pacchetti installati](#visualizzare-la-lista-di-pacchetti-installati)
+    + [Visualizzare i dettagli di un pacchetto installato](#visualizzare-i-dettagli-di-un-pacchetto-installato)
+  * [Cercare un pacchetto](#cercare-un-pacchetto)
+    + [Aggiornare un pacchetto alla nuova versione](#aggiornare-un-pacchetto-alla-nuova-versione)
 <!-- /toc -->
 
 ## Pip - il package manager di Python
