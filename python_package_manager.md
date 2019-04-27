@@ -1,4 +1,4 @@
-PYTHON PACKAGE MANAGER (bozza)
+PYTHON PACKAGE MANAGER
 ======
 
 <!-- toc -->
