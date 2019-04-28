@@ -90,6 +90,10 @@ Indice
 <!-- /toc -->
 
 
+Il database di esempio si trova [qui](https://github.com/glimardo/howto/blob/master/db_esempio.sql).  
+Puoi testare gli esempi su <http://www.sqlfiddle.com/>.
+
+
 # DDL(Data Definition Language)
 
 Definizione della struttura di un database
