@@ -1522,19 +1522,8 @@ Gestione delle transazioni effettuate.
 COMMIT;
 ```
 
-Esempio:
-
-```sql
-COMMIT;
-```
 
 ## Ripristinare dalle operazione di modifica
-
-```sql
-ROLLBACK;
-```
-
-Esempio:
 
 ```sql
 ROLLBACK;
