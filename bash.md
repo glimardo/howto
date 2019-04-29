@@ -1,4 +1,4 @@
-BASH (bozza)
+BASH (molto bozza)
 ====
 
 <!-- toc -- >
@@ -11,12 +11,39 @@ Indice
 
 ## Man
 
+```bash
 man comando
+```
 
+Esempio:
+
+```bash
+$ man echo
+ECHO(1)                                             User Commands                                             ECHO(1)
+
+NAME
+       echo - display a line of text
+
+SYNOPSIS
+       echo [SHORT-OPTION]... [STRING]...
+       echo LONG-OPTION
+[...]
+```
 
 ## Echo
 
-echo
+```bash
+echo comando
+```
+
+Esempio:
+
+```bash
+$ echo "Questo è un comando!"
+
+# Output
+Questo è un comando!
+```
 
 ## Caratteri di escape più utili
 
@@ -24,6 +51,7 @@ echo
 | :---: | :---: |
 | \n | a capo |
 | \t | tabulazione |
+| \" | Carattere di escape \ per mantenere in output il doppio apice |
 
 Esempio:
 
@@ -37,7 +65,14 @@ Seconda riga a capo
 
 ```bash
 $ printf "Prima colonna\tSeconda colonna\tTerza colonna\n"
+
+# Output
 Prima colonna   Seconda colonna Terza colonna
+```
+
+```bash
+$ echo "\"Questa frase mantiene i doppi apici in output\""
+"Questa frase mantiene i doppi apici in output"
 ```
 
 
@@ -60,12 +95,6 @@ Apice singolo
 ## Carattere jolly
 
 *
-
-## Visualizzare il contenuto di una variabile
-
-$variabile
-
-echo $variabile
 
 ## Sostituzione dell'istruzione
 
@@ -336,6 +365,13 @@ chmod
 
 ### Variabili
 
+#### Visualizzare il contenuto di una variabile
+
+$variabile
+
+echo $variabile
+
+
 ### Eseguire uno script
 
 #### Permessi di esecuzione
@@ -356,6 +392,35 @@ read
 
 $0
 
+### Stato di uscita dallo script
+
+Ogni comando ha uno stato di uscita:  
+
+| Stato di uscita  | Significato |
+| :---: | :---: |
+| 0 | comando eseguito correttamente |
+| numero diverso da 0 | codice dell'errore |
+
+```bash
+#!/bin/bash
+
+<istruzioni>
+
+exit $? # come stato indicherà quello
+        # dell'ultimo comando eseguito
+        # exit 0 indica convenzionalmente
+        # che lo script è terminato con
+        # successo
+
+```
+
+Esempio:
+
+```bash
+#!/bin/bash
+
+```
+
 ### La logica
 
 #### Gli operatori
@@ -368,23 +433,108 @@ $0
 
 #### L'istruzione if
 
+```bash
 if [condizione]
 then
    <istruzioni>
 else
    <altre istruzioni>
 fi
+```
+
+Esempio:
+
+```bash
+#!/bin/bash
+
+a=2
+b=3
+
+printf "Confronto se $a è maggiore o uguale a $b.\nValore di a: $a\nValore di b: $b \n"
+
+if [ $a -gt $b ]
+then
+   echo "Qualcosa non funziona!"
+else
+  echo "Difficile che $a sia maggiore o uguale a $b!"
+fi
+```
+
+Output:
+
+```bash
+Confronto se 2 è maggiore o uguale a 3.
+Valore di a: 2
+Valore di b: 3
+Difficile che 2 sia maggiore o uguale a 3!
+```
+
       
 ##### Elif
 
+```bash
 if [condizione]
 then
    <istruzioni>
 elif [altra condizione]
+then
+   <istruzioni>
 else
-   <altre istruzioni>
+   <istruzioni predefinite>
+
 fi
-     
+```  
+
+Esempio:
+
+```bash
+#!/bin/bash
+
+a=3
+b=3
+
+printf "Confronto se $a è maggiore o uguale a $b.\nValore di a: $a\nValore di b: $b \n"
+
+if [ $a -gt $b ]
+  then
+     echo "Qualcosa non funziona!"
+  elif [ $a -eq $b ]
+    then
+      echo "$a è uguale a $b!"
+  else
+    echo "Difficile che $a sia maggiore o uguale a $b!"
+fi
+```
+
+
+Output:
+
+```bash
+Confronto se 3 è maggiore o uguale a 3.
+Valore di a: 3
+Valore di b: 3
+3 è uguale a 3!
+```
+
+#### L'istruzione if su di una riga
+
+```bash
+if [condizione]; then ; else ; fi
+```  
+
+Esempio:
+
+```bash
+$ a=2; b=3; if [ $a -gt $b ]; then echo "Qualcosa non funziona!"; else echo "Difficile che $a sia maggiore o uguale a $b!"; fi
+```
+
+Output:
+
+```bash
+Difficile che 2 sia maggiore o uguale a 3!
+```
+
+
 #### Il ciclo for
 
 for <variabile> in <lista>;
