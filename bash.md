@@ -303,17 +303,6 @@ tar -xf
 
 ;;
 
-### Operatore logico and
-
-&&
-
-Il comando2 viene eseguito solo se comando1 è stato eseguito con successo
-
-### Operatore logico or
-
-||
-
-Il comando2 viene eseguito solo se comando1 è stato eseguito senza successo
 
 ## Informazioni sull'ambiente in uso
 
@@ -427,9 +416,68 @@ Esempio:
 
 ##### Operatori aritmetici
 
+| Operatore | Sintassi |
+|---|:-:|
+| Addizione | a + b | 
+| Sottrazione | a - b |
+| Moltiplicazione| a * b |
+| Potenza | a ** b|
+| Divisione | a / b|
+| Modulo (cioè il resto della divisione) | a % b|
+
 ##### Operatori di confronto
 
-##### Operatori binari
+| Operatore  | Significato | Esempio |
+| :---: | :---: | --- |
+| =  | Uguale a | $a = $b |
+| !=  | Diverso da | $a != $b |
+| >  | Maggiore di | $a > $b |
+| >=  | Maggiore od uguale a | $a >= $b |
+| <  | Minore di | $a < $b |
+| <=  | Minore od uguale a | $a <= $b |
+
+
+##### Operatori di confronto su stringhe
+
+
+| Operatore  | Significato | Esempio |
+| :---: | :---: | --- |
+| -z  | Verifica se la stringa è vuota | a="Sono una stringa"; if [[ -z $a ]]; then echo "La stringa è vuota"; else echo "La stringa non è vuota"; fi |
+| -n  | Verifica se la stringa non è vuota | a=""; if [[ -n $a ]]; then echo "La stringa è vuota"; else echo "La stringa non è vuota"; fi |
+
+##### Operatori binari di confronto
+
+| Operatore  | Significato | Esempio |
+| :---: | :---: | --- |
+| -eq  | è uguale | $a -eq $b |
+| -ne  | è diverso da | $a -ne $b |
+| -gt  | è maggiore di | $a -gt $b |
+| -ge  | è maggiore o uguale a | $a -ge $b |
+| -lt  | è minore o uguale a | $a -lt $b |
+| -le  | è minore o uguale a | $a -le $b |
+
+
+##### Operatori di verifica file
+
+| Operatore  | Significato |
+| :---: | :---: |
+| -e | restituisce True se esiste il file |
+| -f | restituisce True se il file non è una directory o un file di dispositivo |
+| -s | restituisce True se il file ha dimensioni maggiori di zero |
+| -d | restituisce True se il file è una directory |
+| -r | restituisce True se per l'utente che esegue la verifica il file ha permessi di letetura |
+| -w | restituisce True se per l'utente che esegue la verifica il file ha permessi di scrittura |
+| -x | restituisce True se per l'utente che esegue la verifica il file ha permessi di esecuzione |
+
+
+##### Operatori logici
+
+| Operatore  | Significato | Esempio |
+| :---: | :---: | --- |
+| && | il secondo comando viene eseguito solo se il primo è stato eseguito con successo  | <comando 1> && <comando 2> |
+| \|\| | Il secondo comando viene eseguito solo se il primo è stato eseguito senza successo | <comando 1> \|\|<comando 2> |
+
+
 
 #### L'istruzione if
 
