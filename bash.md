@@ -1,4 +1,4 @@
-BASH SCRIPTING (bozza)
+BASH (bozza)
 ====
 
 <!-- toc -- >
@@ -210,3 +210,92 @@ uname -m
 uname -n
 uname -s
 uname -r
+
+## Visualizzare lo spazio utilizzato nel disco
+
+### du
+
+du
+
+### df
+
+df
+
+## Gestione dei permessi sui file
+
+### Visualizzare l'utente in uso
+
+whoami
+
+### Visualizzare il gruppo a cui appartiene l'utente
+
+groups
+
+### Cambiare utente
+
+su nomeutente
+
+### Cambiare i permessi sui file
+
+chmod
+
+
+## Scripting
+
+### Shebang
+
+#!
+
+### Variabili
+
+### Eseguire uno script
+
+#### Permessi di esecuzione
+
+chmod +x
+chmod 755
+
+#### Lanciare uno script
+
+./
+sh 
+
+### Leggere un input
+
+read
+
+### La logica
+
+#### Gli operatori
+
+##### Operatori aritmetici
+
+##### Operatori di confronto
+
+##### Operatori binari
+
+#### L'istruzione if
+
+if [condizione]
+then
+   <istruzioni>
+else
+   <altre istruzioni>
+fi
+     
+#### Il ciclo for
+
+for <variabile> in <lista>;
+do
+   <istruzioni>
+done
+     
+     
+#### Il ciclo while
+
+while [condizione]
+do
+    <istruzioni>
+done  
+
+
