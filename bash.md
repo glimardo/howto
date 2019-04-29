@@ -7,6 +7,13 @@ Indice
 
 <!-- /toc -->
 
+# I FONDAMENTALI
+
+## Man
+
+man comando
+
+
 ## Echo
 
 echo
@@ -17,9 +24,33 @@ echo
 \r
 \t
 
-## Man
+## Separatore di comando
 
-man comando
+;
+
+## Quoting parziale
+
+Doppio apice
+
+## Quoting totale
+
+Apice singolo
+
+## Escape
+
+\
+
+## Carattere jolly
+
+*
+
+## Visualizzare il contenuto di una variabile
+
+$variabile
+
+## Sostituzione dell'istruzione
+
+variabile = `istruzione`
 
 ## History
 
@@ -29,6 +60,10 @@ history
 !?comando?
 
 ## Stream
+
+### Pipeline
+
+#### La filosofia della pipeline
 
 ### Pipe
 
@@ -77,6 +112,10 @@ ls
 
 cd
 
+### Spostarsi nella cartella precedente
+
+cd -
+
 ### Creare una cartella
 
 mkdir
@@ -121,6 +160,10 @@ find
 
 ## Qualcosa
 
+### la data
+
+date
+
 ### Cat
 
 cat
@@ -132,6 +175,12 @@ cut
 ### Split
 
 split
+
+### Verificare se un sistema è su
+
+ping
+
+## Filtri
 
 ### wc
 
@@ -155,35 +204,44 @@ sort
 
 uniq
 
-
 ### Cercare del testo dentro dei file
-
-#### Grep
 
 grep
 
-### Gestire un formato zip
 
-#### comprimere dei file
+## Paginatori
+
+### more
+
+more
+
+### less
+
+less
+
+
+## Gestire un formato zip
+
+### comprimere dei file
 gzip
 
-#### decomprimere un file zip
+### decomprimere un file zip
 gunzip
 
 
-### Gestire un archivio tar.gz
+## Gestire un archivio tar.gz
 
-#### Comprimere dei file in un archivio
+### Comprimere dei file in un archivio
 
 tar -cf nome_archivio.tar
 
 tar -cfz
 
-#### Aggiungere dei file ad un archivio già esistente
+### Aggiungere dei file ad un archivio già esistente
 
 tar -r
 
-#### Decomprimere un archivio
+### Decomprimere un archivio
 
 tar -xf
 
@@ -198,9 +256,13 @@ tar -xf
 
 &&
 
+Il comando2 viene eseguito solo se comando1 è stato eseguito con successo
+
 ### Operatore logico or
 
 ||
+
+Il comando2 viene eseguito solo se comando1 è stato eseguito senza successo
 
 ## Informazioni sull'ambiente in uso
 
@@ -246,6 +308,10 @@ chmod
 
 #!
 
+### Commenti
+
+#
+
 ### Variabili
 
 ### Eseguire uno script
@@ -263,6 +329,10 @@ sh
 ### Leggere un input
 
 read
+
+### Passaggio di parametri
+
+$0
 
 ### La logica
 
@@ -282,6 +352,16 @@ then
 else
    <altre istruzioni>
 fi
+      
+##### Elif
+
+if [condizione]
+then
+   <istruzioni>
+elif [altra condizione]
+else
+   <altre istruzioni>
+fi
      
 #### Il ciclo for
 
@@ -289,13 +369,34 @@ for <variabile> in <lista>;
 do
    <istruzioni>
 done
-     
-     
+
+
+#### Case
+
+Case <variabile> in
+valore1) <istruzione>;;
+valoren) <istruzione>;;
+*) <istruzione>;;
+esac
+
+
 #### Il ciclo while
 
+while: # equivale a while true
+do
+    <istruzioni>
+done  
+   
+##### Ciclo infinito
+   
 while [condizione]
 do
     <istruzioni>
 done  
+   
+#### Il ciclo until
 
-
+until [condizione]
+do
+    <istruzioni>
+done  
