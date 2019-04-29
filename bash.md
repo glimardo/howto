@@ -54,41 +54,6 @@ history
 
 <
 
-## Qualcosa
-
-### Cat
-
-cat
-
-### cut
-
-cut
-
-### Split
-
-split
-
-### wc
-
-wc
-
-### head
-
-head
-
-### tail
-
-tail
-
-### tee
-
-### sort
-
-sort
-
-### uniq
-
-uniq
 
 
 
@@ -153,6 +118,49 @@ find
 
 -type -f  
 -type -d
+
+## Qualcosa
+
+### Cat
+
+cat
+
+### cut
+
+cut
+
+### Split
+
+split
+
+### wc
+
+wc
+
+### head
+
+head
+
+### tail
+
+tail
+
+### tee
+
+### sort
+
+sort
+
+### uniq
+
+uniq
+
+
+### Cercare del testo dentro dei file
+
+#### Grep
+
+grep
 
 ### Gestire un formato zip
 
