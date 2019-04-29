@@ -20,9 +20,26 @@ echo
 
 ## Caratteri di escape più utili
 
-\n
-\r
-\t
+| Comando  | Significato |
+| :---: | :---: |
+| \n | a capo |
+| \t | tabulazione |
+
+Esempio:
+
+```bash
+$ printf "Prima riga\nSeconda riga a capo\n"
+
+# Output
+Prima riga
+Seconda riga a capo
+```
+
+```bash
+$ printf "Prima colonna\tSeconda colonna\tTerza colonna\n"
+Prima colonna   Seconda colonna Terza colonna
+```
+
 
 ## Separatore di comando
 
@@ -48,16 +65,21 @@ Apice singolo
 
 $variabile
 
+echo $variabile
+
 ## Sostituzione dell'istruzione
 
 variabile = `istruzione`
 
-## History
+## Storico dei comandi utilzzati
 
-history
-!!
-!comando
-!?comando?
+| Comando  | Significato |
+| :---: | :---: |
+| history |  |
+| !! |  | 
+| !comando |  |
+| !?comando? |  |
+
 
 ## Stream
 
