@@ -278,7 +278,25 @@ $ cd bozze
 
 ### Creare un file
 
-touch
+```bash
+touch <nome file>
+```
+
+Se il file non esiste, viene creato.
+Se il file esiste, viene aggiornata all'ora corrente in cui si usa il comando.
+
+Esempio:
+
+```bash
+$ ls nuovo_file.txt
+ls: nuovo_file.txt: No such file or directory
+$ touch nuovo_file.txt
+$ ls -l nuovo_file.txt
+-rw-r--r--  1 giandoe  staff  0  1 Mag 99:20 nuovo_file.txt
+$ ls -lr nuovo_file.txt
+$ touch nuovo_file.txt
+-rw-r--r--  1 gian  staff  0  1 Mag 99:21 nuovo_file.txt
+```
 
 ### Sapere il tipo di file
 
@@ -377,9 +395,6 @@ find
 
 ## Qualcosa
 
-### la data
-
-date
 
 ### Cat
 
@@ -440,6 +455,91 @@ prima quarta                         # e voglio visualizzare la prima e
 a d                                  # la quarta colonna
 e h
 ```
+
+
+### Gestire le date
+
+```bash
+date 
+```
+
+Esempio:
+
+```bash
+$ date
+Mer  1 Mag 2019 99:99:99 CEST
+```
+
+#### Giorno, mese, anno
+
+Con il comando date, sono utili i seguenti parametri:
+
+| Parametro  | Significato |
+| :---: | :---: |
+| %d | giorno |
+| %a | giorno abbreviato es. 'Lun'|
+| %A | giorno per esteso |
+| %m | mese |
+| %b | mese abbreviato es. 'Gen' |
+| %B | mese per esteso |
+| %Y | anno |
+| %H | ora |
+| %M | minuti |
+| %S | secondi |
+| %F | Equivale a scrivere %Y-%m-%d |
+
+
+```bash
+date +%Y-%m-%d # Formato anno-mese-giorno
+               # Ovviamente puoi usarne solo uno
+               # o posizionarli come ti sono
+               # più utili
+```
+
+Esempio:
+
+```bash
+$ date +%Y-%m-%d
+2019-05-01
+
+$ data=$(date +%Y-%m-%d); echo $data
+2019-05-01
+```
+
+
+### Creare un link simbolico a file esistenti
+
+
+```bash
+ln -s <nome file> <nuovo nome file>
+```
+
+Esempio:
+
+```bash
+$ ln -s permessi_sul_file.txt permessi_sul_file
+$ ls -lrt
+total 0
+-rwx------  1 giandoe  staff   0  1 Mag 99:99 permessi_sul_file.txt
+lrwxr-xr-x  1 giandoe  staff  21  1 Mag 99:99 permessi_sul_file -> permessi_sul_file.txt
+```
+
+
+#### rimuovere un link simbolico
+
+```bash
+rm <link simbolico>
+```
+
+Esempio:
+
+```bash
+$ rm permessi_sul_file
+$ ls -lrt
+total 0
+-rwx------  1 giandoe  staff  0  1 Mag 99:99 permessi_sul_file.txt
+```
+
 
 ### Split
 
