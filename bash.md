@@ -33,16 +33,43 @@ SYNOPSIS
 ## Echo
 
 ```bash
-echo comando
+echo <variabile>
+echo <espressione>
 ```
 
 Esempio:
 
 ```bash
-$ echo "Questo è un comando!"
+$ echo "Questa è una frase!"
 
 # Output
-Questo è un comando!
+Questa è una frase!
+```
+
+Tips:
+Echo cancella tutti i ritorni a capo nell'output:
+
+```bash
+$ echo "Questa è la prima riga\nQuesta è la seconda ma echo non mi fa andare a capo :("
+
+#Output
+Questa è la prima riga\nQuesta è la seconda ma echo non mi fa andare a capo :(
+```
+
+## Printf
+
+```bash
+printf <espressione formattata>
+```
+
+Esempio:
+
+```bash
+$ printf "Stampo a video questa frase! \nE vado a capo con quest'altra! \n"
+
+#Output
+Stampo a video questa frase!
+E vado a capo con quest'altra!
 ```
 
 ## Caratteri di escape più utili
@@ -152,12 +179,46 @@ pwd
 
 ### Visualizzare il contenuto  di una cartella
 
+```
 ls 
--l
--a
--r
--t
--1
+```
+
+
+Esempio:
+
+```bash
+$ ls 
+LICENSE             db_esempio.sql          python_virtual_env.md       testing.md
+README.md           git.md              regex.md            vba.md
+agile_testing.md        markdown.md         ruby.md             vi.md
+awk.md              python.md           sql.md
+bash.md             python_package_manager.md   template.md
+```
+
+Se vuoi avere maggiori dettagli sui file elencati, sono interessanti questi parametri:
+
+| Parametro | Significato | Esempio |
+|:-:|--- | --- |
+| -l | mostra maggiori dettagli sui file | ls -l |
+| -a | mostra anche i file nascosti  | ls -a |
+| -r | inverte l'ordine della ricerca  | ls -r |
+| -t | mostra i file in ordine cronologico di modifica | ls -a |
+| -1 | mostra un file per riga | ls -1 |
+
+Ovviamente, puoi combinare i parametri che ti interessano insieme:
+
+```bash
+$ ls -lart
+total 488
+drwxr-xr-x   8 giandoe  staff    256 31 Apr 99:99 ..
+-rw-r--r--   1 giandoe  staff   1067 31 Apr 99:99 LICENSE
+-rw-r--r--   1 giandoe  staff     69 31 Apr 99:99 agile_testing.md
+-rw-r--r--@  1 giandoe  staff  11302 31 Apr 99:99 git.md
+-rw-r--r--@  1 giandoe  staff   3808 31 Apr 99:99 markdown.md
+-rw-r--r--@  1 giandoe  staff   4884 31 Apr 99:99 regex.mdw
+...
+```
+
 
 ### Spostarsi tra cartelle
 
@@ -169,16 +230,49 @@ cd -
 
 ### Creare una cartella
 
-mkdir
+```bash
+mkdir <nome cartella>
+```
+
+Esempio:
+
+```bash
+$ mkdir test
+$ cd test
+$ pwd
+/esempi/test
+```
 
 #### Creare una cartella con relative sottocartelle
 
-mkdir -p
+```bash
+mkdir -p <cartella>/<sottocartella>/<sottocartella>
+```
+
+Esempio:
+
+```bash
+$ mkdir -p esempio/howto/bozze
+$ cd esempio/howto/bozze/
+$ pwd
+/esempi/test/esempio/howto/bozze
+```
+
 
 ### Cancellare una cartella
 
-rmdir
+```bash
+rmdir <cartella> # la cartella DEVE essere vuota!
+```
 
+Esempio:
+
+```bash
+$ rmdir bozze
+$ cd bozze
+-bash: cd: bozze: No such file or directory # Corretto: la cartella
+                                            # è stata eliminata
+```
 
 ## Gestione dei file
 
@@ -190,17 +284,89 @@ touch
 
 file 
 
-### copiare un file
+### copiare un file od una directory
 
-cp
+```bash
+cp <nome file> <nuovo nome file>
+cp <nome file> <nuovo path>/<nuovo nome file>
+```
+
+```
+Ricorda:
+- se <nome file> è uguale <nuovo nome file>  
+  allora <nuovo nome file> sarà sovrascritto
+- se <nome file> e <nuovo nome file> sono nella stessa cartella, 
+  allora verrà creata una copia di <nome file>
+```
+
+
+Esempio:
+
+```bash
+$ cp esempio.txt nuovo_path/esempio.txt
+$ cd nuovo_path/
+$ ls esempio.txt
+esempio.txt
+```
+
+Se usi l'opzione -v, potrai vedere in output cosa sta facendo il comando:
+
+```bash
+$ cp -v esempio.txt nuovo_path/esempio.txt
+esempio.txt -> nuovo_path/esempio.txt
+```
 
 ### muovere o rinominare un file
 
-mv
+#### Rinominare un file o directory
+
+```bash
+mv <nome file> <nuovo nome file>
+```
+
+Esempio:
+
+```bash
+$ mv esempio.txt nuovo_esempio.txt
+$ ls esempio.txt
+ls: esempio.txt: No such file or directory # L'ho rinominato!
+$ ls nuovo_esempio.txt
+nuovo_esempio.txt
+```
+
+#### Spostare uno o più file/directory
+
+```bash
+mv <nome file> <nuovo path>
+```
+
+Esempio:
+
+```bash
+$ mv -v nuovo_esempio.txt nuovo_path/
+nuovo_esempio.txt -> nuovo_path/nuovo_esempio.txt
+$ ls nuovo_esempio.txt
+ls: nuovo_esempio.txt: No such file or directory # Corretto! L'ho spostato
+```
+
 
 ### cancellare un file
 
-rm
+```bash
+rm <nome file>
+```
+
+```bash
+rm -i <nome file> # Chiede di procedere prima di cancellare
+```
+
+Esempio:
+
+```bash
+$ rm esempio.txt
+$ ls esempio.txt
+ls: esempio.txt: No such file or directory # Corretto: ho eliminato il file
+```
 
 ### Cercare un file
 
@@ -217,11 +383,63 @@ date
 
 ### Cat
 
-cat
+#### Visualizzare il contenuto di un file
+
+```bash
+cat <nome file>
+```
+
+Esempio: 
+```bash
+$ cat esempio.txt
+Questo contenuto
+lo sto guardando
+con il comando cat
+```
+
+#### Concatenare più file
+
+```bash
+cat <primo file> <secondo file> <ennesimo file> > <file finame>
+```
+
+Esempio: 
+
+```bash
+$ cat primo.txt
+primo file da concatenare
+$ cat secondo.txt
+secondo file da concatenare
+$ cat terzo.txt
+terzo file da concatenare
+$
+$ cat primo.txt secondo.txt terzo.txt > file_uniti.txt
+$ cat file_uniti.txt
+primo file da concatenare
+secondo file da concatenare
+terzo file da concatenare
+```
+
 
 ### cut
 
-cut
+```bash
+cut -d <delimitatore> -f<numero colonna che vuoi vedere>
+```
+
+Esempio:
+
+```bash
+$ cat esempio.txt
+prima seconda terza quarta
+a b c d
+e f g h
+$
+$ cat esempio.txt | cut -d ' ' -f1,4 # come delimitatore uso lo spazio
+prima quarta                         # e voglio visualizzare la prima e
+a d                                  # la quarta colonna
+e h
+```
 
 ### Split
 
@@ -339,8 +557,70 @@ su nomeutente
 
 ### Cambiare i permessi sui file
 
-chmod
+```
+chmod <permessi> <nomefile>
+```
 
+
+Il modo più semplice per dare i permessi è il seguente:
+
+| Permesso  | Esempio | Significato | 
+| :---: | --- | --- |
+| r | chmod +r <nomefile> | si danno i permessi di lettura al file |
+| w | chmod +w <nomefile> | si danno i permessi di scrittura al file |
+| x | chmod +x <nomefile> | si danno i permessi di esecuzione al file |
+| r | chmod -r <nomefile> | si tolgono i permessi di al file |
+| w | chmod -w <nomefile> | si tolgono i permessi di scrittura al file|
+| x | chmod -x <nomefile> | si tolgono i permessi di esecuzione al file |
+
+
+Esempio:
+
+```bash
+$ chmod +r permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod +w permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod +x permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rwxr-xr-x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$
+$ chmod -r permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+--wx--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod -w permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+---x--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod -x permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+----------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+```
+
+Si possono dare i permessi anche in forma ottale:
+
+| Permesso  | Forma ottale | 
+| :---: | --- |
+| rwx | 7 |
+| rw- | 6 |
+| r-x | 5 |
+| r-- | 4 |
+| -wx | 3 |
+| -w- | 2 |
+| --x | 1 |
+| --- | 0 |
+
+Esempio:
+
+Esempio:
+
+```bash
+$ chmod 700 permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rwx------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+
+```
 
 ## Scripting
 
@@ -373,9 +653,46 @@ chmod 755
 ./
 sh 
 
-### Leggere un input
+### Leggere un input inserito da tastiera
 
-read
+```bash
+read <nome variabile>
+```
+
+Esempio:
+
+```bash
+echo "Ciao, come ti chiami? "
+read nome
+echo "Ciao, $nome"
+```
+
+Output
+```
+Ciao, come ti chiami?
+Gian
+Ciao, Gian
+```
+
+Puoi passare anche più valori separati dallo spazio, \ o un tab:
+
+```bash
+echo "Inserisci tre parole a caso: "
+read var1 var2 var3
+echo "prima parola: $var1"
+echo "seconda parola: $var2"
+echo "terza parola: $var3"
+```
+
+Output
+
+```
+Inserisci tre parole a caso:
+howto su bash
+prima parola: howto
+seconda parola: su
+terza parola: bash
+```
 
 ### Passaggio di parametri
 
@@ -477,6 +794,13 @@ Esempio:
 | && | il secondo comando viene eseguito solo se il primo è stato eseguito con successo  | <comando 1> && <comando 2> |
 | \|\| | Il secondo comando viene eseguito solo se il primo è stato eseguito senza successo | <comando 1> \|\|<comando 2> |
 
+
+##### Operatori booleani
+
+| Operatore  | Significato |
+| :---: | :---: | 
+| true | Restituisce 0 se l'esecuzione di un'istruzione è andata bene |
+| false | Restituisce 1 se l'esecuzione di un'istruzione non è andata bene |
 
 
 #### L'istruzione if
