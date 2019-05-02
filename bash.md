@@ -638,7 +638,6 @@ sort -u <nome file>
 sort -ru <nome file> 
 
 cat <nome file> | sort -u
-
 cat <nome file> | sort -ru
 ```
 
@@ -679,9 +678,96 @@ s
 ```
 
 
-### uniq
+### Rimuovere i duplicati da un input
 
-uniq
+Per gli esempi, utilizzo il file ordinamento.txt avente il seguente contenuto:
+
+```bash
+$ cat ordinamento.txt
+a
+s
+d
+f
+g
+a
+b
+c
+c
+a
+```
+
+
+#### Rimuovere tutti i duplicati
+
+```
+cat <nome file> | sort | uniq # occorre SEMPRE ordinare prima di poter usare uniq
+```
+
+Esempio:
+
+```
+$ cat ordinamento.txt | sort | uniq
+a
+b
+c
+d
+f
+g
+s
+```
+
+
+#### Mostrare solo i valori duplicati
+
+```
+cat <nome file> | sort | uniq -d # occorre SEMPRE ordinare prima di poter usare uniq
+```
+
+Esempio:
+
+```
+$ cat ordinamento.txt | sort | uniq -d
+a
+c
+```
+
+
+#### Mostra solo le righe duplicate
+
+```
+cat <nome file> | sort | uniq -D # occorre SEMPRE ordinare prima di poter usare uniq
+```
+
+Esempio:
+
+```
+$ cat ordinamento.txt | sort | uniq -D
+a
+a
+a
+c
+c
+```
+
+
+#### Mostra solo le righe che non hanno duplicati
+
+```
+cat <nome file> | sort | uniq -u # occorre SEMPRE ordinare prima di poter usare uniq
+```
+
+Esempio:
+
+```
+$ cat ordinamento.txt | sort | uniq -u
+b
+d
+f
+g
+s
+```
+
+
 
 ### Cercare del testo dentro dei file
 
