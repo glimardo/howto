@@ -834,7 +834,92 @@ s
 
 ### Cercare del testo dentro dei file
 
-grep
+```bash
+Per gli esempi si userà il seguente file:
+
+$ cat attori_endgame.txt
+Robert Downey Jr.
+Chris Evans
+Mark Ruffalo
+Chris Hemsworth
+Scarlett Johansson
+Jeremy Renner
+Don Cheadle
+Paul Rudd
+Brie Larson
+Karen Gillan
+Danai Gurira
+Josh Brolin
+```
+
+#### Ricerca semplice
+
+```bash
+grep <testo/espressione regolare> <nome file>
+
+cat <nome file> | grep <testo/espressione regolare>
+
+<comando> | grep <testo/espressione regolare> # puoi filtrare anche l'output
+                                              # di un comando
+```
+
+Esempio:
+
+```bash
+$ cat attori_endgame.txt | grep "Robert"
+Robert Downey Jr.
+```
+
+
+### Raffinare la ricerca
+
+La ricerca con grep si può raffinare utilizzando i seguenti parametri:
+
+| Parametro  | Significato | Esempio |
+| :---: | --- | --- |
+| -i | non fa distinzione tra maiuscole e minuscole  | grep -i <testo/espressione regolare |
+| -c | conta quante volte compare <testo/espressione regolare>  | grep -c <testo/espressione regolare> |
+| -n  | oltre a <testo/espressione regolare> mostra anche in che riga si trova  | grep -n <testo/espressione regolare> |
+|  -v | scarta il <testo/espressione regolare> ricercato   | grep -v <testo/espressione regolare> |
+|  -r | ricerca in modo ricorsivo nella cartella e nelle sue sottocartelle  | grep -r <testo/espressione regolare> |
+| -w  | cerca esattamente questa parola  | grep -w <testo/espressione regolare> |
+
+Esempio:
+
+```bash
+$ cat attori_endgame.txt | grep -i "Robert"
+Robert Downey Jr.
+$
+$ cat attori_endgame.txt | grep -c "Chris"
+2
+$ cat attori_endgame.txt | grep -n "Chris"
+2:Chris Evans
+4:Chris Hemsworth
+$
+$ cat attori_endgame.txt | grep -v "Chris"
+Robert Downey Jr.
+Mark Ruffalo
+Scarlett Johansson
+Jeremy Renner
+Don Cheadle
+Paul Rudd
+Brie Larson
+Karen Gillan
+Danai Gurira
+Josh Brolin
+$
+$ cat attori_endgame.txt | grep -r "Mark"
+attori_endgame.txt:Mark Ruffalo
+$
+$ cat attori_endgame.txt | grep -r "Josh"
+attori_endgame.txt:Josh Brolin
+$
+$ cat attori_endgame.txt | grep -r "Jos"
+attori_endgame.txt:Josh Brolin
+$
+$ cat attori_endgame.txt | grep -w "Jos"
+$
+```
 
 
 ## Paginatori
