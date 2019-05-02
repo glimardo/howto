@@ -594,6 +594,38 @@ c
 a
 ```
 
+#### Continuare a filtrare sempre le ultime righe
+
+Pensa ad un log che viene costantemente popolato.
+Può essere molto utile poter vedere sempre le ultime righe
+prodotte.
+Per poter compiere questa azione, tail permette di utilizzare il parametro -f:
+
+```bash
+tail -f <nome file>    # di default, vengono visualizzate le ultime 10 righe prodotte
+
+tail -fn <nome file>   # al posto di n, devi mettere il numero di righe
+                       # finali da visualizzare
+
+cat <nome file> | tail -f
+```
+
+Per interrompere il comando che rimane sempre attivo, occorre premere CTRL + C.
+
+Esempio:
+
+
+```bash
+$ tail -4f ordinamento.txt
+b
+c
+c
+a   # Fino a qui, tail rimane sempre attivo per poter leggere le ultime 4 righe 
+^C  # Qui è stato premuto CTRL + C per poter interrompere il comando
+    # e da terminale vedrai scritto ^C
+$
+```
+
 ### tee
 
 ### Ordinamento
