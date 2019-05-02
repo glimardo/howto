@@ -555,13 +555,44 @@ ping
 
 wc
 
-### head
+### Filtrare le prime righe da un file
 
-head
+```bash
+head <nome file>    # di default, vengono visualizzate le prime 10 righe
 
-### tail
+head -n <nome file> # al posto di n, devi mettere il numero di righe
+                    # iniziali da visualizzare
 
-tail
+cat <nome file> | head 
+```
+
+Esempio:
+
+```bash
+$ head -2 ordinamento.txt
+a
+s
+```
+
+### Filtrare le ultime righe di un file
+
+```bash
+tail <nome file>    # di default, vengono visualizzate le ultime 10 righe
+
+tail -n <nome file> # al posto di n, devi mettere il numero di righe
+                    # finali da visualizzare
+
+cat <nome file> | tail 
+```
+
+Esempio:
+
+```bash
+$ tail -3 ordinamento.txt
+c
+c
+a
+```
 
 ### tee
 
