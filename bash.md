@@ -565,9 +565,119 @@ tail
 
 ### tee
 
-### sort
+### Ordinamento
 
-sort
+Per gli esempi, utilizzo il file ordinamento.txt avente il seguente contenuto:
+
+```bash
+$ cat ordinamento.txt
+a
+s
+d
+f
+g
+a
+b
+c
+c
+```
+
+
+#### Ordinamento crescente
+
+```bash
+sort <nome file>
+
+cat <nome file> | sort
+```
+
+Esempio:
+
+```bash
+$ cat ordinamento.txt | sort
+a
+a
+b
+c
+c
+d
+f
+g
+s
+```
+
+
+#### Ordinamento decrescente
+
+```bash
+sort -r <nome file>
+
+cat <nome file> | sort -r
+```
+
+Esempio:
+
+```bash
+$ cat ordinamento.txt | sort -r
+s
+g
+f
+d
+c
+c
+b
+a
+a
+```
+
+
+#### Ordinamento eliminando i duplicati
+
+```bash
+sort -u <nome file>  
+sort -ru <nome file> 
+
+cat <nome file> | sort -u
+
+cat <nome file> | sort -ru
+```
+
+Esempio:
+
+```bash
+$ cat ordinamento.txt | sort -u
+a
+b
+c
+d
+f
+g
+s
+```
+
+
+#### Redirigere l'ordinamento in un altro file
+
+```bash
+cat <nome file> | sort -o <nuovo file>
+```
+
+Esempio:
+
+```bash
+$ cat ordinamento.txt | sort -o parole_ordinate.txt
+$ cat parole_ordinate.txt
+a
+a
+b
+c
+c
+d
+f
+g
+s
+```
+
 
 ### uniq
 
