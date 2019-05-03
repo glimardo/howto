@@ -25,3 +25,19 @@ Esempio:
 | A  | B | C | 
 | :---: | --- | --- |
 |   |   |   |
+
+
+```bash
+
+```
+
+Esempio:
+
+```bash
+
+```
+
+Output: 
+```bash
+
+```
