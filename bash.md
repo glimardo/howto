@@ -1090,6 +1090,31 @@ $ ls -l permessi_sul_file.txt
 
 ```
 
+## Gestire le stringhe
+
+### Lunghezza di una stringa
+
+
+```bash
+stringa = "<frase>"
+
+${#stringa} # Restituisce la lunghezza della stringa
+```
+
+Esempio:
+
+```bash
+stringa="Questa è una stringa con cui posso fare esperimenti"
+
+printf ${#stringa}
+```
+
+### Concatenare le stringhe
+### Ricerare nelle stringhe
+### Sostituzione in una stringa
+### Eliminare gli spazi in una frase
+### Cambiare la stringa tutta in MAIUSCOLO o minuscolo
+
 ## Scripting
 
 ### Shebang
