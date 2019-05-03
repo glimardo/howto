@@ -551,9 +551,33 @@ ping
 
 ## Filtri
 
-### wc
+### Contare il numero di parole
 
-wc
+
+```bash
+wc <nome file>
+
+cat <nome file> | wc
+```
+
+Esempio:
+
+```bash
+$ wc attori_endgame.txt
+ 12  25 165 attori_endgame.txt  # 12 linee
+                                # 25 parole
+                                # 165 caratteri
+ 
+```
+
+Puoi raffinare il comando wc con i seguenti parametri:
+
+| Parametro | Esempio | Significato | 
+| :---: | --- | --- |
+| -l | wc -l <nome file> | indica il numero delle righe totali del file |
+| -c | wc -c <nome file> | indica il numero totale dei caratteri  |
+| -w | wc -w <nome file> | indica il numero totale di parole  |
+
 
 ### Filtrare le prime righe da un file
 
