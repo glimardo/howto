@@ -1604,18 +1604,73 @@ esac
 
 #### Il ciclo while
 
-while: # equivale a while true
-do
-    <istruzioni>
-done  
-   
-##### Ciclo infinito
-   
+
+```bash
 while [condizione]
 do
     <istruzioni>
+    <Ricordati valutare lo stato della condizione>
 done  
-   
+```
+
+Esempio:
+
+```bash
+CONTATORE=0
+
+while [ $CONTATORE -lt 5 ]
+  do
+     printf "$CONTATORE è ancora < 5! \n"
+     let CONTATORE=CONTATORE+1
+  done
+```
+
+Output: 
+```bash
+0 è ancora < 5!
+1 è ancora < 5!
+2 è ancora < 5!
+3 è ancora < 5!
+4 è ancora < 5!
+```
+
+Attenzione a non sbagliare la condizione, altrimenti entri in
+un ciclo infinito dal quale non ne esci più!
+
+
+##### Ciclo infinito
+
+```bash
+while: # equivale a while true
+do
+    <istruzioni>
+    <Ricordati valutare lo stato della condizione>
+done  
+```
+
+##### L'istruzione while su di una riga
+
+```bash
+COSTANTE=<valore>; while [condizione]; do <istruzioni> <Ricordati valutare lo stato della condizione>; done
+```
+
+Esempio:
+
+```bash
+CONTATORE=0; while [ $CONTATORE -lt 5 ]; do printf "$CONTATORE è ancora < 5! \n";  let CO
+NTATORE=CONTATORE+1; done
+```
+
+Output: 
+```bash
+0 è ancora < 5!
+1 è ancora < 5!
+2 è ancora < 5!
+3 è ancora < 5!
+4 è ancora < 5!
+```
+
+
 #### Il ciclo until
 
 until [condizione]
