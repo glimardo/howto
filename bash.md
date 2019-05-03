@@ -1092,28 +1092,148 @@ $ ls -l permessi_sul_file.txt
 
 ## Gestire le stringhe
 
-### Lunghezza di una stringa
-
+Si utilizzerà la variabile di esempio:
 
 ```bash
-stringa = "<frase>"
+stringa="Questa è una stringa con cui posso fare esperimenti"
+```
 
+### Lunghezza di una stringa
+
+```bash
 ${#stringa} # Restituisce la lunghezza della stringa
 ```
 
 Esempio:
 
 ```bash
-stringa="Questa è una stringa con cui posso fare esperimenti"
-
 printf ${#stringa}
 ```
 
+Output:
+
+```bash
+51
+```
+
+
 ### Concatenare le stringhe
-### Ricerare nelle stringhe
+
+```bash
+prima_stringa = "<testo>"
+seconda_stringa = "<testo>"
+concatenazione = "${prima_stringa} ${seconda_stringa}"
+```
+
+Esempio:
+
+```bash
+stringa1="Prima stringa"
+stringa2="Seconda stringa"
+stringa3="${stringa1} ${stringa2}"
+echo "$stringa3"
+```
+
+Output:
+
+```bash
+Prima stringa Seconda stringa
+```
+
 ### Sostituzione in una stringa
-### Eliminare gli spazi in una frase
+
+```bash
+${stringa//<parola da sostituire>/<parola con cui vuoi sostituire>}
+```
+
+Esempio:
+
+```bash
+echo ${stringa//con/su}
+```
+
+Output: 
+```bash
+# Sostituzione di una parola
+Questa è una stringa su cui posso fare esperimenti
+```
+
 ### Cambiare la stringa tutta in MAIUSCOLO o minuscolo
+
+#### Maiuscolo
+
+```bash
+echo ${stringa^^}
+```
+
+Esempio:
+
+```bash
+$ echo ${stringa^^}
+```
+
+Output: 
+```bash
+QUESTA È UNA STRINGA CON CUI POSSO FARE ESPERIMENTI
+```
+
+
+#### Minuscolo
+
+```bash
+echo ${stringa,,}
+```
+
+Esempio:
+
+```bash
+stringa_maiuscolo="QUESTA È UNA STRINGA CON CUI POSSO FARE ESPERIMENTI"
+printf "Stringa tutta in minuscolo: \n"
+echo "${stringa_maiuscolo,,}"
+```
+
+Output: 
+```bash
+Stringa tutta in minuscolo:
+questa è una stringa con cui posso fare esperimenti
+```
+
+### Estrarre delle sottostringhe
+
+Data una variabile stringa, si possono utilizzare i seguenti comandi per estrarre delle sottostringhe:
+
+| Comando  | A cosa serve | 
+| :---: | --- |
+| ${stringa:<posizione iniziale>,<posizione in cui si trova un carattere>} | Estrarre una sottostringa a partire dalle posizioni indicate |
+| ${stringa:<posizione iniziale della parola>:<posizione finale della parola>} | Estrarre una parola |
+| ${stringa:(<indice negativo partendo dalla fine>)}  | Estrae una parola partendo dalla fine  |
+
+
+Esempio:
+
+```bash
+
+# Estrarre un carattere
+printf ${stringa:0,5}
+printf "\n"
+
+# Estrarre una parola
+printf ${stringa:0:6}
+printf "\n"
+
+# Estrarre una parola a partire dalla fine di una stringa
+printf ${stringa:(-11)}
+printf "\n"
+```
+
+Output: 
+
+```bash
+a
+Questa
+esperimenti
+```
+
 
 ## Scripting
 
