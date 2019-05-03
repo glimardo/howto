@@ -1501,7 +1501,7 @@ Valore di b: 3
 3 è uguale a 3!
 ```
 
-#### L'istruzione if su di una riga
+##### L'istruzione if su di una riga
 
 ```bash
 if [condizione]; then ; else ; fi
@@ -1522,11 +1522,76 @@ Difficile che 2 sia maggiore o uguale a 3!
 
 #### Il ciclo for
 
-for <variabile> in <lista>;
+```bash
+for <variabile> in <lista>
 do
    <istruzioni>
 done
+```
 
+Esempio:
+
+```bash
+for i in {1,2,3}
+  do
+    printf "numero della lista: $i \n"
+  done
+```
+
+Output: 
+```bash
+numero della lista: 1
+numero della lista: 2
+numero della lista: 3
+```
+
+##### Ciclo for in formato c
+
+```bash
+for ((i=1; i<numero_massimo; i++))
+  do
+    <istruzioni>
+  done
+```
+
+Esempio:
+
+```bash
+for ((i=1; i<4; i++))
+  do
+    printf "numero della lista: $i \n"
+  done
+```
+
+Output: 
+```bash
+numero della lista: 1
+numero della lista: 2
+numero della lista: 3
+```
+
+
+##### L'istruzione if su di una riga
+
+```bash
+for i in <lista>; do <istruzioni>; done
+```
+
+Esempio:
+
+```bash
+for ((i=1; i<4; i++))
+  do
+    printf "numero della lista: $i \n"
+  done
+```
+
+Output: 
+```bash
+numero della lista: 1
+numero della lista: 2
+numero della lista: 3
+```
 
 #### Case
 
