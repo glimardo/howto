@@ -1593,13 +1593,26 @@ numero della lista: 2
 numero della lista: 3
 ```
 
-#### Case
+#### Verifica delle condizioni di ingresso (Case)  
 
+```bash
 Case <variabile> in
 valore1) <istruzione>;;
 valoren) <istruzione>;;
 *) <istruzione>;;
 esac
+```
+
+Esempio:
+
+```bash
+
+```
+
+Output: 
+```bash
+
+```
 
 
 #### Il ciclo while
@@ -1713,12 +1726,51 @@ done
 Esempio:
 
 ```bash
+i=1
 
+printf "Valore di i: $i \n"
+until [ $i -gt 5 ]
+  do
+    printf "Sono ancora nel ciclo until perchè i vale: $i! \n"
+    i=$((i+1))
+  done
+
+printf "Sono uscito dal ciclo until! \n"
 ```
 
 Output: 
 ```bash
+Valore di i: 1
+Sono ancora nel ciclo until perchè i vale: 1!
+Sono ancora nel ciclo until perchè i vale: 2!
+Sono ancora nel ciclo until perchè i vale: 3!
+Sono ancora nel ciclo until perchè i vale: 4!
+Sono ancora nel ciclo until perchè i vale: 5!
+Sono uscito dal ciclo until!
+```
 
+
+##### L'istruzione until su di una riga
+
+```bash
+ until [ condizione falsa ]; do <istruzioni>; done
+```
+
+Esempio:
+
+```bash
+$ i=1; printf "Valore di i: $i \n"; until [ $i -gt 5 ]; do printf "Sono ancora nel ciclo until perchè i vale: $i! \n"; i=$((i+1)); done; printf "Sono uscito dal ciclo until! \n";
+```
+
+Output: 
+```bash
+Valore di i: 1
+Sono ancora nel ciclo until perchè i vale: 1!
+Sono ancora nel ciclo until perchè i vale: 2!
+Sono ancora nel ciclo until perchè i vale: 3!
+Sono ancora nel ciclo until perchè i vale: 4!
+Sono ancora nel ciclo until perchè i vale: 5!
+Sono uscito dal ciclo until!
 ```
 
 
