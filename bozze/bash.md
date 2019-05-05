@@ -1606,7 +1606,7 @@ esac
 
 
 ```bash
-while [condizione]
+while [condizione vera]
 do
     <istruzioni>
     <Ricordati valutare lo stato della condizione>
@@ -1644,8 +1644,38 @@ un ciclo infinito dal quale non ne esci più!
 while: # equivale a while true
 do
     <istruzioni>
-    <Ricordati valutare lo stato della condizione>
+    # Ricordati di valutare la condizione
+    # di uscita altrimenti rimani nel
+    # loop per sempre!
 done  
+```
+
+Esempio:
+
+```bash
+i=0
+
+while true
+  do
+    if [[ i -lt 5  ]]
+      then
+           printf "Sono ancora nel while! \n"
+           i=$((i+1))
+      else
+          break
+    fi
+  done
+printf "Sono uscito dal ciclo while! \n"
+```
+
+Output: 
+```bash
+Sono ancora nel while!
+Sono ancora nel while!
+Sono ancora nel while!
+Sono ancora nel while!
+Sono ancora nel while!
+Sono uscito dal ciclo while!
 ```
 
 ##### L'istruzione while su di una riga
@@ -1673,7 +1703,22 @@ Output:
 
 #### Il ciclo until
 
-until [condizione]
+```bash
+until [condizione falsa]
 do
     <istruzioni>
 done  
+```
+
+Esempio:
+
+```bash
+
+```
+
+Output: 
+```bash
+
+```
+
+
