@@ -1571,7 +1571,7 @@ numero della lista: 3
 ```
 
 
-##### L'istruzione if su di una riga
+##### L'istruzione for su di una riga
 
 ```bash
 for i in <lista>; do <istruzioni>; done
@@ -1592,6 +1592,7 @@ numero della lista: 1
 numero della lista: 2
 numero della lista: 3
 ```
+
 
 #### Verifica delle condizioni di ingresso (Case)  
 
@@ -1790,3 +1791,63 @@ Sono uscito dal ciclo until!
 ```
 
 
+#### Controlli sul ciclo 
+
+##### Break
+
+```
+Break interrompe l'esecuzione del ciclo in qualsiasi punto ci si trovi
+```
+
+```bash
+break
+```
+
+Esempio:
+
+```bash
+for i in {1,2,3,4}
+  do
+    printf "numero della lista: $i \n"
+    break
+  done
+```
+
+Output: 
+```bash
+numero della lista: 1 # Ho messo subito il break, quindi esco dopo la prima istruzione
+```
+
+
+##### Continue
+
+```
+Continue fa saltare all'iterazione successiva
+```
+
+```bash
+continue
+```
+
+Esempio:
+
+```bash
+printf "Stampo solo i numeri pari! \n"
+for i in {1,2,3,4}
+  do
+
+    if [ $(( i%2 )) == 0 ]
+      then
+          printf "numero della lista: $i \n"
+      else
+          continue
+    fi
+  done
+```
+
+Output: 
+```bash
+Stampo solo i numeri pari!
+numero della lista: 2
+numero della lista: 4
+```
