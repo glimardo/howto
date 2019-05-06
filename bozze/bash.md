@@ -393,6 +393,37 @@ find
 -type -f  
 -type -d
 
+
+### Confrontare due file
+
+```bash
+diff <primo file> <secondo file> # Confronta due file riga per riga
+```
+
+Se i due file risultano identiti, non sarà fornito alcun output.
+Altrimenti verranno mostrate le differenze tra i due file.
+
+Esempio:
+
+```bash
+$ cat primo.txt
+prima frase
+seconda frase
+terza frase
+$
+$ cat secondo.txt
+prima frase
+terza frase
+quarta frase
+$
+$ diff primo.txt secondo.txt
+2d1
+< seconda frase
+3a3
+> quarta frase
+```
+
+
 ## Qualcosa
 
 
@@ -956,32 +987,101 @@ more
 
 less
 
+## Comprimere i file
 
-## Gestire un formato zip
+### Gestire un formato zip
 
-### comprimere dei file
+#### comprimere dei file
 gzip
 
-### decomprimere un file zip
+#### decomprimere un file zip
 gunzip
 
 
-## Gestire un archivio tar.gz
+### Gestire un archivio tar.gz
 
-### Comprimere dei file in un archivio
+Tar è il comando standard che si usa nei sistemi UNIX per poter creare degli archivi di file.
+Le opzioni più comunemente utilizzate sono le seguenti:  
 
-tar -cf nome_archivio.tar
+| Opzione  | Significato | 
+| :---: | --- |
+| -c  | crea un nuovo archivio compresso |
+| -z  | usa il metodo di archiviazione gzip  |
+| -j  | usa il metodo di archiviazione bzip2  |
+| -v  | mostra i file archiviati  |
+| -f  | indica il nome del file compresso  |
+| -r |  aggiunge un file alla fine del file compresso |
+| -x | estrae un file compresso |
+| --delete <nome file>  | cancella un file dall'archivio compresso  |
+| -t  | mostra il contenuto dell'archivio compresso  |
 
-tar -cfz
 
-### Aggiungere dei file ad un archivio già esistente
+#### Comprimere dei file in un archivio
 
-tar -r
 
-### Decomprimere un archivio
+##### tar.gz
 
-tar -xf
+```bash
+tar cfzv nome_archivio.tar.gz
+```
 
+Esempio:
+
+```bash
+$ tar cfvz backup.tar.gz esempio/
+```
+
+Output: 
+```bash
+esempio/
+esempio/attori_endgame.txt
+esempio/ordinamento.txt
+esempio/parole_ordinate.txt
+```
+
+
+#### Decomprimere un archivio
+
+```bash
+tar -xfv nome_archivio.tar.gz
+```
+
+Esempio:
+
+```bash
+$ tar xfv backup.tar.gz
+```
+
+Output: 
+
+```bash
+esempio/
+esempio/attori_endgame.txt
+esempio/ordinamento.txt
+esempio/parole_ordinate.txt
+```
+
+
+#### Visualizzare il contenuto di un archivio
+
+```bash
+tar -tvf nome_archivio.tar.gz
+```
+
+Esempio:
+
+```bash
+$ tar -tvf backup.tar.gz
+```
+
+Output: 
+
+```bash
+drwxrwxrwx ubuntu/ubuntu     0 2019-05-06 15:45 esempio/
+-rw-rw-rw- ubuntu/ubuntu   165 2019-05-02 15:43 esempio/attori_endgame.txt
+-rw-rw-rw- ubuntu/ubuntu    20 2019-05-02 14:19 esempio/ordinamento.txt
+-rw-rw-rw- ubuntu/ubuntu    18 2019-05-02 12:43 esempio/parole_ordinate.txt
+```
 
 ## Operatori di controllo
 
