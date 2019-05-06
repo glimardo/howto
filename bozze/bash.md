@@ -1606,12 +1606,28 @@ esac
 Esempio:
 
 ```bash
+printf " -- Controllo se un numero è pari o dispari -- \n"
+printf "inserisci un numero: "
+read numero
 
+controllo=$(($numero%2))
+
+case "$controllo" in
+
+0) printf "$numero è un numero pari! \n";;
+*) printf "$numero è un numero dispari! \n";;
+esac
 ```
 
 Output: 
 ```bash
+ -- Controllo se un numero è pari o dispari --
+inserisci un numero: 1
+1 è un numero dispari!
 
+ -- Controllo se un numero è pari o dispari --
+inserisci un numero: 2
+2 è un numero pari!
 ```
 
 
