@@ -690,11 +690,6 @@ Esempio:
 $ dos2unix primo.txt
 ```
 
-
-### Verificare se un sistema è su
-
-ping
-
 ## Filtri
 
 ### Contare il numero di parole
@@ -2114,4 +2109,101 @@ Output:
 
 ```bash
 esercizio/dirname
+```
+
+
+
+## Gestione della rete
+
+### Informazioni su di un host
+
+```bash
+host <nome host>
+```
+
+Esempio:
+
+```bash
+$ host google.com
+google.com has address 216.58.206.142
+google.com has IPv6 address 2a00:1450:4009:811::200e
+google.com mail is handled by 20 alt1.aspmx.l.google.com.
+google.com mail is handled by 10 aspmx.l.google.com.
+google.com mail is handled by 50 alt4.aspmx.l.google.com.
+google.com mail is handled by 30 alt2.aspmx.l.google.com.
+google.com mail is handled by 40 alt3.aspmx.l.google.com.
+```
+
+
+### Verificare se un sistema è raggiungibile
+
+```bash
+ping <nome host>
+```
+
+Esempio:
+
+```bash
+$ ping localhost
+PING localhost (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=128 time=0.993 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=128 time=2.04 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=128 time=1.90 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=4 ttl=128 time=1.84 ms
+...
+--- localhost ping statistics ---
+12 packets transmitted, 12 received, 0% packet loss, time 11008ms
+rtt min/avg/max/mdev = 0.993/2.064/2.949/0.460 ms
+```
+
+
+## Connettersi ad un server reoto
+
+### Connessione via FTP
+
+#### Connettersi ad un server via ftp
+
+```bash
+ftp <utente>@<nome dominio>
+ftp <utente>@<indirizzo ip>
+
+```
+
+Esempio:
+
+```bash
+$ ftp giandoe@miodominio.com
+Connected to miodominio.com
+Password:
+Login successful.
+```
+
+#### Comandi utili
+
+| Comando  | Significato | 
+| :---: | --- | 
+| cd  | cambia la cartella remota  | 
+| lcd  | cambia la cartella sul tuo sistema  | 
+| ls | visualizza i file presenti nella cartella remota | 
+| pwd  | mostra il path in cui ci si trova nella cartella remota  | 
+| mkdir  | crea una nuova cartella remota  | 
+| rmdir  | cancella una cartella remota  | 
+| get | copia un file dalla cartella remota a quella locale  | 
+| mget  | copia più file dalla cartella remota a quella locale  | 
+| put | copia un file dalla cartella locale a quella remota  | 
+| mput | copia più file dalla cartella locale a quella remota  | 
+| quit  | esci dal server remoto  | 
+
+
+### Connessione via SSH
+
+
+```bash
+
+```
+
+Esempio:
+
+```bash
+
 ```
