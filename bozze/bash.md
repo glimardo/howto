@@ -629,6 +629,33 @@ primo_n_01
 primo.txt
 ```
 
+### Scaricare file dalla rete (bozza)
+
+### wget 
+
+```bash
+wget <server>/<pagina>
+```
+
+Esempio:
+
+```bash
+$ wget https://github.com/glimardo/howto/blob/master/README.md
+--2019-05-07 14:39:51--  https://github.com/glimardo/howto/blob/master/README.md
+Resolving github.com (github.com)... 192.30.253.112
+Connecting to github.com (github.com)|192.30.253.112|:443... connected.
+```
+
+Opzioni utili:
+
+| Parametro  | Esempio | Significato |  
+| :---: | --- |  --- |
+| -b  | wget -b <server>/<pagina> | Scarica la pagina in background  |
+| -a  | wget -a <nome log> <server>/<pagina>  | Scrive un log di quanto effettuato  |
+| -o  | wget -o <nome log> <server>/<pagina> | Scrive un log di quanto effettuato. Se ne esiste uno precedente, lo sovrascrive |
+| -i  | wget -i <file contenente un URL> | Prende l'URL dal file passato in input |
+| -c  | wget -c <server>/<pagina> | Continua a scaricare da un download interrotto  |
+
 
 ### Verificare l'integrità di un file
 
@@ -2157,7 +2184,7 @@ rtt min/avg/max/mdev = 0.993/2.064/2.949/0.460 ms
 ```
 
 
-## Connettersi ad un server reoto
+## Connettersi ad un server remoto
 
 ### Connessione via FTP
 
