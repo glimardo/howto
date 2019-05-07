@@ -16,10 +16,10 @@ Indice degli HowTo
 
 - Development tools
   * Versionamento del codice
-    + [Git](https://github.com/glimardo/howto/blob/master/learning/git.md) 
+    + [Git](https://github.com/glimardo/howto/blob/master/learning/development%20tools/git.md) 
   * Linguaggi di markup
-    + [Markdown](https://github.com/glimardo/howto/blob/master/learning/markdown.md)
-  * [Espressioni regolari](https://github.com/glimardo/howto/blob/master/learning/regex.md)
+    + [Markdown](https://github.com/glimardo/howto/blob/master/learning/development%20tools/markdown.md)
+  * [Espressioni regolari](https://github.com/glimardo/howto/blob/master/learning/development%20tools/regex.md)
 - Linguaggi di programmazione  
   * Python
     + [Sviluppare in Python](https://github.com/glimardo/howto/blob/master/learning/python/python.md)
