@@ -630,6 +630,50 @@ primo.txt
 ```
 
 
+### Verificare l'integrità di un file
+
+#### cksum
+
+```bash
+cksum <nome file>
+```
+
+Esempio:
+
+```bash
+$ cksum primo.txt
+3425985244 38 primo.txt
+$ cp -v primo.txt nuovo
+'primo.txt' -> 'nuovo/primo.txt'
+$ cd nuovo/
+$ cksum primo.txt
+3425985244 38 primo.txt # Il file originale e quello copiato
+                        # hanno lo stesso checksum, quindi non ho
+                        # avuto problemi durante la copia
+```
+
+
+#### md5sum
+
+```bash
+md5sum <nome file>
+```
+
+Esempio:
+
+```bash
+$ md5sum primo.txt
+252f7f6a6c1a3f42f2920b3ef8eb94a5  primo.txt
+$ cp -v primo.txt nuovo
+'primo.txt' -> 'nuovo/primo.txt'
+$ cd nuovo/
+$ md5sum primo.txt
+252f7f6a6c1a3f42f2920b3ef8eb94a5  primo.txt # Il file originale e quello copiato
+                                            # hanno lo stesso checksum, quindi non ho
+                                            # avuto problemi durante la copia
+```
+
+
 ### Verificare se un sistema è su
 
 ping
