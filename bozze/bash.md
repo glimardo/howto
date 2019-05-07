@@ -572,9 +572,63 @@ total 0
 ```
 
 
-### Split
+### Dividere un file
 
-split
+Per dividere un file in parti più piccole, si usa il comando split:
+
+```bash
+split <nome file>
+```
+
+che unito ai seguenti parametri permette di estenderne le funzionalità:
+
+| Parametro | Esempio | Significato |
+| :---: | --- | --- |
+| -b <numero>K |  split -b 10K <nome file> | Divide il file ogni <numero> KB  |
+| -b <numero>M |  split -b 10M <nome file> | Divide il file ogni <numero> MB  |
+| -b <numero>G |  split -b 10G <nome file> | Divide il file ogni <numero> GB  |
+| -d  | split -d <nome file> | Utilizza nome prefisso il numerico invece che alfabetico nei file divisi  |
+| -e  | split -e <nome file> | Si evita di creare dei file vuoti |       
+| -l<numero righe>  | split -l5 <nome file>  | Divide il file creandone uno nuovo ogni <numero righe>  |
+| -n<numero> | split -n10 <nome file> | Divide il file in esattamente <numero> di file divisi |
+| <nuovo nome>_  | split <nome file> <nuovo nome>_  | utilizza <nuovo nome>_ come nome prefisso  |
+| --verbose  |  split --verbose <nome file> | Mostra i file creati  |
+
+Esempio:
+
+```bash
+$ cat primo.txt
+prima frase
+seconda frase
+terza frase
+```
+
+```bash
+$ split -dn3 primo.txt
+$ ls -1
+primo.txt
+x00
+x01
+x02
+```
+
+```bash
+$ split -l1 primo.txt
+$ ls -l
+primo.txt
+xaa
+xab
+xac
+```
+
+```bash
+$ split -dn2 primo.txt primo_n_
+$ ls -1
+primo_n_00
+primo_n_01
+primo.txt
+```
+
 
 ### Verificare se un sistema è su
 
