@@ -1951,3 +1951,52 @@ Stampo solo i numeri pari!
 numero della lista: 2
 numero della lista: 4
 ```
+
+## DA TROVARE UNA CATEGORIA
+
+### basename
+
+
+```bash
+variabile = "percorso\<nome file>"
+`basename $variabile`
+
+#output: <nome file>
+```
+
+Esempio:
+
+```bash
+percorso="esercizio/esempio.sh"
+echo "`basename $percorso`"
+```
+
+Output: 
+
+```bash
+esempio.sh
+```
+
+
+### dirname
+
+
+```bash
+variabile = "percorso\<nome file>"
+`dirname $variabile`
+
+#output: percorso
+```
+
+Esempio:
+
+```bash
+percorso="esercizio/dirname/esempio.sh"
+echo "`dirname $percorso`"
+```
+
+Output: 
+
+```bash
+esercizio/dirname
+```
