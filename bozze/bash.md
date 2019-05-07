@@ -674,6 +674,23 @@ $ md5sum primo.txt
 ```
 
 
+### Convertire un file da un formato DOS ad Unix e viceversa
+
+I file DOS terminano con C-LF mentre quelli UNIX con LF.
+Questo comando permette di convertire da un comando all'altro per
+non avere problemi nei sistemi in uso.
+
+```bash
+dos2unix <nome file>
+```
+
+Esempio:
+
+```bash
+$ dos2unix primo.txt
+```
+
+
 ### Verificare se un sistema è su
 
 ping
