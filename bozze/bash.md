@@ -286,6 +286,38 @@ $ cd bozze
                                             # è stata eliminata
 ```
 
+
+### Visualizzare l'utilizzo del disco
+
+```bash
+du -h # l'opzione -h rende l'output più "umano"
+```
+
+Esempio:
+
+```bash
+$ du -h
+8,0K  ./esempio/howto
+8,0K  ./esempio
+```
+
+
+### Visualizzare l'utilizzo del filesystem
+
+```bash
+df -h # l'opzione -h rende l'output più "umano"
+```
+
+Esempio:
+
+```bash
+$ df -h 
+Filesystem    Size  Used  Avail  Use%  Mounted on
+/dev/sda0    100GB  50GB   50GB   50%  /
+...
+```
+
+
 ## Gestione dei file
 
 ### Creare un file
@@ -830,7 +862,36 @@ a   # Fino a qui, tail rimane sempre attivo per poter leggere le ultime 4 righe
 $
 ```
 
-### tee
+### tee  
+
+```bash
+<comando> | tee <file in cui salvare l\'<output>
+```
+
+Esempio:
+
+```bash
+# test.sh
+for i in {1,2,3,4,5,6}
+  do
+    printf "numero della lista: $i \n"
+  done
+
+$ ./test.sh | tee test.log
+numero della lista: 1
+numero della lista: 2
+numero della lista: 3
+numero della lista: 4
+numero della lista: 5
+numero della lista: 6
+$ cat test.log
+numero della lista: 1
+numero della lista: 2
+numero della lista: 3
+numero della lista: 4
+numero della lista: 5
+numero della lista: 6
+```
 
 ### Ordinamento
 
@@ -2268,18 +2329,87 @@ Tue May  8 23:34:26 DST 2019
 
 ## GESTIONE UTENTI
 
-### Users
+### Visualizzare il numero di utenti nel sistema
 
-### Groups
+```bash
+users
+```
 
-### Useradd
+Esempio:
 
-### Userdel
+```bash
+$ users
+giandoe
+iandoe
+testman
+```
 
-### su
+### Visualizzare il gruppo a cui appartiene il proprio utente  
 
-### passwd
+```bash
+groups
+```
 
+Esempio:
+
+```bash
+$ groups
+sudo adm cdrom 
+```
+
+### Creare un nuovo utente
+
+```bash
+useradd <nome utente> # Creo l'utente
+passwd <nome utente>  # Creo la password per l'utente
+```
+
+Esempio:
+
+```bash
+$ useradd johndoe
+$ passwd johndoe
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+```
+
+### Cancellare un utente  
+
+```bash
+userdel <nome utente>    # cancella solo l'utenza
+userdel -r <nome utente> # cancella l'utenza e la relativa home
+```
+
+Esempio:
+
+```bash
+$ userdel -r johndoe
+```
+
+## INFORMAZIONI SUL SISTEMA
+
+### Visualizzare le specifiche del sistema
+
+```bash
+uname
+```
+
+uname, in aggiunta alle seguenti opzioni, permette di avere più informazioni sul sistema:
+
+| Opzione  | Esempio | Significato | 
+| :---: | --- | --- |
+| -a | uname -a | mostra le informazioni dettagliate |
+| -p | uname -p | mostra le informazioni sul processore |
+| -s | uname -s | mostra il nome del sistema operativo |
+| -r | uname -r | mostra la release del sistema operativo |
+
+Esempio:
+
+```bash
+$uname -a 
+Linux Ubuntu blah blah blah
+```
 
 ## GESTIONE PROCESSI
 
