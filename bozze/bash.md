@@ -2164,7 +2164,7 @@ rtt min/avg/max/mdev = 0.993/2.064/2.949/0.460 ms
 #### Connettersi ad un server via ftp
 
 ```bash
-ftp <utente>@<nome dominio>
+ftp <utente>@<server>
 ftp <utente>@<indirizzo ip>
 
 ```
@@ -2197,13 +2197,31 @@ Login successful.
 
 ### Connessione via SSH
 
+#### Connettersi ad un server remoto via SSH
 
 ```bash
-
+ssh <utente>@<server>            # Se non hai da specificare una porta
+ssh -p <porta> <utente>@<server> # Se hai una porta da specificare
 ```
 
 Esempio:
 
 ```bash
+$ssh -p 8844 giandoe@mioserver.com
+```
 
+
+#### Lanciare un comando via SSH
+
+
+```bash
+ssh <utente>@<server> '<comando>'
+ssh -p <porta> <utente>@<server> '<comando>'
+```
+
+Esempio:
+
+```bash
+$ssh -p 8844 giandoe@mioserver.com 'date'
+Tue May  8 23:34:26 DST 2019
 ```
