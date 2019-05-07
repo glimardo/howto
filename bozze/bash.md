@@ -137,6 +137,18 @@ variabile = `istruzione`
 | !?comando? |  |
 
 
+## Ripulire lo schermo del terminale
+
+```bash
+clear
+```
+
+Esempio:
+
+```bash
+$ clear
+```
+
 ## Stream
 
 ### Pipeline
