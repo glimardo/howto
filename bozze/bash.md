@@ -2264,3 +2264,29 @@ Esempio:
 $ssh -p 8844 giandoe@mioserver.com 'date'
 Tue May  8 23:34:26 DST 2019
 ```
+
+
+## GESTIONE UTENTI
+
+### Users
+
+### Groups
+
+### Useradd
+
+### Userdel
+
+### su
+
+### passwd
+
+
+## GESTIONE PROCESSI
+
+### ps
+
+### top
+
+### watch
+
+### kill
