@@ -1701,7 +1701,7 @@ $ ./saluto.sh
 Ciao!
 ```
 
-### Passare parametri da una funzione
+### Passare parametri ad una funzione
 
 
 ```bash
@@ -1746,6 +1746,203 @@ Chiamo la funzione saluto con parametro:
 Ciao, John Doe!
 Questa è una funzione parametrica!
 ```
+
+
+### stato di uscita da una funzione
+       
+| Modalità  | Comando | Note | 
+| :---: | --- | --- |
+| esplicito | return <valore> | return si scrive alla fine della funzione e deve restituire un valore intero. |
+| implicito |  - | si sfrutta l'exit status dell'ultima funzione utilizzata (l'exit status vale 0 se OK, altrimenti restituisce il codice di errore) |
+
+
+Esempio con la modalità esplicita:
+
+```bash
+# saluto.sh
+
+saluto ()
+{
+  if [ -z "$1" ]
+    then
+         printf "Non è stato inserito il nome! \n"
+    else
+         printf "Ciao, $1!\nQuesta è una funzione parametrica! \n"
+  fi
+
+  return 35
+}
+
+printf "Chiamo la funzione saluto senza parametro: \n"
+saluto
+printf "Chiamo la funzione saluto con parametro: \n"
+saluto "John Doe"
+
+printf "Il valore di ritorno della funzione è $? \n"  # $? contiene il valore di ritorno
+                                                      # dell'ultima funzione o comando
+                                                      # lanciato
+```
+
+Output: 
+
+```bash
+$ ./saluto.sh
+Chiamo la funzione saluto senza parametro:
+Non è stato inserito il nome!
+Chiamo la funzione saluto con parametro:
+Ciao, John Doe!
+Questa è una funzione parametrica!
+Il valore di ritorno della funzione è 35
+```
+
+
+Esempio con la modalità implicita:
+
+
+```bash
+# saluto_semplce.sh
+
+saluto ()
+{
+  printf "Ciao! \n"
+
+}
+
+saluto
+printf "Il valore di ritorno della funzione è $? \n"
+```
+
+Output: 
+
+```bash
+$ ./saluto_semplice.sh
+Ciao!
+Il valore di ritorno della funzione è 0
+```
+
+
+### Assegnare una funzione ad una variabile
+
+```bash
+funzione()
+{
+  <istruzioni>
+}
+
+variabile=$(funzione $parametro1 $parametro_n)
+
+echo $variabile
+printf "$variabile"
+```
+
+Esempio:
+
+```bash
+# maggiore.sh
+
+maggiore ()
+{
+  if [[ "$1" -gt "$2" ]]
+    then
+        risultato=$1
+    elif [[ "$2" -gt "$1" ]]
+      then
+          risultato=$2
+      else
+          risultato=0
+  fi
+
+  echo $risultato
+}
+
+
+printf "Comparazione di due numeri \n\n"
+printf "Inserisci il primo numero: "
+read primo
+printf "Inserisci il secondo numero: "
+read secondo
+
+valore=$(maggiore $primo $secondo) # posso associare una funzione ad una variabile!
+
+
+if [[ "$valore" -eq 0 ]]
+  then
+      risposta="uguali"
+  else
+      risposta=$valore
+fi
+
+printf "Il maggiore tra $primo e $secondo è: $risposta \n"
+```
+
+Output: 
+
+```bash
+$ ./maggiore.sh
+Comparazione di due numeri
+
+Inserisci il primo numero: 2
+Inserisci il secondo numero: 3
+Il maggiore tra 2 e 3 è: 3
+```
+
+### Lo scope delle variabili nelle funzioni
+
+#### variabili globali
+
+Di default, le variabili sono sempre globali.
+Le variabili definite fuori dalle funzioni sono visibili da quest'ultime indistintamente.
+
+
+#### variabili locali
+
+Le variabili sono visibili solo all'interno della funzione se sono definite come local.
+Altrimenti sono visibili anche al di fuori della funzione anche se definite in essa.
+
+
+#### Esempio di variabili globali e locali
+
+Esempio:
+
+```bash
+# scope.sh
+
+COSTANTE="Sono una variabile globale"
+
+test_variabili()
+{
+  locale="Sono una variabile locale! "
+  local vera_locale="Io sono la vera variabile locale XD!"
+
+  printf "Cosa contiene la variabile globale? $COSTANTE \n"
+  printf "Cosa contiene la variabile locale? $locale \n"
+  printf "Cosa contiene la variabile locale? $vera_locale \n"
+}
+
+printf "Vediamo cosa vede la funzione 'test_variabili': \n"
+test_variabili
+
+printf "Vediamo cosa vede lo script come variabili: \n"
+printf "Cosa contiene la variabile globale? $COSTANTE \n"
+printf "Cosa contiene la variabile locale? $locale \n"
+printf "Cosa contiene la variabile locale? $vera_locale \n"
+```
+
+Output: 
+
+```bash
+$ ./scope.sh
+Vediamo cosa vede la funzione 'test_variabili':
+Cosa contiene la variabile globale? Sono una variabile globale
+Cosa contiene la variabile locale? Sono una variabile locale!
+Cosa contiene la variabile locale? Io sono la vera variabile locale XD!
+Vediamo cosa vede lo script come variabili:
+Cosa contiene la variabile globale? Sono una variabile globale
+Cosa contiene la variabile locale? Sono una variabile locale!
+Cosa contiene la variabile locale? # L'output è vuoto perchè non può leggere una variabile 
+                                   # definita come local!
+```
+
 
 
 ## La logica
