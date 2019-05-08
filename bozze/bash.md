@@ -2413,10 +2413,128 @@ Linux Ubuntu blah blah blah
 
 ## GESTIONE PROCESSI
 
-### ps
+### Elenco dei processi attivi
 
-### top
+```bash
+ps     # Elenco dei processi attivi
 
-### watch
+ps -ef # Elenco dei processi attivi con maggiori dettagli
 
-### kill
+ps aux # Come sopra!
+```
+
+Esempio:
+
+```bash
+$ ps
+  PID TTY          TIME CMD
+    4 tty1     00:00:00 bash
+   44 tty1     00:00:00 ps
+$
+$ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 09:17 ?        00:00:00 /init ro
+root         3     1  0 09:17 tty1     00:00:00 /init ro
+ubuntu       4     3  0 09:17 tty1     00:00:00 -bash
+ubuntu      45     4  0 10:26 tty1     00:00:00 ps -ef
+$
+$ ps -aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   8312   132 ?        Ss   09:17   0:00 /init ro
+root         3  0.0  0.0   8312    96 tty1     Ss   09:17   0:00 /init ro
+ubuntu       4  0.0  0.0  15020  3308 tty1     S    09:17   0:00 -bash
+ubuntu      46  0.0  0.0  15668  1864 tty1     R    10:26   0:00 ps -aux
+
+```
+
+### Visualizzare un cruscotto con tutti i processi attivi
+
+```bash
+top
+```
+
+Esempio:
+
+```bash
+$ top
+top - 23:29:13 up  1:11,  0 users,  load average: 0.52, 0.58, 0.59
+Tasks:   4 total,   1 running,   3 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.7 us,  0.9 sy,  0.0 ni, 95.9 id,  0.0 wa,  0.5 hi,  0.0 si,  0.0 st
+KiB Mem :  7822468 total,  2940072 free,  4645920 used,   236476 buff/cache
+KiB Swap: 12582912 total, 12503128 free,    79784 used.  3035692 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0    8312    132    104 S   0.0  0.0   0:00.10 init
+    3 root      20   0    8312     96     52 S   0.0  0.0   0:00.00 init
+    4 ubuntu    20   0   15020   3304   3216 S   0.0  0.0   0:00.10 bash
+   67 ubuntu    20   0   15904   1940   1400 R   0.0  0.0   0:00.01 top
+```
+
+
+### Tenere un comando attivo anche quando l'utente è disconnesso
+
+```bash
+nohup <comando>   # comando attivo anche se l'utente è disconnesso
+
+nohup <comando> & # comando attivo in background anche se l'utente è disconnesso
+```
+
+Esempio:
+
+```bash
+$ nohup ping -i localhost
+nohup: ignoring input and appending output to 'nohup.out'
+
+$ nohup ping localhost > nohup.log
+nohup: ignoring input and redirecting stderr to stdout
+$
+$ cat nohup.log
+PING localhost (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=128 time=0.751 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=128 time=1.68 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=128 time=1.68 ms
+[...]
+
+$ nohup ping -c 4 localhost > nohup.log &
+[1] 118
+$ nohup: ignoring input and redirecting stderr to stdout
+$ cat nohup.log
+PING localhost (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=128 time=0.763 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=128 time=1.92 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=128 time=1.93 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=4 ttl=128 time=2.58 ms
+
+--- localhost ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3002ms
+rtt min/avg/max/mdev = 0.763/1.801/2.581/0.657 ms
+[1]+  Done                    nohup ping -c 4 localhost > nohup.log
+```
+
+### Eseguire un comando ripetutamente
+
+```bash
+watch <comando>                      # Ripete il comando ogni 2 secondi
+
+watch -n <numero secondi> <comando>  # Ripete il comando ogni <numero secondi>
+```
+
+Esempio:
+
+```bash
+$ watch -n3  tail messages.log       
+```
+
+### Terminare forzatamente un processo
+
+```bash
+kill <nome processo>
+kill -15 <pid processo> # Metodo più "dolce" per terminare un processo
+kill -9 <pid processo>  # Termina immediatamente il processo
+```
+
+Esempio:
+
+```bash
+$kill -15 1234
+```
