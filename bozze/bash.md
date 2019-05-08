@@ -30,6 +30,7 @@ SYNOPSIS
 [...]
 ```
 
+
 ## Echo
 
 ```bash
@@ -56,6 +57,7 @@ $ echo "Questa è la prima riga\nQuesta è la seconda ma echo non mi fa andare a
 Questa è la prima riga\nQuesta è la seconda ma echo non mi fa andare a capo :(
 ```
 
+
 ## Printf
 
 ```bash
@@ -71,6 +73,7 @@ $ printf "Stampo a video questa frase! \nE vado a capo con quest'altra! \n"
 Stampo a video questa frase!
 E vado a capo con quest'altra!
 ```
+
 
 ## Caratteri di escape più utili
 
@@ -103,30 +106,6 @@ $ echo "\"Questa frase mantiene i doppi apici in output\""
 ```
 
 
-## Separatore di comando
-
-;
-
-## Quoting parziale
-
-Doppio apice
-
-## Quoting totale
-
-Apice singolo
-
-## Escape
-
-\
-
-## Carattere jolly
-
-*
-
-## Sostituzione dell'istruzione
-
-variabile = `istruzione`
-
 ## Storico dei comandi utilzzati
 
 | Comando  | Significato |
@@ -149,47 +128,165 @@ Esempio:
 $ clear
 ```
 
+
+## Variabili di ambiente utili
+
+| Variabile d'ambiente  | Significato |
+| :---: | :---: |
+| $USER | indica l'utente con cui sei loggato  |
+| $HOME | indica il path della cartella home dell'utente  |
+| $PWD  | indica il path in cui ci si trova |
+| $SHELL | indica il nome della shell in uso  |
+| $?  | indica lo stato d'uscita dell'ultimo comando eseguito  |
+
+Esempio:
+
+```bash$
+$ echo $USER
+giandoe
+$ echo $HOME
+/users/giandoe
+$ echo $PWD
+/users/giandoe/howto
+$ echo $SHELL
+/bin/bash
+$ echo $?
+0
+```
+
+
 ## Stream
 
-### Pipeline
+### Pipeline  
 
-#### La filosofia della pipeline
+Il pipe '|' serve a redirigere lo stout del primo comando come stdin di quello successivo.
 
-### Pipe
+```bash
+<comando> | <comando> # posso fare tanti pipe quanti me ne servono!
+```
 
-|
+Esempio:
+
+```bash
+$ cat utenti.txt
+John
+Gian
+Dan
+$ cat utenti.txt | grep -i "gian" # di tutto il contenuto di utenti.txt
+Gian                              # filtro solo "gian"
+```
+
 
 ### Reindirizzare l'output
 
->
+```bash
+<comando> > <nome file in cui salvare lo stdout>   # Se il file esiste già, 
+                                                   # lo sovrascrive
 
->>
+<comando>  >> <nome file in cui salvare lo stdout> # Se il file non esiste 
+                                                   # lo crea.
+                                                   # Se esiste, aggiunge 
+<                                                   # l'output in fondo
 
-&>
+<comando> &> <nome file in cui salvare lo stdout e lo stderr> # come >
 
-&>>
+<comando> &>> <nome file in cui salvare lo stdout e lo stderr> # come >>
 
-&1 stdout
-&2 stderr
-&0 stdin
+<comando> 2>&1 <nome file in cui redirigere lo stderr allo stdout>
 
->/dev/null
+<comando>  >/dev/null <non mostra l\'output> 
+```
+
+Esempio:
+
+```bash
+$ echo "Reindirizzo l\'output! " > output.log
+$ cat output.log
+Reindirizzo l\'output!
+$
+$ echo "Reindirizzo l\'output! " >> output.log
+$ cat output.log
+Reindirizzo l\'output!
+Reindirizzo l\'output!
+$
+$ echo "Reindirizzo l\'output! " &> output.log
+$ cat output.log
+Reindirizzo l\'output!
+$
+$ echo "Reindirizzo l\'output! " &>> output.log
+$ cat output.log
+Reindirizzo l\'output!
+Reindirizzo l\'output!
+$
+$ echo "Reindirizzo l\'output! "2 &>1 output.log
+$ cat output.log
+Reindirizzo l\'output!
+$
+$ echo "Reindirizzo l\'output! ">/dev/null
+$
+```
+
 
 ### Reindirizzare l'input
 
-<
+```bash
+<comando> < <file di input> 
+```
+
+Esempio:
+
+```bash
+$ cat utenti.txt
+John
+Gian
+$
+$ cat -n < utenti.txt
+     1  John
+     2  Gian
+     3  Dan
+```
 
 
+#### Here document
+
+```bash
+<comando> << <nome variabile>
+> <istruzione>
+> <nome variabile>
+```
+
+Esempio:
+
+```bash
+$ cat << EOF
+> prima riga
+> seconda riga
+> terza riga
+> EOF
+prima riga
+seconda riga
+terza riga
+```
 
 
+# GESTIONE DELLE CARTELLE
 
-## Gestione delle cartelle
 
-### Visualizzare il path della cartella in uso
+## Visualizzare il path della cartella in uso
 
+```bash
 pwd
+```
 
-### Visualizzare il contenuto  di una cartella
+Esempio:
+
+```bash
+$ pwd
+/users/giandoe/howto
+```
+
+
+## Visualizzare il contenuto  di una cartella
 
 ```
 ls 
@@ -232,15 +329,25 @@ drwxr-xr-x   8 giandoe  staff    256 31 Apr 99:99 ..
 ```
 
 
-### Spostarsi tra cartelle
+## Spostarsi tra cartelle
 
-cd
+```bash
+cd <path/cartella> # mi sposto nel path indicato
 
-### Spostarsi nella cartella precedente
+cd -               # torno nell'ultima cartella in cui ero
+cd ..              # salgo nella cartella precedente a questa
+```
 
-cd -
+Esempio:
 
-### Creare una cartella
+```bash
+$ cd howto/
+$ pwd
+/users/giandoe/howto
+```
+
+
+## Creare una cartella
 
 ```bash
 mkdir <nome cartella>
@@ -255,7 +362,7 @@ $ pwd
 /esempi/test
 ```
 
-#### Creare una cartella con relative sottocartelle
+### Creare una cartella con relative sottocartelle
 
 ```bash
 mkdir -p <cartella>/<sottocartella>/<sottocartella>
@@ -271,7 +378,7 @@ $ pwd
 ```
 
 
-### Cancellare una cartella
+## Cancellare una cartella
 
 ```bash
 rmdir <cartella> # la cartella DEVE essere vuota!
@@ -287,7 +394,7 @@ $ cd bozze
 ```
 
 
-### Visualizzare l'utilizzo del disco
+## Visualizzare l'utilizzo del disco
 
 ```bash
 du -h # l'opzione -h rende l'output più "umano"
@@ -302,7 +409,7 @@ $ du -h
 ```
 
 
-### Visualizzare l'utilizzo del filesystem
+## Visualizzare l'utilizzo del filesystem
 
 ```bash
 df -h # l'opzione -h rende l'output più "umano"
@@ -318,9 +425,9 @@ Filesystem    Size  Used  Avail  Use%  Mounted on
 ```
 
 
-## Gestione dei file
+# GESTIONE DEI FILE
 
-### Creare un file
+## Creare un file
 
 ```bash
 touch <nome file>
@@ -342,11 +449,8 @@ $ touch nuovo_file.txt
 -rw-r--r--  1 gian  staff  0  1 Mag 99:21 nuovo_file.txt
 ```
 
-### Sapere il tipo di file
 
-file 
-
-### copiare un file od una directory
+## Copiare un file od una directory
 
 ```bash
 cp <nome file> <nuovo nome file>
@@ -378,9 +482,9 @@ $ cp -v esempio.txt nuovo_path/esempio.txt
 esempio.txt -> nuovo_path/esempio.txt
 ```
 
-### muovere o rinominare un file
+## Muovere o rinominare un file
 
-#### Rinominare un file o directory
+### Rinominare un file o directory
 
 ```bash
 mv <nome file> <nuovo nome file>
@@ -396,7 +500,7 @@ $ ls nuovo_esempio.txt
 nuovo_esempio.txt
 ```
 
-#### Spostare uno o più file/directory
+### Spostare uno o più file o directory
 
 ```bash
 mv <nome file> <nuovo path>
@@ -412,7 +516,7 @@ ls: nuovo_esempio.txt: No such file or directory # Corretto! L'ho spostato
 ```
 
 
-### cancellare un file
+## Cancellare un file
 
 ```bash
 rm <nome file>
@@ -430,15 +534,42 @@ $ ls esempio.txt
 ls: esempio.txt: No such file or directory # Corretto: ho eliminato il file
 ```
 
-### Cercare un file
+## Cercare un file
 
-find
+```bash
+find <path dove cercare> <tipologia> <nome>
+```
 
--type -f  
--type -d
+Esempio:
+
+```bash
+$ find . -iname "utenti.txt"
+./howto/utenti.txt
+
+$ find howto/ -iname "utenti*"
+howto//utenti.txt
+```
+
+Con find, le opzioni più utilizzate sono le seguenti:  
+
+| Opzione  | Esempio | Significato | 
+| :---: | --- | --- |
+| -iname | find <path dove cercare> -iname <nome> | Cerca <nome> senza guardare se le lettere sono maiuscole o minuscole  |
+| -type f | find <path dove cercare> -type f <nome> | Cerca solo file che si chiamano <nome> |
+| -type d | find <path dove cercare> -type d <nome> | Cerca solo cartella che si chiamano <nome> |
+| -size +<dimensione> | find <path dove cercare> -size +<dimensione> | Cerca solo <nome> che supera le dimensioni indicate |
+| -size -<dimensione> | find <path dove cercare> -size -<dimensione> | Cerca solo <nome> che ha dimensioni inferiori a quelle indicate |
 
 
-### Confrontare due file
+Esempio:
+
+```bash
+$ find . -iname "utenti*" -type f -size -10k
+./howto/utenti.txt
+```
+
+
+## Confrontare due file
 
 ```bash
 diff <primo file> <secondo file> # Confronta due file riga per riga
@@ -468,12 +599,7 @@ $ diff primo.txt secondo.txt
 ```
 
 
-## Qualcosa
-
-
-### Cat
-
-#### Visualizzare il contenuto di un file
+## Visualizzare il contenuto di un file
 
 ```bash
 cat <nome file>
@@ -487,7 +613,8 @@ lo sto guardando
 con il comando cat
 ```
 
-#### Concatenare più file
+
+## Concatenare più file
 
 ```bash
 cat <primo file> <secondo file> <ennesimo file> > <file finame>
@@ -511,7 +638,7 @@ terzo file da concatenare
 ```
 
 
-### cut
+### Delimitare le colonne da visualizzare in un file
 
 ```bash
 cut -d <delimitatore> -f<numero colonna che vuoi vedere>
@@ -531,7 +658,7 @@ a d                                  # la quarta colonna
 e h
 ```
 
-
+RIPRENDERE DA QUA
 ### Gestire le date
 
 ```bash
@@ -1552,6 +1679,8 @@ In Bash esistono gli array monodimensionali.
 
 ```bash
 array[<posizione>]=<valore>
+
+array=(<valore 1> <valore 2> <valore n>)
 ```
 
 Esempio:
@@ -1560,12 +1689,16 @@ Esempio:
 lista[0]=1
 lista[2]=2       # Non devo per forza inserire dati contigui
 lista[5]="Rosso" # Posso inserire valori eterogenei
+
+lista=(1 2 "Rosso") # Posso inserire tutti i valori insieme
 ```
 
 ### Visualizzare un array  
 
 ```bash
 echo "${array[@]}"
+
+echo "${array[*]}"
 ```
 
 Esempio:
@@ -1576,6 +1709,7 @@ lista[1]=2
 lista[2]="Rosso"
 
 printf '%s\n' "${lista[@]}"
+printf "${lista[*]} \n"
 ```
 
 Output: 
@@ -1584,6 +1718,7 @@ Output:
 1
 2
 Rosso
+1 2 Rosso
 ```
 
 ### Visualizzare un elemento di un array
@@ -1664,55 +1799,72 @@ Output:
 ### Aggiungere elementi ad un array  
 
 ```bash
-
+array[<posizione>] = <valore>
 ```
 
 Esempio:
 
 ```bash
+lista=(1 2 "Rosso")
+lista[3]="Pippo"
 
+printf "${lista[*]} \n"
 ```
 
 Output: 
 
 ```bash
-
+1 2 Rosso Pippo
 ```
 
 ### Sostituire elementi in un array  
 
 ```bash
-
+array[<posizione del vecchio valore>] = <nuovo valore>
 ```
 
 Esempio:
 
 ```bash
+lista=(1 2 "Rosso")
+lista[2]="Sheldon"
 
+printf "${lista[*]} \n"
 ```
 
 Output: 
 
 ```bash
-
+1 2 Sheldon
 ```
 
 ### Rimuovere elementi da un array  
 
 ```bash
-
+unset array[<posizione>] # Rimuove un elemento
+unset array              # Rimuove tutto l'array
 ```
 
 Esempio:
 
 ```bash
+lista=(1 2 "Rosso")
+unset lista[2]
 
+printf "${lista[*]} \n"
+
+printf "Elimino l'intero array: \n"
+
+unset lista
+
+printf "${lista[*]} \n"
 ```
 
 Output: 
 
 ```bash
-
+1 2
+Elimino l'intero array:
 ```
 
 
