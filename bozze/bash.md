@@ -1544,6 +1544,178 @@ Questa
 esperimenti
 ```
 
+## Array
+
+In Bash esistono gli array monodimensionali.
+
+### Creazione di un array
+
+```bash
+array[<posizione>]=<valore>
+```
+
+Esempio:
+
+```bash
+lista[0]=1
+lista[2]=2       # Non devo per forza inserire dati contigui
+lista[5]="Rosso" # Posso inserire valori eterogenei
+```
+
+### Visualizzare un array  
+
+```bash
+echo "${array[@]}"
+```
+
+Esempio:
+
+```bash
+lista[0]=1
+lista[1]=2
+lista[2]="Rosso"
+
+printf '%s\n' "${lista[@]}"
+```
+
+Output: 
+
+```bash
+1
+2
+Rosso
+```
+
+### Visualizzare un elemento di un array
+
+```bash
+echo ${array[<posizione>]
+
+printf "${array[<posizione>]}"
+```
+
+Esempio:
+
+```bash
+lista[0]=1
+lista[2]=2
+lista[5]="Rosso"
+
+printf "${lista[0]} \n"
+printf "${listsa[1]} \n"
+printf "${lista[5]} \n"
+```
+
+Output: 
+
+```bash
+1        
+        # lista[1] non esiste quindi è corretto che non venga stampato a video nulla
+Rosso
+```
+
+
+### Visualizzare il numero di elementi presenti in un array  
+
+```bash
+${#array[@]}
+```
+
+Esempio:
+
+```bash
+lista[0]=1
+lista[1]=2
+lista[2]="Rosso"
+
+printf "${#lista[@]} \n"
+```
+
+Output: 
+
+```bash
+3
+```
+
+
+### Visualizzare la lunghezza di un elemento di un array
+
+```bash
+echo "${#array[<posizione>]}"
+```
+
+Esempio:
+
+```bash
+lista[0]=1
+lista[1]=2
+lista[2]="Rosso"
+
+printf "${#lista[2]} \n"
+```
+
+Output: 
+
+```bash
+5
+```
+
+
+### Aggiungere elementi ad un array  
+
+```bash
+
+```
+
+Esempio:
+
+```bash
+
+```
+
+Output: 
+
+```bash
+
+```
+
+### Sostituire elementi in un array  
+
+```bash
+
+```
+
+Esempio:
+
+```bash
+
+```
+
+Output: 
+
+```bash
+
+```
+
+### Rimuovere elementi da un array  
+
+```bash
+
+```
+
+Esempio:
+
+```bash
+
+```
+
+Output: 
+
+```bash
+
+```
+
+
 
 ## Scripting
 
