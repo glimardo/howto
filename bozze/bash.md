@@ -1650,7 +1650,105 @@ Esempio:
 
 ```
 
-### La logica
+
+## Le funzioni
+
+### Cosa sono le funzioni  
+
+La funzione non è altro che un "mini programma" che esegue una funzionalità 
+che accetta dei parametri in input e fornisce un output.
+
+regola aurea:
+se la funzione non l'hai ancora definita, non chiamarla!
+
+### Definire una funzione
+
+```bash
+# Definisco la funzione usando function
+function nome_funzione ()
+{
+ <istruzioni>
+}
+
+# Posso definire la funzione senza scrivere function
+nome_funzione ()
+{
+ <istruzioni>
+}
+
+# Chiamo la funzione
+nome_funzione
+```
+
+Esempio:
+
+```bash
+# saluto.sh
+
+saluto ()
+{
+  echo "Ciao!"
+}
+
+saluto
+```
+
+
+Output: 
+
+```bash
+$ ./saluto.sh
+Ciao!
+```
+
+### Passare parametri da una funzione
+
+
+```bash
+# Definizione della funzione parametrica
+nome_funzione ()
+{
+ <istruzioni>
+}
+
+# Passare parametri alla funzione
+nome_funzione <parametro 1> <parametro 2> <parametro n>
+```
+
+Esempio:
+
+```bash
+# saluto.sh
+
+saluto ()
+{
+  if [ -z "$1" ]
+    then
+         printf "Non è stato inserito il nome! \n"
+    else
+         printf "Ciao, $1!\nQuesta è una funzione parametrica! \n"
+  fi
+}
+
+printf "Chiamo la funzione saluto senza parametro: \n"
+saluto
+printf "Chiamo la funzione saluto con parametro: \n"
+saluto "John Doe"
+```
+
+Output: 
+
+```bash
+$ ./saluto.sh
+Chiamo la funzione saluto senza parametro:
+Non è stato inserito il nome!
+Chiamo la funzione saluto con parametro:
+Ciao, John Doe!
+Questa è una funzione parametrica!
+```
+
+
+## La logica
 
 #### Gli operatori
 
