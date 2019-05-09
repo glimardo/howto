@@ -1,10 +1,173 @@
-BASH (review)
+BASH
 ====
 
 <!-- toc -- >
 Indice
 ======
-
+- [Fondamentali](#fondamentali)
+  * [Man](#man)
+  * [Echo](#echo)
+  * [Printf](#printf)
+  * [Caratteri di escape più utili](#caratteri-di-escape-pi--utili)
+  * [Storico dei comandi utilzzati](#storico-dei-comandi-utilzzati)
+  * [Ripulire lo schermo del terminale](#ripulire-lo-schermo-del-terminale)
+  * [Variabili di ambiente utili](#variabili-di-ambiente-utili)
+  * [Stream](#stream)
+    + [Pipeline](#pipeline)
+    + [Reindirizzare l'output](#reindirizzare-l-output)
+    + [Reindirizzare l'input](#reindirizzare-l-input)
+      - [Here document](#here-document)
+  * [Paginatori](#paginatori)
+    + [Mostrare a video un output una pagina alla volta](#mostrare-a-video-un-output-una-pagina-alla-volta)
+- [Gestione delle cartelle](#gestione-delle-cartelle)
+  * [Visualizzare il path della cartella in uso](#visualizzare-il-path-della-cartella-in-uso)
+  * [Visualizzare il contenuto  di una cartella](#visualizzare-il-contenuto--di-una-cartella)
+  * [Spostarsi tra cartelle](#spostarsi-tra-cartelle)
+  * [Creare una cartella](#creare-una-cartella)
+    + [Creare una cartella con relative sottocartelle](#creare-una-cartella-con-relative-sottocartelle)
+  * [Cancellare una cartella](#cancellare-una-cartella)
+  * [Visualizzare l'utilizzo del disco](#visualizzare-l-utilizzo-del-disco)
+  * [Visualizzare l'utilizzo del filesystem](#visualizzare-l-utilizzo-del-filesystem)
+- [Gestione dei file](#gestione-dei-file)
+  * [Creare un file](#creare-un-file)
+  * [Copiare un file od una directory](#copiare-un-file-od-una-directory)
+  * [Muovere o rinominare un file](#muovere-o-rinominare-un-file)
+    + [Rinominare un file o directory](#rinominare-un-file-o-directory)
+    + [Spostare uno o più file o directory](#spostare-uno-o-pi--file-o-directory)
+  * [Cancellare un file](#cancellare-un-file)
+  * [Cercare un file](#cercare-un-file)
+  * [Confrontare due file](#confrontare-due-file)
+  * [Visualizzare il contenuto di un file](#visualizzare-il-contenuto-di-un-file)
+  * [Concatenare più file](#concatenare-pi--file)
+    + [Delimitare le colonne da visualizzare in un file](#delimitare-le-colonne-da-visualizzare-in-un-file)
+  * [Creare un link simbolico a file esistenti](#creare-un-link-simbolico-a-file-esistenti)
+    + [rimuovere un link simbolico](#rimuovere-un-link-simbolico)
+  * [Dividere un file in diverse parti](#dividere-un-file-in-diverse-parti)
+  * [Filtri](#filtri)
+    + [Contare il numero di parole](#contare-il-numero-di-parole)
+    + [Filtrare le prime righe da un file](#filtrare-le-prime-righe-da-un-file)
+    + [Filtrare le ultime righe di un file](#filtrare-le-ultime-righe-di-un-file)
+      - [Continuare a filtrare sempre le ultime righe](#continuare-a-filtrare-sempre-le-ultime-righe)
+    + [tee](#tee)
+  * [Ordinamento](#ordinamento)
+    + [Ordinamento crescente](#ordinamento-crescente)
+    + [Ordinamento decrescente](#ordinamento-decrescente)
+    + [Ordinamento eliminando i duplicati](#ordinamento-eliminando-i-duplicati)
+    + [Redirigere l'ordinamento in un altro file](#redirigere-l-ordinamento-in-un-altro-file)
+  * [Gestione dei duplicati](#gestione-dei-duplicati)
+    + [Rimuovere i duplicati da un input](#rimuovere-i-duplicati-da-un-input)
+    + [Rimuovere tutti i duplicati](#rimuovere-tutti-i-duplicati)
+    + [Mostrare solo i valori duplicati](#mostrare-solo-i-valori-duplicati)
+    + [Mostra solo le righe duplicate](#mostra-solo-le-righe-duplicate)
+    + [Mostra solo le righe che non hanno duplicati](#mostra-solo-le-righe-che-non-hanno-duplicati)
+  * [Effettuare ricerche nel testo dei file](#effettuare-ricerche-nel-testo-dei-file)
+    + [Cercare del testo dentro dei file](#cercare-del-testo-dentro-dei-file)
+    + [Ricerca semplice](#ricerca-semplice)
+      - [Raffinare la ricerca](#raffinare-la-ricerca)
+  * [Comprimere i file](#comprimere-i-file)
+    + [Gestire un archivio tar.gz](#gestire-un-archivio-targz)
+      - [Comprimere dei file in un archivio](#comprimere-dei-file-in-un-archivio)
+        * [tar.gz](#targz)
+      - [Decomprimere un archivio](#decomprimere-un-archivio)
+      - [Visualizzare il contenuto di un archivio](#visualizzare-il-contenuto-di-un-archivio)
+  * [Verificare l'integrità di un file](#verificare-l-integrit--di-un-file)
+    + [cksum](#cksum)
+    + [md5sum](#md5sum)
+  * [Convertire un file da un formato DOS ad Unix e viceversa](#convertire-un-file-da-un-formato-dos-ad-unix-e-viceversa)
+  * [Cambiare i permessi sui file](#cambiare-i-permessi-sui-file)
+  * [Scaricare file dalla rete](#scaricare-file-dalla-rete)
+    + [wget](#wget)
+- [Gestione delle stringhe](#gestione-delle-stringhe)
+  * [Lunghezza di una stringa](#lunghezza-di-una-stringa)
+  * [Concatenare le stringhe](#concatenare-le-stringhe)
+  * [Sostituzione in una stringa](#sostituzione-in-una-stringa)
+  * [Cambiare la stringa tutta in MAIUSCOLO o minuscolo](#cambiare-la-stringa-tutta-in-maiuscolo-o-minuscolo)
+    + [Maiuscolo](#maiuscolo)
+    + [Minuscolo](#minuscolo)
+  * [Estrarre delle sottostringhe](#estrarre-delle-sottostringhe)
+- [Array](#array)
+  * [Creazione di un array](#creazione-di-un-array)
+  * [Visualizzare un array](#visualizzare-un-array)
+  * [Visualizzare un elemento di un array](#visualizzare-un-elemento-di-un-array)
+  * [Visualizzare il numero di elementi presenti in un array](#visualizzare-il-numero-di-elementi-presenti-in-un-array)
+  * [Visualizzare la lunghezza di un elemento di un array](#visualizzare-la-lunghezza-di-un-elemento-di-un-array)
+  * [Aggiungere elementi ad un array](#aggiungere-elementi-ad-un-array)
+  * [Sostituire elementi in un array](#sostituire-elementi-in-un-array)
+  * [Rimuovere elementi da un array](#rimuovere-elementi-da-un-array)
+- [Gli operatori](#gli-operatori)
+  * [Operatori aritmetici](#operatori-aritmetici)
+  * [Operatori di confronto](#operatori-di-confronto)
+  * [Operatori di confronto su stringhe](#operatori-di-confronto-su-stringhe)
+  * [Operatori binari di confronto](#operatori-binari-di-confronto)
+  * [Operatori di verifica file](#operatori-di-verifica-file)
+  * [Operatori logici](#operatori-logici)
+  * [Operatori booleani](#operatori-booleani)
+  * [Range](#range)
+  * [Operazioni sulle variabili](#operazioni-sulle-variabili)
+- [La logica](#la-logica)
+  * [L'istruzione if](#l-istruzione-if)
+    + [Elif](#elif)
+    + [L'istruzione if su di una riga](#l-istruzione-if-su-di-una-riga)
+  * [Il ciclo for](#il-ciclo-for)
+    + [Ciclo for in formato c](#ciclo-for-in-formato-c)
+    + [L'istruzione for su di una riga](#l-istruzione-for-su-di-una-riga)
+  * [Verifica delle condizioni di ingresso (Case)](#verifica-delle-condizioni-di-ingresso--case-)
+  * [Il ciclo while](#il-ciclo-while)
+    + [Ciclo infinito](#ciclo-infinito)
+    + [L'istruzione while su di una riga](#l-istruzione-while-su-di-una-riga)
+  * [Il ciclo until](#il-ciclo-until)
+    + [L'istruzione until su di una riga](#l-istruzione-until-su-di-una-riga)
+  * [Controlli sul ciclo](#controlli-sul-ciclo)
+    + [Break](#break)
+    + [Continue](#continue)
+- [Scripting](#scripting)
+  * [Shebang](#shebang)
+  * [Commenti](#commenti)
+  * [Variabili](#variabili)
+    + [Scrivere una variabile](#scrivere-una-variabile)
+    + [Sostituire un comando in una variabile](#sostituire-un-comando-in-una-variabile)
+  * [Estrarre il nome del file da un percorso ed assegnarlo ad una variabile](#estrarre-il-nome-del-file-da-un-percorso-ed-assegnarlo-ad-una-variabile)
+  * [Estrarre una cartella da un percorso ed assegnarlo ad una variabile](#estrarre-una-cartella-da-un-percorso-ed-assegnarlo-ad-una-variabile)
+  * [Eseguire uno script](#eseguire-uno-script)
+    + [Permessi di esecuzione](#permessi-di-esecuzione)
+    + [Lanciare uno script](#lanciare-uno-script)
+  * [Leggere un input inserito da tastiera](#leggere-un-input-inserito-da-tastiera)
+  * [Stato di uscita dallo script](#stato-di-uscita-dallo-script)
+- [Le funzioni](#le-funzioni)
+  * [Cosa sono le funzioni](#cosa-sono-le-funzioni)
+  * [Definire una funzione](#definire-una-funzione)
+  * [Passare parametri ad una funzione](#passare-parametri-ad-una-funzione)
+  * [stato di uscita da una funzione](#stato-di-uscita-da-una-funzione)
+  * [Assegnare una funzione ad una variabile](#assegnare-una-funzione-ad-una-variabile)
+  * [Lo scope delle variabili nelle funzioni](#lo-scope-delle-variabili-nelle-funzioni)
+    + [variabili globali](#variabili-globali)
+    + [variabili locali](#variabili-locali)
+    + [Esempio di variabili globali e locali](#esempio-di-variabili-globali-e-locali)
+- [Gestire le date](#gestire-le-date)
+  * [Giorno, mese, anno](#giorno--mese--anno)
+- [Gestione della rete](#gestione-della-rete)
+  * [Informazioni su di un host](#informazioni-su-di-un-host)
+  * [Verificare se un sistema è raggiungibile](#verificare-se-un-sistema---raggiungibile)
+- [Connettersi ad un server remoto](#connettersi-ad-un-server-remoto)
+  * [Connessione via FTP](#connessione-via-ftp)
+    + [Connettersi ad un server via ftp](#connettersi-ad-un-server-via-ftp)
+    + [Comandi utili](#comandi-utili)
+  * [Connessione via SSH](#connessione-via-ssh)
+    + [Connettersi ad un server remoto via SSH](#connettersi-ad-un-server-remoto-via-ssh)
+    + [Lanciare un comando via SSH](#lanciare-un-comando-via-ssh)
+- [Gestione utenti](#gestione-utenti)
+  * [Visualizzare il numero di utenti nel sistema](#visualizzare-il-numero-di-utenti-nel-sistema)
+  * [Visualizzare il gruppo a cui appartiene il proprio utente](#visualizzare-il-gruppo-a-cui-appartiene-il-proprio-utente)
+  * [Creare un nuovo utente](#creare-un-nuovo-utente)
+  * [Cancellare un utente](#cancellare-un-utente)
+- [Gestione processi](#gestione-processi)
+  * [Elenco dei processi attivi](#elenco-dei-processi-attivi)
+  * [Visualizzare un cruscotto con tutti i processi attivi](#visualizzare-un-cruscotto-con-tutti-i-processi-attivi)
+  * [Tenere un comando attivo anche quando l'utente è disconnesso](#tenere-un-comando-attivo-anche-quando-l-utente---disconnesso)
+  * [Eseguire un comando ripetutamente](#eseguire-un-comando-ripetutamente)
+  * [Terminare forzatamente un processo](#terminare-forzatamente-un-processo)
+- [Informazioni sul sistema](#informazioni-sul-sistema)
+  * [Visualizzare le specifiche del sistema](#visualizzare-le-specifiche-del-sistema)
 <!-- /toc -->
 
 # Fondamentali
@@ -314,7 +477,6 @@ natis. Eu augue ut lectus arcu bibendum at. Nullam non nisi est sit amet.
 
 # Gestione delle cartelle
 
-
 ## Visualizzare il path della cartella in uso
 
 ```bash
@@ -468,7 +630,7 @@ Filesystem    Size  Used  Avail  Use%  Mounted on
 ```
 
 
-# GESTIONE DEI FILE
+# Gestione dei file
 
 ## Creare un file
 
@@ -1467,7 +1629,7 @@ Connecting to github.com (github.com)|192.30.253.112|:443... connected.
 ```
 
 
-## Gestire le stringhe
+# Gestione delle stringhe
 
 Si utilizzerà la variabile di esempio:
 
@@ -1475,7 +1637,7 @@ Si utilizzerà la variabile di esempio:
 stringa="Questa è una stringa con cui posso fare esperimenti"
 ```
 
-### Lunghezza di una stringa
+## Lunghezza di una stringa
 
 ```bash
 ${#stringa} # Restituisce la lunghezza della stringa
@@ -1494,7 +1656,7 @@ Output:
 ```
 
 
-### Concatenare le stringhe
+## Concatenare le stringhe
 
 ```bash
 prima_stringa = "<testo>"
@@ -1517,7 +1679,7 @@ Output:
 Prima stringa Seconda stringa
 ```
 
-### Sostituzione in una stringa
+## Sostituzione in una stringa
 
 ```bash
 ${stringa//<parola da sostituire>/<parola con cui vuoi sostituire>}
@@ -1535,9 +1697,9 @@ Output:
 Questa è una stringa su cui posso fare esperimenti
 ```
 
-### Cambiare la stringa tutta in MAIUSCOLO o minuscolo
+## Cambiare la stringa tutta in MAIUSCOLO o minuscolo
 
-#### Maiuscolo
+### Maiuscolo
 
 | Comando  | Significato |
 | :---: | :---: | 
@@ -1556,7 +1718,7 @@ QUESTA È UNA STRINGA CON CUI POSSO FARE ESPERIMENTI
 ```
 
 
-#### Minuscolo
+### Minuscolo
 
 | Comando  | Significato |
 | :---: | :---: | 
@@ -1578,7 +1740,7 @@ questa è una stringa con cui posso fare esperimenti
 ```
        
 
-### Estrarre delle sottostringhe
+## Estrarre delle sottostringhe
 
 Data una variabile stringa, si possono utilizzare i seguenti comandi per estrarre delle sottostringhe:
 
@@ -1615,11 +1777,11 @@ esperimenti
 ```
 
 
-## Array
+# Array
 
 In Bash esistono gli array monodimensionali.
 
-### Creazione di un array
+## Creazione di un array
 
 ```bash
 array[<posizione>]=<valore>
@@ -1637,7 +1799,7 @@ lista[5]="Rosso" # Posso inserire valori eterogenei
 lista=(1 2 "Rosso") # Posso inserire tutti i valori insieme
 ```
 
-### Visualizzare un array  
+## Visualizzare un array  
 
 ```bash
 echo "${array[@]}"
@@ -1665,7 +1827,7 @@ Rosso
 1 2 Rosso
 ```
 
-### Visualizzare un elemento di un array
+## Visualizzare un elemento di un array
 
 ```bash
 echo ${array[<posizione>]
@@ -1694,7 +1856,7 @@ Rosso
 ```
 
 
-### Visualizzare il numero di elementi presenti in un array  
+## Visualizzare il numero di elementi presenti in un array  
 
 ```bash
 ${#array[@]}
@@ -1717,7 +1879,7 @@ Output:
 ```
 
 
-### Visualizzare la lunghezza di un elemento di un array
+## Visualizzare la lunghezza di un elemento di un array
 
 ```bash
 echo "${#array[<posizione>]}"
@@ -1740,7 +1902,7 @@ Output:
 ```
 
 
-### Aggiungere elementi ad un array  
+## Aggiungere elementi ad un array  
 
 ```bash
 array[<posizione>] = <valore>
@@ -1761,7 +1923,7 @@ Output:
 1 2 Rosso Pippo
 ```
 
-### Sostituire elementi in un array  
+## Sostituire elementi in un array  
 
 ```bash
 array[<posizione del vecchio valore>] = <nuovo valore>
@@ -1782,7 +1944,7 @@ Output:
 1 2 Sheldon
 ```
 
-### Rimuovere elementi da un array  
+## Rimuovere elementi da un array  
 
 ```bash
 unset array[<posizione>] # Rimuove un elemento
@@ -1812,10 +1974,9 @@ Elimino l'intero array:
 ```
 
 
-## Gli operatori
+# Gli operatori
 
-
-### Operatori aritmetici
+## Operatori aritmetici
 
 | Operatore | Sintassi |
 |---|:-:|
@@ -1827,7 +1988,7 @@ Elimino l'intero array:
 | Modulo (cioè il resto della divisione) | a % b|
 
 
-### Operatori di confronto
+## Operatori di confronto
 
 | Operatore  | Significato | Esempio |
 | :---: | :---: | --- |
@@ -1839,7 +2000,7 @@ Elimino l'intero array:
 | <=  | Minore od uguale a | $a <= $b |
 
 
-### Operatori di confronto su stringhe
+## Operatori di confronto su stringhe
 
 | Operatore  | Significato | Esempio |
 | :---: | :---: | --- |
@@ -1847,7 +2008,7 @@ Elimino l'intero array:
 | -n  | Verifica se la stringa non è vuota | a=""; if [[ -n $a ]]; then echo "La stringa è vuota"; else echo "La stringa non è vuota"; fi |
 
 
-### Operatori binari di confronto
+## Operatori binari di confronto
 
 | Operatore  | Significato | Esempio |
 | :---: | :---: | --- |
@@ -1859,7 +2020,7 @@ Elimino l'intero array:
 | -le  | è minore o uguale a | $a -le $b |
 
 
-### Operatori di verifica file
+## Operatori di verifica file
 
 | Operatore  | Significato |
 | :---: | :---: |
@@ -1872,7 +2033,7 @@ Elimino l'intero array:
 | -x | restituisce True se per l'utente che esegue la verifica il file ha permessi di esecuzione |
 
 
-### Operatori logici
+## Operatori logici
 
 | Operatore  | Significato | Esempio |
 | :---: | :---: | --- |
@@ -1880,7 +2041,7 @@ Elimino l'intero array:
 | \|\| | Il secondo comando viene eseguito solo se il primo è stato eseguito senza successo | <comando 1> \|\|<comando 2> |
 
 
-### Operatori booleani
+## Operatori booleani
 
 | Operatore  | Significato |
 | :---: | :---: | 
@@ -1888,7 +2049,7 @@ Elimino l'intero array:
 | false | Restituisce 1 se l'esecuzione di un'istruzione non è andata bene |
 
 
-### Range
+## Range
 
 | Range  | Significato |
 | :---: | :---: | 
@@ -1897,7 +2058,7 @@ Elimino l'intero array:
 | echo {<numero iniziale>..<passo>..<numero finale>} | Stampa a video da <numero iniziale> a <numero finale> con passo <passo>  |
 
 
-### Operazioni sulle variabili
+## Operazioni sulle variabili
 
 | Operazione  | Significato | Esempio |
 | :---: | :---: | :---: | 
@@ -1909,9 +2070,9 @@ Elimino l'intero array:
 |   |   |       
        
 
-## La logica
+# La logica
 
-### L'istruzione if
+## L'istruzione if
 
 ```bash
 if [condizione]
@@ -1950,7 +2111,7 @@ Difficile che 2 sia maggiore o uguale a 3!
 ```
 
       
-#### Elif
+### Elif
 
 ```bash
 if [condizione]
@@ -1997,7 +2158,7 @@ Valore di b: 3
 ```
 
 
-#### L'istruzione if su di una riga
+### L'istruzione if su di una riga
 
 ```bash
 if [condizione]; then ; else ; fi
@@ -2016,7 +2177,7 @@ Difficile che 2 sia maggiore o uguale a 3!
 ```
 
 
-### Il ciclo for
+## Il ciclo for
 
 ```bash
 for <variabile> in <lista>
@@ -2042,7 +2203,7 @@ numero della lista: 3
 ```
 
 
-#### Ciclo for in formato c
+### Ciclo for in formato c
 
 ```bash
 for ((i=1; i<numero_massimo; i++))
@@ -2068,7 +2229,7 @@ numero della lista: 3
 ```
 
 
-#### L'istruzione for su di una riga
+### L'istruzione for su di una riga
 
 ```bash
 for i in <lista>; do <istruzioni>; done
@@ -2091,7 +2252,7 @@ numero della lista: 3
 ```
 
 
-### Verifica delle condizioni di ingresso (Case)  
+## Verifica delle condizioni di ingresso (Case)  
 
 ```bash
 Case <variabile> in
@@ -2129,7 +2290,7 @@ inserisci un numero: 2
 ```
 
 
-### Il ciclo while
+## Il ciclo while
 
 
 ```bash
@@ -2165,7 +2326,7 @@ Attenzione a non sbagliare la condizione, altrimenti entri in
 un ciclo infinito dal quale non ne esci più!
 
 
-#### Ciclo infinito
+### Ciclo infinito
 
 ```bash
 while: # equivale a while true
@@ -2206,7 +2367,7 @@ Sono uscito dal ciclo while!
 ```
 
 
-#### L'istruzione while su di una riga
+### L'istruzione while su di una riga
 
 ```bash
 COSTANTE=<valore>; while [condizione]; do <istruzioni> <Ricordati valutare lo stato della condizione>; done
@@ -2229,7 +2390,7 @@ Output:
 ```
 
 
-### Il ciclo until
+## Il ciclo until
 
 ```bash
 until [condizione falsa]
@@ -2265,7 +2426,7 @@ Sono uscito dal ciclo until!
 ```
 
 
-#### L'istruzione until su di una riga
+### L'istruzione until su di una riga
 
 ```bash
  until [ condizione falsa ]; do <istruzioni>; done
@@ -2289,9 +2450,9 @@ Sono uscito dal ciclo until!
 ```
 
 
-### Controlli sul ciclo 
+## Controlli sul ciclo 
 
-#### Break
+### Break
 
 ```
 Break interrompe l'esecuzione del ciclo in qualsiasi punto ci si trovi
@@ -2317,7 +2478,7 @@ numero della lista: 1 # Ho messo subito il break, quindi esco dopo la prima istr
 ```
 
 
-#### Continue
+### Continue
 
 ```
 Continue fa saltare all'iterazione successiva
@@ -2351,10 +2512,9 @@ numero della lista: 4
 ```
 
 
-## Scripting
+# Scripting
 
-
-### Shebang
+## Shebang
 
 ```bash
 # shebang.sh
@@ -2381,7 +2541,7 @@ Forma corretta da usare: #!/usr/bin/env bash
 ```
 
 
-### Commenti
+## Commenti
 
 ```bash
 # I commenti iniziano con #
@@ -2394,10 +2554,10 @@ Esempio:
 ```
 
 
-### Variabili
+## Variabili
 
 
-#### Scrivere una variabile
+### Scrivere una variabile
 
 ```bash
 variabile=<valore da associare>
@@ -2427,7 +2587,7 @@ Sono una frase nuova!
 ```
 
 
-#### Sostituire un comando in una variabile
+### Sostituire un comando in una variabile
 
 ```bash
 variabile=$(<comando>)
@@ -2453,7 +2613,7 @@ Questo comando è lanciato da una variabile!
 ```
 
 
-### Estrarre il nome del file da un percorso ed assegnarlo ad una variabile
+## Estrarre il nome del file da un percorso ed assegnarlo ad una variabile
 
 ```bash
 variabile = "percorso\<nome file>"
@@ -2476,7 +2636,7 @@ esempio.sh
 ```
 
 
-### Estrarre una cartella da un percorso ed assegnarlo ad una variabile
+## Estrarre una cartella da un percorso ed assegnarlo ad una variabile
 
 ```bash
 variabile = "percorso\<nome file>"
@@ -2499,9 +2659,9 @@ esercizio/dirname
 ```
 
 
-### Eseguire uno script
+## Eseguire uno script
 
-#### Permessi di esecuzione
+### Permessi di esecuzione
 
 ```bash
 chmod +x <nome script>
@@ -2515,7 +2675,7 @@ $ chmod +x variabili.sh
 ```
 
 
-#### Lanciare uno script  
+### Lanciare uno script  
 
 ```bash
 ./<nome script>
@@ -2532,7 +2692,7 @@ Sono un test!
 ```
 
 
-### Leggere un input inserito da tastiera
+## Leggere un input inserito da tastiera
 
 ```bash
 read <nome variabile>
@@ -2574,7 +2734,7 @@ terza parola: bash
 ```
 
 
-### Stato di uscita dallo script
+## Stato di uscita dallo script
 
 Ogni comando ha uno stato di uscita:  
 
@@ -2604,9 +2764,9 @@ Esempio:
 ```
 
 
-## Le funzioni
+# Le funzioni
 
-### Cosa sono le funzioni  
+## Cosa sono le funzioni  
 
 La funzione non è altro che un "mini programma" che esegue una funzionalità 
 che accetta dei parametri in input e fornisce un output.
@@ -2615,7 +2775,7 @@ regola aurea:
 se la funzione non l'hai ancora definita, non chiamarla!
 
 
-### Definire una funzione
+## Definire una funzione
 
 ```bash
 nome_funzione ()
@@ -2649,7 +2809,7 @@ Ciao!
 ```
 
 
-### Passare parametri ad una funzione
+## Passare parametri ad una funzione
 
 
 ```bash
@@ -2696,7 +2856,7 @@ Questa è una funzione parametrica!
 ```
 
 
-### stato di uscita da una funzione
+## stato di uscita da una funzione
        
 | Modalità  | Comando | Note | 
 | :---: | --- | --- |
@@ -2769,7 +2929,7 @@ Il valore di ritorno della funzione è 0
 ```
 
 
-### Assegnare una funzione ad una variabile
+## Assegnare una funzione ad una variabile
 
 ```bash
 funzione()
@@ -2835,21 +2995,21 @@ Il maggiore tra 2 e 3 è: 3
 ```
 
 
-### Lo scope delle variabili nelle funzioni
+## Lo scope delle variabili nelle funzioni
 
-#### variabili globali
+### variabili globali
 
 Di default, le variabili sono sempre globali.
 Le variabili definite fuori dalle funzioni sono visibili da quest'ultime indistintamente.
 
 
-#### variabili locali
+### variabili locali
 
 Le variabili sono visibili solo all'interno della funzione se sono definite come local.
 Altrimenti sono visibili anche al di fuori della funzione anche se definite in essa.
 
 
-#### Esempio di variabili globali e locali
+### Esempio di variabili globali e locali
 
 Esempio:
 
@@ -2893,7 +3053,7 @@ Cosa contiene la variabile locale? # L'output è vuoto perchè non può leggere 
 ```
 
 
-## Gestire le date
+# Gestire le date
 
 ```bash
 date 
@@ -2906,7 +3066,7 @@ $ date
 Mer  1 Mag 2019 99:99:99 CEST
 ```
 
-### Giorno, mese, anno
+## Giorno, mese, anno
 
 Con il comando date, sono utili i seguenti parametri:
 
@@ -2943,9 +3103,9 @@ $ data=$(date +%Y-%m-%d); echo $data
 ```
 
 
-## Gestione della rete
+# Gestione della rete
 
-### Informazioni su di un host
+## Informazioni su di un host
 
 ```bash
 host <nome host>
@@ -2965,7 +3125,7 @@ google.com mail is handled by 40 alt3.aspmx.l.google.com.
 ```
 
 
-### Verificare se un sistema è raggiungibile
+## Verificare se un sistema è raggiungibile
 
 ```bash
 ping <nome host>
@@ -2987,11 +3147,11 @@ rtt min/avg/max/mdev = 0.993/2.064/2.949/0.460 ms
 ```
 
 
-## Connettersi ad un server remoto
+# Connettersi ad un server remoto
 
-### Connessione via FTP
+## Connessione via FTP
 
-#### Connettersi ad un server via ftp
+### Connettersi ad un server via ftp
 
 ```bash
 ftp <utente>@<server>
@@ -3008,7 +3168,7 @@ Password:
 Login successful.
 ```
 
-#### Comandi utili
+### Comandi utili
 
 | Comando  | Significato | 
 | :---: | --- | 
@@ -3025,9 +3185,9 @@ Login successful.
 | quit  | esci dal server remoto  | 
 
 
-### Connessione via SSH
+## Connessione via SSH
 
-#### Connettersi ad un server remoto via SSH
+### Connettersi ad un server remoto via SSH
 
 ```bash
 ssh <utente>@<server>            # Se non hai da specificare una porta
@@ -3041,7 +3201,7 @@ $ssh -p 8844 giandoe@mioserver.com
 ```
 
 
-#### Lanciare un comando via SSH
+### Lanciare un comando via SSH
 
 
 ```bash
@@ -3057,9 +3217,9 @@ Tue May  8 23:34:26 DST 2019
 ```
 
 
-## Gestione utenti
+# Gestione utenti
 
-### Visualizzare il numero di utenti nel sistema
+## Visualizzare il numero di utenti nel sistema
 
 ```bash
 users
@@ -3075,7 +3235,7 @@ testman
 ```
 
 
-### Visualizzare il gruppo a cui appartiene il proprio utente  
+## Visualizzare il gruppo a cui appartiene il proprio utente  
 
 ```bash
 groups
@@ -3089,7 +3249,7 @@ sudo adm cdrom
 ```
 
 
-### Creare un nuovo utente
+## Creare un nuovo utente
 
 ```bash
 useradd <nome utente> # Creo l'utente
@@ -3107,7 +3267,7 @@ passwd: password updated successfully
 ```
 
 
-### Cancellare un utente  
+## Cancellare un utente  
 
 ```bash
 userdel <nome utente>    # cancella solo l'utenza
@@ -3121,9 +3281,9 @@ $ userdel -r johndoe
 ```
 
 
-## Gestione processi
+# Gestione processi
 
-### Elenco dei processi attivi
+## Elenco dei processi attivi
 
 ```bash
 ps     # Elenco dei processi attivi
@@ -3158,7 +3318,7 @@ ubuntu      46  0.0  0.0  15668  1864 tty1     R    10:26   0:00 ps -aux
 ```
 
 
-### Visualizzare un cruscotto con tutti i processi attivi
+## Visualizzare un cruscotto con tutti i processi attivi
 
 ```bash
 top
@@ -3182,7 +3342,7 @@ KiB Swap: 12582912 total, 12503128 free,    79784 used.  3035692 avail Mem
 ```
 
 
-### Tenere un comando attivo anche quando l'utente è disconnesso
+## Tenere un comando attivo anche quando l'utente è disconnesso
 
 ```bash
 nohup <comando>   # comando attivo anche se l'utente è disconnesso
@@ -3223,7 +3383,7 @@ rtt min/avg/max/mdev = 0.763/1.801/2.581/0.657 ms
 ```
 
 
-### Eseguire un comando ripetutamente
+## Eseguire un comando ripetutamente
 
 ```bash
 watch <comando>                      # Ripete il comando ogni 2 secondi
@@ -3238,7 +3398,7 @@ $ watch -n3  tail messages.log
 ```
 
 
-### Terminare forzatamente un processo
+## Terminare forzatamente un processo
 
 ```bash
 kill <nome processo>
@@ -3253,9 +3413,9 @@ $kill -15 1234
 ```
 
 
-## Informazioni sul sistema
+# Informazioni sul sistema
 
-### Visualizzare le specifiche del sistema
+## Visualizzare le specifiche del sistema
 
 ```bash
 uname
