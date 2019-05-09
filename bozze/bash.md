@@ -2260,213 +2260,114 @@ numero della lista: 4
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Gestire le date
-
-```bash
-date 
-```
-
-Esempio:
-
-```bash
-$ date
-Mer  1 Mag 2019 99:99:99 CEST
-```
-
-### Giorno, mese, anno
-
-Con il comando date, sono utili i seguenti parametri:
-
-| Parametro  | Significato |
-| :---: | :---: |
-| %d | giorno |
-| %a | giorno abbreviato es. 'Lun'|
-| %A | giorno per esteso |
-| %m | mese |
-| %b | mese abbreviato es. 'Gen' |
-| %B | mese per esteso |
-| %Y | anno |
-| %H | ora |
-| %M | minuti |
-| %S | secondi |
-| %F | Equivale a scrivere %Y-%m-%d |
-
-
-```bash
-date +%Y-%m-%d # Formato anno-mese-giorno
-               # Ovviamente puoi usarne solo uno
-               # o posizionarli come ti sono
-               # più utili
-```
-
-Esempio:
-
-```bash
-$ date +%Y-%m-%d
-2019-05-01
-
-$ data=$(date +%Y-%m-%d); echo $data
-2019-05-01
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Gestione dei permessi sui file
-
-### Visualizzare l'utente in uso
-
-whoami
-
-### Visualizzare il gruppo a cui appartiene l'utente
-
-groups
-
-### Cambiare utente
-
-su nomeutente
-
-### Cambiare i permessi sui file
-
-```
-chmod <permessi> <nomefile>
-```
-
-
-Il modo più semplice per dare i permessi è il seguente:
-
-| Permesso  | Esempio | Significato | 
-| :---: | --- | --- |
-| r | chmod +r <nomefile> | si danno i permessi di lettura al file |
-| w | chmod +w <nomefile> | si danno i permessi di scrittura al file |
-| x | chmod +x <nomefile> | si danno i permessi di esecuzione al file |
-| r | chmod -r <nomefile> | si tolgono i permessi di al file |
-| w | chmod -w <nomefile> | si tolgono i permessi di scrittura al file|
-| x | chmod -x <nomefile> | si tolgono i permessi di esecuzione al file |
-
-
-Esempio:
-
-```bash
-$ chmod +r permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod +w permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod +x permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rwxr-xr-x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$
-$ chmod -r permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
---wx--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod -w permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
----x--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod -x permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
-----------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-```
-
-Si possono dare i permessi anche in forma ottale:
-
-| Permesso  | Forma ottale | 
-| :---: | --- |
-| rwx | 7 |
-| rw- | 6 |
-| r-x | 5 |
-| r-- | 4 |
-| -wx | 3 |
-| -w- | 2 |
-| --x | 1 |
-| --- | 0 |
-
-Esempio:
-
-Esempio:
-
-```bash
-$ chmod 700 permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rwx------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Scripting
+
 
 ### Shebang
 
-#!
+```bash
+# shebang.sh
+
+#!/usr/bin/env bash
+
+<istruzioni dello script>
+```
+
+Esempio:
+
+```bash
+#!/usr/bin/env bash
+
+printf "Forma errata da usare: #!/bin/bash \nForma corretta da usare: #!/usr/bin/env bash \n "
+```
+
+Output: 
+
+```bash
+$ ./shebang.sh
+Forma errata da usare: #!/bin/bash
+Forma corretta da usare: #!/usr/bin/env bash
+```
+
 
 ### Commenti
 
-#
+```bash
+# I commenti iniziano con #
+```
+
+Esempio:
+
+```bash
+# Questo è un commento
+```
+
 
 ### Variabili
 
-#### Visualizzare il contenuto di una variabile
 
-$variabile
+#### Scrivere una variabile
 
-echo $variabile
+```bash
+variabile=<valore da associare>
+COSTANTE=<valore da associare>
+variabile_composta=<valore da associare>$variabile
+```
+
+Esempio:
+
+```bash
+# variabili.sh
+
+frase="Sono una frase"
+numero=10
+COSTANTE=3.14
+nuova_frase="$frase nuova!"
+```
+
+Output: 
+
+```bash
+$ ./variabili.sh
+Sono una frase
+10
+3.14
+Sono una frase nuova!
+```
 
 
 ### Eseguire uno script
 
 #### Permessi di esecuzione
 
-chmod +x
-chmod 755
+```bash
+chmod +x <nome script>
+chmod 755 <nome script>
+```
 
-#### Lanciare uno script
+Esempio:
 
-./
-sh 
+```bash
+$ chmod +x variabili.sh
+```
+
+
+#### Lanciare uno script  
+
+```bash
+./<nome script>
+sh <nome script>
+```
+
+Esempio:
+
+```bash
+$ ./test.sh
+Sono un test!
+$ sh test.sh
+Sono un test!
+```
+
 
 ### Leggere un input inserito da tastiera
 
@@ -2509,9 +2410,6 @@ seconda parola: su
 terza parola: bash
 ```
 
-### Passaggio di parametri
-
-$0
 
 ### Stato di uscita dallo script
 
@@ -2553,6 +2451,7 @@ che accetta dei parametri in input e fornisce un output.
 regola aurea:
 se la funzione non l'hai ancora definita, non chiamarla!
 
+
 ### Definire una funzione
 
 ```bash
@@ -2592,6 +2491,7 @@ Output:
 $ ./saluto.sh
 Ciao!
 ```
+
 
 ### Passare parametri ad una funzione
 
@@ -2778,6 +2678,7 @@ Inserisci il secondo numero: 3
 Il maggiore tra 2 e 3 è: 3
 ```
 
+
 ### Lo scope delle variabili nelle funzioni
 
 #### variabili globali
@@ -2834,6 +2735,185 @@ Cosa contiene la variabile locale? Sono una variabile locale!
 Cosa contiene la variabile locale? # L'output è vuoto perchè non può leggere una variabile 
                                    # definita come local!
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Gestire le date
+
+```bash
+date 
+```
+
+Esempio:
+
+```bash
+$ date
+Mer  1 Mag 2019 99:99:99 CEST
+```
+
+### Giorno, mese, anno
+
+Con il comando date, sono utili i seguenti parametri:
+
+| Parametro  | Significato |
+| :---: | :---: |
+| %d | giorno |
+| %a | giorno abbreviato es. 'Lun'|
+| %A | giorno per esteso |
+| %m | mese |
+| %b | mese abbreviato es. 'Gen' |
+| %B | mese per esteso |
+| %Y | anno |
+| %H | ora |
+| %M | minuti |
+| %S | secondi |
+| %F | Equivale a scrivere %Y-%m-%d |
+
+
+```bash
+date +%Y-%m-%d # Formato anno-mese-giorno
+               # Ovviamente puoi usarne solo uno
+               # o posizionarli come ti sono
+               # più utili
+```
+
+Esempio:
+
+```bash
+$ date +%Y-%m-%d
+2019-05-01
+
+$ data=$(date +%Y-%m-%d); echo $data
+2019-05-01
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Gestione dei permessi sui file
+
+### Visualizzare l'utente in uso
+
+whoami
+
+### Visualizzare il gruppo a cui appartiene l'utente
+
+groups
+
+### Cambiare utente
+
+su nomeutente
+
+### Cambiare i permessi sui file
+
+```
+chmod <permessi> <nomefile>
+```
+
+
+Il modo più semplice per dare i permessi è il seguente:
+
+| Permesso  | Esempio | Significato | 
+| :---: | --- | --- |
+| r | chmod +r <nomefile> | si danno i permessi di lettura al file |
+| w | chmod +w <nomefile> | si danno i permessi di scrittura al file |
+| x | chmod +x <nomefile> | si danno i permessi di esecuzione al file |
+| r | chmod -r <nomefile> | si tolgono i permessi di al file |
+| w | chmod -w <nomefile> | si tolgono i permessi di scrittura al file|
+| x | chmod -x <nomefile> | si tolgono i permessi di esecuzione al file |
+
+
+Esempio:
+
+```bash
+$ chmod +r permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod +w permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod +x permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rwxr-xr-x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$
+$ chmod -r permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+--wx--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod -w permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+---x--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod -x permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+----------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+```
+
+Si possono dare i permessi anche in forma ottale:
+
+| Permesso  | Forma ottale | 
+| :---: | --- |
+| rwx | 7 |
+| rw- | 6 |
+| r-x | 5 |
+| r-- | 4 |
+| -wx | 3 |
+| -w- | 2 |
+| --x | 1 |
+| --- | 0 |
+
+Esempio:
+
+Esempio:
+
+```bash
+$ chmod 700 permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rwx------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
