@@ -273,10 +273,8 @@ $ echo "\"Questa frase mantiene i doppi apici in output\""
 
 | Comando  | Significato |
 | :---: | :---: |
-| history |  |
-| !! |  | 
-| !comando |  |
-| !?comando? |  |
+| history | Mostra la cronologia dei comandi utilizzati |
+| !! | Esegue l'ultimo comando utilizzato | 
 
 
 ## Ripulire lo schermo del terminale
@@ -349,7 +347,7 @@ Gian                              # filtro solo "gian"
 <comando>  >> <nome file in cui salvare lo stdout> # Se il file non esiste 
                                                    # lo crea.
                                                    # Se esiste, aggiunge 
-<                                                   # l'output in fondo
+<                                                  # l'output in fondo
 
 <comando> &> <nome file in cui salvare lo stdout e lo stderr> # come >
 
