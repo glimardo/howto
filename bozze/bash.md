@@ -1372,6 +1372,73 @@ $ dos2unix primo.txt
 ```
 
 
+## Cambiare i permessi sui file
+
+```
+chmod <permessi> <nomefile>
+```
+
+Il modo più semplice per dare i permessi è il seguente:
+
+| Permesso  | Esempio | Significato | 
+| :---: | --- | --- |
+| r | chmod +r <nomefile> | si danno i permessi di lettura al file |
+| w | chmod +w <nomefile> | si danno i permessi di scrittura al file |
+| x | chmod +x <nomefile> | si danno i permessi di esecuzione al file |
+| r | chmod -r <nomefile> | si tolgono i permessi di al file |
+| w | chmod -w <nomefile> | si tolgono i permessi di scrittura al file|
+| x | chmod -x <nomefile> | si tolgono i permessi di esecuzione al file |
+
+
+Esempio:
+
+```bash
+$ chmod +r permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod +w permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod +x permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rwxr-xr-x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$
+$ chmod -r permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+--wx--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod -w permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+---x--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod -x permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+----------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+```
+
+Si possono dare i permessi anche in forma ottale:
+
+| Permesso  | Forma ottale | 
+| :---: | --- |
+| rwx | 7 |
+| rw- | 6 |
+| r-x | 5 |
+| r-- | 4 |
+| -wx | 3 |
+| -w- | 2 |
+| --x | 1 |
+| --- | 0 |
+
+Esempio:
+
+Esempio:
+
+```bash
+$ chmod 700 permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rwx------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+
+```
+
+
 ## Scaricare file dalla rete
 
 ### wget 
@@ -2362,6 +2429,52 @@ Questo comando è lanciato da una variabile!
 ```
 
 
+### Estrarre il nome del file da un percorso ed assegnarlo ad una variabile
+
+```bash
+variabile = "percorso\<nome file>"
+`basename $variabile`
+
+#output: <nome file>
+```
+
+Esempio:
+
+```bash
+percorso="esercizio/esempio.sh"
+echo "`basename $percorso`"
+```
+
+Output: 
+
+```bash
+esempio.sh
+```
+
+
+### Estrarre una cartella da un percorso ed assegnarlo ad una variabile
+
+```bash
+variabile = "percorso\<nome file>"
+`dirname $variabile`
+
+#output: percorso
+```
+
+Esempio:
+
+```bash
+percorso="esercizio/dirname/esempio.sh"
+echo "`dirname $percorso`"
+```
+
+Output: 
+
+```bash
+esercizio/dirname
+```
+
+
 ### Eseguire uno script
 
 #### Permessi di esecuzione
@@ -2756,25 +2869,6 @@ Cosa contiene la variabile locale? # L'output è vuoto perchè non può leggere 
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Gestire le date
 
 ```bash
@@ -2823,182 +2917,6 @@ $ date +%Y-%m-%d
 $ data=$(date +%Y-%m-%d); echo $data
 2019-05-01
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Gestione dei permessi sui file
-
-### Visualizzare l'utente in uso
-
-whoami
-
-### Visualizzare il gruppo a cui appartiene l'utente
-
-groups
-
-### Cambiare utente
-
-su nomeutente
-
-### Cambiare i permessi sui file
-
-```
-chmod <permessi> <nomefile>
-```
-
-
-Il modo più semplice per dare i permessi è il seguente:
-
-| Permesso  | Esempio | Significato | 
-| :---: | --- | --- |
-| r | chmod +r <nomefile> | si danno i permessi di lettura al file |
-| w | chmod +w <nomefile> | si danno i permessi di scrittura al file |
-| x | chmod +x <nomefile> | si danno i permessi di esecuzione al file |
-| r | chmod -r <nomefile> | si tolgono i permessi di al file |
-| w | chmod -w <nomefile> | si tolgono i permessi di scrittura al file|
-| x | chmod -x <nomefile> | si tolgono i permessi di esecuzione al file |
-
-
-Esempio:
-
-```bash
-$ chmod +r permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod +w permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod +x permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rwxr-xr-x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$
-$ chmod -r permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
---wx--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod -w permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
----x--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod -x permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
-----------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-```
-
-Si possono dare i permessi anche in forma ottale:
-
-| Permesso  | Forma ottale | 
-| :---: | --- |
-| rwx | 7 |
-| rw- | 6 |
-| r-x | 5 |
-| r-- | 4 |
-| -wx | 3 |
-| -w- | 2 |
-| --x | 1 |
-| --- | 0 |
-
-Esempio:
-
-Esempio:
-
-```bash
-$ chmod 700 permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rwx------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## DA TROVARE UNA CATEGORIA
-
-### basename
-
-
-```bash
-variabile = "percorso\<nome file>"
-`basename $variabile`
-
-#output: <nome file>
-```
-
-Esempio:
-
-```bash
-percorso="esercizio/esempio.sh"
-echo "`basename $percorso`"
-```
-
-Output: 
-
-```bash
-esempio.sh
-```
-
-
-### dirname
-
-
-```bash
-variabile = "percorso\<nome file>"
-`dirname $variabile`
-
-#output: percorso
-```
-
-Esempio:
-
-```bash
-percorso="esercizio/dirname/esempio.sh"
-echo "`dirname $percorso`"
-```
-
-Output: 
-
-```bash
-esercizio/dirname
-```
-
 
 
 ## Gestione della rete
@@ -3115,7 +3033,7 @@ Tue May  8 23:34:26 DST 2019
 ```
 
 
-## GESTIONE UTENTI
+## Gestione utenti
 
 ### Visualizzare il numero di utenti nel sistema
 
@@ -3132,6 +3050,7 @@ iandoe
 testman
 ```
 
+
 ### Visualizzare il gruppo a cui appartiene il proprio utente  
 
 ```bash
@@ -3144,6 +3063,7 @@ Esempio:
 $ groups
 sudo adm cdrom 
 ```
+
 
 ### Creare un nuovo utente
 
@@ -3162,6 +3082,7 @@ Retype new UNIX password:
 passwd: password updated successfully
 ```
 
+
 ### Cancellare un utente  
 
 ```bash
@@ -3175,31 +3096,8 @@ Esempio:
 $ userdel -r johndoe
 ```
 
-## INFORMAZIONI SUL SISTEMA
 
-### Visualizzare le specifiche del sistema
-
-```bash
-uname
-```
-
-uname, in aggiunta alle seguenti opzioni, permette di avere più informazioni sul sistema:
-
-| Opzione  | Esempio | Significato | 
-| :---: | --- | --- |
-| -a | uname -a | mostra le informazioni dettagliate |
-| -p | uname -p | mostra le informazioni sul processore |
-| -s | uname -s | mostra il nome del sistema operativo |
-| -r | uname -r | mostra la release del sistema operativo |
-
-Esempio:
-
-```bash
-$uname -a 
-Linux Ubuntu blah blah blah
-```
-
-## GESTIONE PROCESSI
+## Gestione processi
 
 ### Elenco dei processi attivi
 
@@ -3234,6 +3132,7 @@ ubuntu       4  0.0  0.0  15020  3308 tty1     S    09:17   0:00 -bash
 ubuntu      46  0.0  0.0  15668  1864 tty1     R    10:26   0:00 ps -aux
 
 ```
+
 
 ### Visualizzare un cruscotto con tutti i processi attivi
 
@@ -3299,6 +3198,7 @@ rtt min/avg/max/mdev = 0.763/1.801/2.581/0.657 ms
 [1]+  Done                    nohup ping -c 4 localhost > nohup.log
 ```
 
+
 ### Eseguire un comando ripetutamente
 
 ```bash
@@ -3313,6 +3213,7 @@ Esempio:
 $ watch -n3  tail messages.log       
 ```
 
+
 ### Terminare forzatamente un processo
 
 ```bash
@@ -3325,4 +3226,29 @@ Esempio:
 
 ```bash
 $kill -15 1234
+```
+
+
+## Informazioni sul sistema
+
+### Visualizzare le specifiche del sistema
+
+```bash
+uname
+```
+
+uname, in aggiunta alle seguenti opzioni, permette di avere più informazioni sul sistema:
+
+| Opzione  | Esempio | Significato | 
+| :---: | --- | --- |
+| -a | uname -a | mostra le informazioni dettagliate |
+| -p | uname -p | mostra le informazioni sul processore |
+| -s | uname -s | mostra il nome del sistema operativo |
+| -r | uname -r | mostra la release del sistema operativo |
+
+Esempio:
+
+```bash
+$uname -a 
+Linux Ubuntu blah blah blah
 ```
