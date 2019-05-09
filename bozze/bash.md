@@ -1888,7 +1888,7 @@ Elimino l'intero array:
 | false | Restituisce 1 se l'esecuzione di un'istruzione non è andata bene |
 
 
-## I range
+### Range
 
 | Range  | Significato |
 | :---: | :---: | 
@@ -1896,6 +1896,18 @@ Elimino l'intero array:
 | echo {<lettera iniziale>..<lettera finale>} | Stampa a video da <letetera iniziale> a <lettera finale>  |
 | echo {<numero iniziale>..<passo>..<numero finale>} | Stampa a video da <numero iniziale> a <numero finale> con passo <passo>  |
 
+
+### Operazioni sulle variabili
+
+| Operazione  | Significato | Esempio |
+| :---: | :---: | :---: | 
+| $((<espressione>)) | permette di effettuare un'operazione | echo $((1+2)) |
+| $((<variabile>+=1)) | incremento <variabile> di 1 | var=0; echo $((var+=1)) |
+| $((<variabile>-=1)) | decremento <variabile> di 1 | var=1; echo $((var-=1)) |
+| $((++<variabile>)) | autoincrementa la <variabile> di 1 | var=0; echo $((++var)) |      
+| $((--<variabile>)) | autodecrementa la <variabile>  di 1 | var=1; echo $((--var)) |
+|   |   |       
+       
 
 ## La logica
 
