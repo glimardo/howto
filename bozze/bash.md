@@ -658,58 +658,8 @@ a d                                  # la quarta colonna
 e h
 ```
 
-RIPRENDERE DA QUA
-### Gestire le date
 
-```bash
-date 
-```
-
-Esempio:
-
-```bash
-$ date
-Mer  1 Mag 2019 99:99:99 CEST
-```
-
-#### Giorno, mese, anno
-
-Con il comando date, sono utili i seguenti parametri:
-
-| Parametro  | Significato |
-| :---: | :---: |
-| %d | giorno |
-| %a | giorno abbreviato es. 'Lun'|
-| %A | giorno per esteso |
-| %m | mese |
-| %b | mese abbreviato es. 'Gen' |
-| %B | mese per esteso |
-| %Y | anno |
-| %H | ora |
-| %M | minuti |
-| %S | secondi |
-| %F | Equivale a scrivere %Y-%m-%d |
-
-
-```bash
-date +%Y-%m-%d # Formato anno-mese-giorno
-               # Ovviamente puoi usarne solo uno
-               # o posizionarli come ti sono
-               # più utili
-```
-
-Esempio:
-
-```bash
-$ date +%Y-%m-%d
-2019-05-01
-
-$ data=$(date +%Y-%m-%d); echo $data
-2019-05-01
-```
-
-
-### Creare un link simbolico a file esistenti
+## Creare un link simbolico a file esistenti
 
 
 ```bash
@@ -727,7 +677,7 @@ lrwxr-xr-x  1 giandoe  staff  21  1 Mag 99:99 permessi_sul_file -> permessi_sul_
 ```
 
 
-#### rimuovere un link simbolico
+### rimuovere un link simbolico
 
 ```bash
 rm <link simbolico>
@@ -743,7 +693,7 @@ total 0
 ```
 
 
-### Dividere un file
+## Dividere un file in diverse parti
 
 Per dividere un file in parti più piccole, si usa il comando split:
 
@@ -800,93 +750,6 @@ primo_n_01
 primo.txt
 ```
 
-### Scaricare file dalla rete (bozza)
-
-### wget 
-
-```bash
-wget <server>/<pagina>
-```
-
-Esempio:
-
-```bash
-$ wget https://github.com/glimardo/howto/blob/master/README.md
---2019-05-07 14:39:51--  https://github.com/glimardo/howto/blob/master/README.md
-Resolving github.com (github.com)... 192.30.253.112
-Connecting to github.com (github.com)|192.30.253.112|:443... connected.
-```
-
-Opzioni utili:
-
-| Parametro  | Esempio | Significato |  
-| :---: | --- |  --- |
-| -b  | wget -b <server>/<pagina> | Scarica la pagina in background  |
-| -a  | wget -a <nome log> <server>/<pagina>  | Scrive un log di quanto effettuato  |
-| -o  | wget -o <nome log> <server>/<pagina> | Scrive un log di quanto effettuato. Se ne esiste uno precedente, lo sovrascrive |
-| -i  | wget -i <file contenente un URL> | Prende l'URL dal file passato in input |
-| -c  | wget -c <server>/<pagina> | Continua a scaricare da un download interrotto  |
-
-
-### Verificare l'integrità di un file
-
-#### cksum
-
-```bash
-cksum <nome file>
-```
-
-Esempio:
-
-```bash
-$ cksum primo.txt
-3425985244 38 primo.txt
-$ cp -v primo.txt nuovo
-'primo.txt' -> 'nuovo/primo.txt'
-$ cd nuovo/
-$ cksum primo.txt
-3425985244 38 primo.txt # Il file originale e quello copiato
-                        # hanno lo stesso checksum, quindi non ho
-                        # avuto problemi durante la copia
-```
-
-
-#### md5sum
-
-```bash
-md5sum <nome file>
-```
-
-Esempio:
-
-```bash
-$ md5sum primo.txt
-252f7f6a6c1a3f42f2920b3ef8eb94a5  primo.txt
-$ cp -v primo.txt nuovo
-'primo.txt' -> 'nuovo/primo.txt'
-$ cd nuovo/
-$ md5sum primo.txt
-252f7f6a6c1a3f42f2920b3ef8eb94a5  primo.txt # Il file originale e quello copiato
-                                            # hanno lo stesso checksum, quindi non ho
-                                            # avuto problemi durante la copia
-```
-
-
-### Convertire un file da un formato DOS ad Unix e viceversa
-
-I file DOS terminano con C-LF mentre quelli UNIX con LF.
-Questo comando permette di convertire da un comando all'altro per
-non avere problemi nei sistemi in uso.
-
-```bash
-dos2unix <nome file>
-```
-
-Esempio:
-
-```bash
-$ dos2unix primo.txt
-```
 
 ## Filtri
 
@@ -1020,7 +883,7 @@ numero della lista: 5
 numero della lista: 6
 ```
 
-### Ordinamento
+## Ordinamento
 
 Per gli esempi, utilizzo il file ordinamento.txt avente il seguente contenuto:
 
@@ -1038,7 +901,7 @@ c
 ```
 
 
-#### Ordinamento crescente
+### Ordinamento crescente
 
 ```bash
 sort <nome file>
@@ -1062,7 +925,7 @@ s
 ```
 
 
-#### Ordinamento decrescente
+### Ordinamento decrescente
 
 ```bash
 sort -r <nome file>
@@ -1086,7 +949,7 @@ a
 ```
 
 
-#### Ordinamento eliminando i duplicati
+### Ordinamento eliminando i duplicati
 
 ```bash
 sort -u <nome file>  
@@ -1110,7 +973,7 @@ s
 ```
 
 
-#### Redirigere l'ordinamento in un altro file
+### Redirigere l'ordinamento in un altro file
 
 ```bash
 cat <nome file> | sort -o <nuovo file>
@@ -1133,6 +996,8 @@ s
 ```
 
 
+## Gestione dei duplicati
+
 ### Rimuovere i duplicati da un input
 
 Per gli esempi, utilizzo il file ordinamento.txt avente il seguente contenuto:
@@ -1152,7 +1017,7 @@ a
 ```
 
 
-#### Rimuovere tutti i duplicati
+### Rimuovere tutti i duplicati
 
 ```
 cat <nome file> | sort | uniq # occorre SEMPRE ordinare prima di poter usare uniq
@@ -1172,7 +1037,7 @@ s
 ```
 
 
-#### Mostrare solo i valori duplicati
+### Mostrare solo i valori duplicati
 
 ```
 cat <nome file> | sort | uniq -d # occorre SEMPRE ordinare prima di poter usare uniq
@@ -1187,7 +1052,7 @@ c
 ```
 
 
-#### Mostra solo le righe duplicate
+### Mostra solo le righe duplicate
 
 ```
 cat <nome file> | sort | uniq -D # occorre SEMPRE ordinare prima di poter usare uniq
@@ -1205,7 +1070,7 @@ c
 ```
 
 
-#### Mostra solo le righe che non hanno duplicati
+### Mostra solo le righe che non hanno duplicati
 
 ```
 cat <nome file> | sort | uniq -u # occorre SEMPRE ordinare prima di poter usare uniq
@@ -1223,6 +1088,7 @@ s
 ```
 
 
+## Effettuare ricerche nel testo dei file
 
 ### Cercare del testo dentro dei file
 
@@ -1244,7 +1110,7 @@ Danai Gurira
 Josh Brolin
 ```
 
-#### Ricerca semplice
+### Ricerca semplice
 
 ```bash
 grep <testo/espressione regolare> <nome file>
@@ -1263,7 +1129,7 @@ Robert Downey Jr.
 ```
 
 
-### Raffinare la ricerca
+#### Raffinare la ricerca
 
 La ricerca con grep si può raffinare utilizzando i seguenti parametri:
 
@@ -1312,6 +1178,154 @@ $
 $ cat attori_endgame.txt | grep -w "Jos"
 $
 ```
+
+
+## Verificare l'integrità di un file
+
+### cksum
+
+```bash
+cksum <nome file>
+```
+
+Esempio:
+
+```bash
+$ cksum primo.txt
+3425985244 38 primo.txt
+$ cp -v primo.txt nuovo
+'primo.txt' -> 'nuovo/primo.txt'
+$ cd nuovo/
+$ cksum primo.txt
+3425985244 38 primo.txt # Il file originale e quello copiato
+                        # hanno lo stesso checksum, quindi non ho
+                        # avuto problemi durante la copia
+```
+
+
+### md5sum
+
+```bash
+md5sum <nome file>
+```
+
+Esempio:
+
+```bash
+$ md5sum primo.txt
+252f7f6a6c1a3f42f2920b3ef8eb94a5  primo.txt
+$ cp -v primo.txt nuovo
+'primo.txt' -> 'nuovo/primo.txt'
+$ cd nuovo/
+$ md5sum primo.txt
+252f7f6a6c1a3f42f2920b3ef8eb94a5  primo.txt # Il file originale e quello copiato
+                                            # hanno lo stesso checksum, quindi non ho
+                                            # avuto problemi durante la copia
+```
+
+
+## Convertire un file da un formato DOS ad Unix e viceversa
+
+I file DOS terminano con C-LF mentre quelli UNIX con LF.
+Questo comando permette di convertire da un comando all'altro per
+non avere problemi nei sistemi in uso.
+
+```bash
+dos2unix <nome file>
+```
+
+Esempio:
+
+```bash
+$ dos2unix primo.txt
+```
+
+
+## Scaricare file dalla rete
+
+### wget 
+
+```bash
+wget <server>/<pagina>
+```
+
+Opzioni utili per migliorare il download:
+
+| Parametro  | Esempio | Significato |  
+| :---: | --- |  --- |
+| -b  | wget -b <server>/<pagina> | Scarica la pagina in background  |
+| -a  | wget -a <nome log> <server>/<pagina>  | Scrive un log di quanto effettuato  |
+| -o  | wget -o <nome log> <server>/<pagina> | Scrive un log di quanto effettuato. Se ne esiste uno precedente, lo sovrascrive |
+| -i  | wget -i <file contenente un URL> | Prende l'URL dal file passato in input |
+| -c  | wget -c <server>/<pagina> | Continua a scaricare da un download interrotto  |
+
+Esempio:
+
+```bash
+$ wget https://github.com/glimardo/howto/blob/master/README.md
+--2019-05-07 14:39:51--  https://github.com/glimardo/howto/blob/master/README.md
+Resolving github.com (github.com)... 192.30.253.112
+Connecting to github.com (github.com)|192.30.253.112|:443... connected.
+```
+
+
+
+
+
+
+
+
+
+RIPRENDERE DA QUA
+### Gestire le date
+
+```bash
+date 
+```
+
+Esempio:
+
+```bash
+$ date
+Mer  1 Mag 2019 99:99:99 CEST
+```
+
+#### Giorno, mese, anno
+
+Con il comando date, sono utili i seguenti parametri:
+
+| Parametro  | Significato |
+| :---: | :---: |
+| %d | giorno |
+| %a | giorno abbreviato es. 'Lun'|
+| %A | giorno per esteso |
+| %m | mese |
+| %b | mese abbreviato es. 'Gen' |
+| %B | mese per esteso |
+| %Y | anno |
+| %H | ora |
+| %M | minuti |
+| %S | secondi |
+| %F | Equivale a scrivere %Y-%m-%d |
+
+
+```bash
+date +%Y-%m-%d # Formato anno-mese-giorno
+               # Ovviamente puoi usarne solo uno
+               # o posizionarli come ti sono
+               # più utili
+```
+
+Esempio:
+
+```bash
+$ date +%Y-%m-%d
+2019-05-01
+
+$ data=$(date +%Y-%m-%d); echo $data
+2019-05-01
+```
+
 
 
 ## Paginatori
