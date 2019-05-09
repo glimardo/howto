@@ -1223,6 +1223,94 @@ $
 ```
 
 
+## Comprimere i file
+
+### Gestire un archivio tar.gz
+
+Tar è il comando standard che si usa nei sistemi UNIX per poter creare degli archivi di file.
+Le opzioni più comunemente utilizzate sono le seguenti:  
+
+| Opzione  | Significato | 
+| :---: | --- |
+| -c  | crea un nuovo archivio compresso |
+| -z  | usa il metodo di archiviazione gzip  |
+| -j  | usa il metodo di archiviazione bzip2  |
+| -v  | mostra i file archiviati  |
+| -f  | indica il nome del file compresso  |
+| -r |  aggiunge un file alla fine del file compresso |
+| -x | estrae un file compresso |
+| --delete <nome file>  | cancella un file dall'archivio compresso  |
+| -t  | mostra il contenuto dell'archivio compresso  |
+
+
+#### Comprimere dei file in un archivio
+
+
+##### tar.gz
+
+```bash
+tar cfzv nome_archivio.tar.gz
+```
+
+Esempio:
+
+```bash
+$ tar cfvz backup.tar.gz esempio/
+```
+
+Output: 
+```bash
+esempio/
+esempio/attori_endgame.txt
+esempio/ordinamento.txt
+esempio/parole_ordinate.txt
+```
+
+
+#### Decomprimere un archivio
+
+```bash
+tar -xfv nome_archivio.tar.gz
+```
+
+Esempio:
+
+```bash
+$ tar xfv backup.tar.gz
+```
+
+Output: 
+
+```bash
+esempio/
+esempio/attori_endgame.txt
+esempio/ordinamento.txt
+esempio/parole_ordinate.txt
+```
+
+
+#### Visualizzare il contenuto di un archivio
+
+```bash
+tar -tvf nome_archivio.tar.gz
+```
+
+Esempio:
+
+```bash
+$ tar -tvf backup.tar.gz
+```
+
+Output: 
+
+```bash
+drwxrwxrwx ubuntu/ubuntu     0 2019-05-06 15:45 esempio/
+-rw-rw-rw- ubuntu/ubuntu   165 2019-05-02 15:43 esempio/attori_endgame.txt
+-rw-rw-rw- ubuntu/ubuntu    20 2019-05-02 14:19 esempio/ordinamento.txt
+-rw-rw-rw- ubuntu/ubuntu    18 2019-05-02 12:43 esempio/parole_ordinate.txt
+```
+
+
 ## Verificare l'integrità di un file
 
 ### cksum
@@ -1311,261 +1399,6 @@ Resolving github.com (github.com)... 192.30.253.112
 Connecting to github.com (github.com)|192.30.253.112|:443... connected.
 ```
 
-
-
-
-
-
-
-
-
-RIPRENDERE DA QUA
-### Gestire le date
-
-```bash
-date 
-```
-
-Esempio:
-
-```bash
-$ date
-Mer  1 Mag 2019 99:99:99 CEST
-```
-
-#### Giorno, mese, anno
-
-Con il comando date, sono utili i seguenti parametri:
-
-| Parametro  | Significato |
-| :---: | :---: |
-| %d | giorno |
-| %a | giorno abbreviato es. 'Lun'|
-| %A | giorno per esteso |
-| %m | mese |
-| %b | mese abbreviato es. 'Gen' |
-| %B | mese per esteso |
-| %Y | anno |
-| %H | ora |
-| %M | minuti |
-| %S | secondi |
-| %F | Equivale a scrivere %Y-%m-%d |
-
-
-```bash
-date +%Y-%m-%d # Formato anno-mese-giorno
-               # Ovviamente puoi usarne solo uno
-               # o posizionarli come ti sono
-               # più utili
-```
-
-Esempio:
-
-```bash
-$ date +%Y-%m-%d
-2019-05-01
-
-$ data=$(date +%Y-%m-%d); echo $data
-2019-05-01
-```
-
-
-
-
-
-## Comprimere i file
-
-### Gestire un archivio tar.gz
-
-Tar è il comando standard che si usa nei sistemi UNIX per poter creare degli archivi di file.
-Le opzioni più comunemente utilizzate sono le seguenti:  
-
-| Opzione  | Significato | 
-| :---: | --- |
-| -c  | crea un nuovo archivio compresso |
-| -z  | usa il metodo di archiviazione gzip  |
-| -j  | usa il metodo di archiviazione bzip2  |
-| -v  | mostra i file archiviati  |
-| -f  | indica il nome del file compresso  |
-| -r |  aggiunge un file alla fine del file compresso |
-| -x | estrae un file compresso |
-| --delete <nome file>  | cancella un file dall'archivio compresso  |
-| -t  | mostra il contenuto dell'archivio compresso  |
-
-
-#### Comprimere dei file in un archivio
-
-
-##### tar.gz
-
-```bash
-tar cfzv nome_archivio.tar.gz
-```
-
-Esempio:
-
-```bash
-$ tar cfvz backup.tar.gz esempio/
-```
-
-Output: 
-```bash
-esempio/
-esempio/attori_endgame.txt
-esempio/ordinamento.txt
-esempio/parole_ordinate.txt
-```
-
-
-#### Decomprimere un archivio
-
-```bash
-tar -xfv nome_archivio.tar.gz
-```
-
-Esempio:
-
-```bash
-$ tar xfv backup.tar.gz
-```
-
-Output: 
-
-```bash
-esempio/
-esempio/attori_endgame.txt
-esempio/ordinamento.txt
-esempio/parole_ordinate.txt
-```
-
-
-#### Visualizzare il contenuto di un archivio
-
-```bash
-tar -tvf nome_archivio.tar.gz
-```
-
-Esempio:
-
-```bash
-$ tar -tvf backup.tar.gz
-```
-
-Output: 
-
-```bash
-drwxrwxrwx ubuntu/ubuntu     0 2019-05-06 15:45 esempio/
--rw-rw-rw- ubuntu/ubuntu   165 2019-05-02 15:43 esempio/attori_endgame.txt
--rw-rw-rw- ubuntu/ubuntu    20 2019-05-02 14:19 esempio/ordinamento.txt
--rw-rw-rw- ubuntu/ubuntu    18 2019-05-02 12:43 esempio/parole_ordinate.txt
-```
-
-## Operatori di controllo
-
-### Eseguire un comando alla volta sequenzialmente
-
-;;
-
-
-## Informazioni sull'ambiente in uso
-
-uname -a
-uname -o
-uname -m
-uname -n
-uname -s
-uname -r
-
-## Visualizzare lo spazio utilizzato nel disco
-
-### du
-
-du
-
-### df
-
-df
-
-## Gestione dei permessi sui file
-
-### Visualizzare l'utente in uso
-
-whoami
-
-### Visualizzare il gruppo a cui appartiene l'utente
-
-groups
-
-### Cambiare utente
-
-su nomeutente
-
-### Cambiare i permessi sui file
-
-```
-chmod <permessi> <nomefile>
-```
-
-
-Il modo più semplice per dare i permessi è il seguente:
-
-| Permesso  | Esempio | Significato | 
-| :---: | --- | --- |
-| r | chmod +r <nomefile> | si danno i permessi di lettura al file |
-| w | chmod +w <nomefile> | si danno i permessi di scrittura al file |
-| x | chmod +x <nomefile> | si danno i permessi di esecuzione al file |
-| r | chmod -r <nomefile> | si tolgono i permessi di al file |
-| w | chmod -w <nomefile> | si tolgono i permessi di scrittura al file|
-| x | chmod -x <nomefile> | si tolgono i permessi di esecuzione al file |
-
-
-Esempio:
-
-```bash
-$ chmod +r permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod +w permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod +x permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rwxr-xr-x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$
-$ chmod -r permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
---wx--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod -w permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
----x--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-$ chmod -x permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
-----------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-```
-
-Si possono dare i permessi anche in forma ottale:
-
-| Permesso  | Forma ottale | 
-| :---: | --- |
-| rwx | 7 |
-| rw- | 6 |
-| r-x | 5 |
-| r-- | 4 |
-| -wx | 3 |
-| -w- | 2 |
-| --x | 1 |
-| --- | 0 |
-
-Esempio:
-
-Esempio:
-
-```bash
-$ chmod 700 permessi_sul_file.txt
-$ ls -l permessi_sul_file.txt
--rwx------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
-
-```
 
 ## Gestire le stringhe
 
@@ -1710,6 +1543,7 @@ a
 Questa
 esperimenti
 ```
+
 
 ## Array
 
@@ -1906,6 +1740,700 @@ Output:
 1 2
 Elimino l'intero array:
 ```
+
+
+## Gli operatori
+
+
+### Operatori aritmetici
+
+| Operatore | Sintassi |
+|---|:-:|
+| Addizione | a + b | 
+| Sottrazione | a - b |
+| Moltiplicazione| a * b |
+| Potenza | a ** b|
+| Divisione | a / b|
+| Modulo (cioè il resto della divisione) | a % b|
+
+
+### Operatori di confronto
+
+| Operatore  | Significato | Esempio |
+| :---: | :---: | --- |
+| =  | Uguale a | $a = $b |
+| !=  | Diverso da | $a != $b |
+| >  | Maggiore di | $a > $b |
+| >=  | Maggiore od uguale a | $a >= $b |
+| <  | Minore di | $a < $b |
+| <=  | Minore od uguale a | $a <= $b |
+
+
+### Operatori di confronto su stringhe
+
+| Operatore  | Significato | Esempio |
+| :---: | :---: | --- |
+| -z  | Verifica se la stringa è vuota | a="Sono una stringa"; if [[ -z $a ]]; then echo "La stringa è vuota"; else echo "La stringa non è vuota"; fi |
+| -n  | Verifica se la stringa non è vuota | a=""; if [[ -n $a ]]; then echo "La stringa è vuota"; else echo "La stringa non è vuota"; fi |
+
+
+### Operatori binari di confronto
+
+| Operatore  | Significato | Esempio |
+| :---: | :---: | --- |
+| -eq  | è uguale | $a -eq $b |
+| -ne  | è diverso da | $a -ne $b |
+| -gt  | è maggiore di | $a -gt $b |
+| -ge  | è maggiore o uguale a | $a -ge $b |
+| -lt  | è minore o uguale a | $a -lt $b |
+| -le  | è minore o uguale a | $a -le $b |
+
+
+### Operatori di verifica file
+
+| Operatore  | Significato |
+| :---: | :---: |
+| -e | restituisce True se esiste il file |
+| -f | restituisce True se il file non è una directory o un file di dispositivo |
+| -s | restituisce True se il file ha dimensioni maggiori di zero |
+| -d | restituisce True se il file è una directory |
+| -r | restituisce True se per l'utente che esegue la verifica il file ha permessi di letetura |
+| -w | restituisce True se per l'utente che esegue la verifica il file ha permessi di scrittura |
+| -x | restituisce True se per l'utente che esegue la verifica il file ha permessi di esecuzione |
+
+
+### Operatori logici
+
+| Operatore  | Significato | Esempio |
+| :---: | :---: | --- |
+| && | il secondo comando viene eseguito solo se il primo è stato eseguito con successo  | <comando 1> && <comando 2> |
+| \|\| | Il secondo comando viene eseguito solo se il primo è stato eseguito senza successo | <comando 1> \|\|<comando 2> |
+
+
+### Operatori booleani
+
+| Operatore  | Significato |
+| :---: | :---: | 
+| true | Restituisce 0 se l'esecuzione di un'istruzione è andata bene |
+| false | Restituisce 1 se l'esecuzione di un'istruzione non è andata bene |
+
+
+## La logica
+
+### L'istruzione if
+
+```bash
+if [condizione]
+then
+   <istruzioni>
+else
+   <altre istruzioni>
+fi
+```
+
+Esempio:
+
+```bash
+#!/bin/bash
+
+a=2
+b=3
+
+printf "Confronto se $a è maggiore o uguale a $b.\nValore di a: $a\nValore di b: $b \n"
+
+if [ $a -gt $b ]
+then
+   echo "Qualcosa non funziona!"
+else
+  echo "Difficile che $a sia maggiore o uguale a $b!"
+fi
+```
+
+Output:
+
+```bash
+Confronto se 2 è maggiore o uguale a 3.
+Valore di a: 2
+Valore di b: 3
+Difficile che 2 sia maggiore o uguale a 3!
+```
+
+      
+#### Elif
+
+```bash
+if [condizione]
+then
+   <istruzioni>
+elif [altra condizione]
+then
+   <istruzioni>
+else
+   <istruzioni predefinite>
+
+fi
+```  
+
+Esempio:
+
+```bash
+#!/bin/bash
+
+a=3
+b=3
+
+printf "Confronto se $a è maggiore o uguale a $b.\nValore di a: $a\nValore di b: $b \n"
+
+if [ $a -gt $b ]
+  then
+     echo "Qualcosa non funziona!"
+  elif [ $a -eq $b ]
+    then
+      echo "$a è uguale a $b!"
+  else
+    echo "Difficile che $a sia maggiore o uguale a $b!"
+fi
+```
+
+
+Output:
+
+```bash
+Confronto se 3 è maggiore o uguale a 3.
+Valore di a: 3
+Valore di b: 3
+3 è uguale a 3!
+```
+
+
+#### L'istruzione if su di una riga
+
+```bash
+if [condizione]; then ; else ; fi
+```  
+
+Esempio:
+
+```bash
+$ a=2; b=3; if [ $a -gt $b ]; then echo "Qualcosa non funziona!"; else echo "Difficile che $a sia maggiore o uguale a $b!"; fi
+```
+
+Output:
+
+```bash
+Difficile che 2 sia maggiore o uguale a 3!
+```
+
+
+### Il ciclo for
+
+```bash
+for <variabile> in <lista>
+do
+   <istruzioni>
+done
+```
+
+Esempio:
+
+```bash
+for i in {1,2,3}
+  do
+    printf "numero della lista: $i \n"
+  done
+```
+
+Output: 
+```bash
+numero della lista: 1
+numero della lista: 2
+numero della lista: 3
+```
+
+
+#### Ciclo for in formato c
+
+```bash
+for ((i=1; i<numero_massimo; i++))
+  do
+    <istruzioni>
+  done
+```
+
+Esempio:
+
+```bash
+for ((i=1; i<4; i++))
+  do
+    printf "numero della lista: $i \n"
+  done
+```
+
+Output: 
+```bash
+numero della lista: 1
+numero della lista: 2
+numero della lista: 3
+```
+
+
+#### L'istruzione for su di una riga
+
+```bash
+for i in <lista>; do <istruzioni>; done
+```
+
+Esempio:
+
+```bash
+for ((i=1; i<4; i++))
+  do
+    printf "numero della lista: $i \n"
+  done
+```
+
+Output: 
+```bash
+numero della lista: 1
+numero della lista: 2
+numero della lista: 3
+```
+
+
+### Verifica delle condizioni di ingresso (Case)  
+
+```bash
+Case <variabile> in
+valore1) <istruzione>;;
+valoren) <istruzione>;;
+*) <istruzione>;;
+esac
+```
+
+Esempio:
+
+```bash
+printf " -- Controllo se un numero è pari o dispari -- \n"
+printf "inserisci un numero: "
+read numero
+
+controllo=$(($numero%2))
+
+case "$controllo" in
+
+0) printf "$numero è un numero pari! \n";;
+*) printf "$numero è un numero dispari! \n";;
+esac
+```
+
+Output: 
+```bash
+ -- Controllo se un numero è pari o dispari --
+inserisci un numero: 1
+1 è un numero dispari!
+
+ -- Controllo se un numero è pari o dispari --
+inserisci un numero: 2
+2 è un numero pari!
+```
+
+
+### Il ciclo while
+
+
+```bash
+while [condizione vera]
+do
+    <istruzioni>
+    <Ricordati valutare lo stato della condizione>
+done  
+```
+
+Esempio:
+
+```bash
+CONTATORE=0
+
+while [ $CONTATORE -lt 5 ]
+  do
+     printf "$CONTATORE è ancora < 5! \n"
+     let CONTATORE=CONTATORE+1
+  done
+```
+
+Output: 
+```bash
+0 è ancora < 5!
+1 è ancora < 5!
+2 è ancora < 5!
+3 è ancora < 5!
+4 è ancora < 5!
+```
+
+Attenzione a non sbagliare la condizione, altrimenti entri in
+un ciclo infinito dal quale non ne esci più!
+
+
+#### Ciclo infinito
+
+```bash
+while: # equivale a while true
+do
+    <istruzioni>
+    # Ricordati di valutare la condizione
+    # di uscita altrimenti rimani nel
+    # loop per sempre!
+done  
+```
+
+Esempio:
+
+```bash
+i=0
+
+while true
+  do
+    if [[ i -lt 5  ]]
+      then
+           printf "Sono ancora nel while! \n"
+           i=$((i+1))
+      else
+          break
+    fi
+  done
+printf "Sono uscito dal ciclo while! \n"
+```
+
+Output: 
+```bash
+Sono ancora nel while!
+Sono ancora nel while!
+Sono ancora nel while!
+Sono ancora nel while!
+Sono ancora nel while!
+Sono uscito dal ciclo while!
+```
+
+
+#### L'istruzione while su di una riga
+
+```bash
+COSTANTE=<valore>; while [condizione]; do <istruzioni> <Ricordati valutare lo stato della condizione>; done
+```
+
+Esempio:
+
+```bash
+CONTATORE=0; while [ $CONTATORE -lt 5 ]; do printf "$CONTATORE è ancora < 5! \n";  let CO
+NTATORE=CONTATORE+1; done
+```
+
+Output: 
+```bash
+0 è ancora < 5!
+1 è ancora < 5!
+2 è ancora < 5!
+3 è ancora < 5!
+4 è ancora < 5!
+```
+
+
+### Il ciclo until
+
+```bash
+until [condizione falsa]
+do
+    <istruzioni>
+done  
+```
+
+Esempio:
+
+```bash
+i=1
+
+printf "Valore di i: $i \n"
+until [ $i -gt 5 ]
+  do
+    printf "Sono ancora nel ciclo until perchè i vale: $i! \n"
+    i=$((i+1))
+  done
+
+printf "Sono uscito dal ciclo until! \n"
+```
+
+Output: 
+```bash
+Valore di i: 1
+Sono ancora nel ciclo until perchè i vale: 1!
+Sono ancora nel ciclo until perchè i vale: 2!
+Sono ancora nel ciclo until perchè i vale: 3!
+Sono ancora nel ciclo until perchè i vale: 4!
+Sono ancora nel ciclo until perchè i vale: 5!
+Sono uscito dal ciclo until!
+```
+
+
+#### L'istruzione until su di una riga
+
+```bash
+ until [ condizione falsa ]; do <istruzioni>; done
+```
+
+Esempio:
+
+```bash
+$ i=1; printf "Valore di i: $i \n"; until [ $i -gt 5 ]; do printf "Sono ancora nel ciclo until perchè i vale: $i! \n"; i=$((i+1)); done; printf "Sono uscito dal ciclo until! \n";
+```
+
+Output: 
+```bash
+Valore di i: 1
+Sono ancora nel ciclo until perchè i vale: 1!
+Sono ancora nel ciclo until perchè i vale: 2!
+Sono ancora nel ciclo until perchè i vale: 3!
+Sono ancora nel ciclo until perchè i vale: 4!
+Sono ancora nel ciclo until perchè i vale: 5!
+Sono uscito dal ciclo until!
+```
+
+
+### Controlli sul ciclo 
+
+#### Break
+
+```
+Break interrompe l'esecuzione del ciclo in qualsiasi punto ci si trovi
+```
+
+```bash
+break
+```
+
+Esempio:
+
+```bash
+for i in {1,2,3,4}
+  do
+    printf "numero della lista: $i \n"
+    break
+  done
+```
+
+Output: 
+```bash
+numero della lista: 1 # Ho messo subito il break, quindi esco dopo la prima istruzione
+```
+
+
+#### Continue
+
+```
+Continue fa saltare all'iterazione successiva
+```
+
+```bash
+continue
+```
+
+Esempio:
+
+```bash
+printf "Stampo solo i numeri pari! \n"
+for i in {1,2,3,4}
+  do
+
+    if [ $(( i%2 )) == 0 ]
+      then
+          printf "numero della lista: $i \n"
+      else
+          continue
+    fi
+  done
+```
+
+Output: 
+```bash
+Stampo solo i numeri pari!
+numero della lista: 2
+numero della lista: 4
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Gestire le date
+
+```bash
+date 
+```
+
+Esempio:
+
+```bash
+$ date
+Mer  1 Mag 2019 99:99:99 CEST
+```
+
+### Giorno, mese, anno
+
+Con il comando date, sono utili i seguenti parametri:
+
+| Parametro  | Significato |
+| :---: | :---: |
+| %d | giorno |
+| %a | giorno abbreviato es. 'Lun'|
+| %A | giorno per esteso |
+| %m | mese |
+| %b | mese abbreviato es. 'Gen' |
+| %B | mese per esteso |
+| %Y | anno |
+| %H | ora |
+| %M | minuti |
+| %S | secondi |
+| %F | Equivale a scrivere %Y-%m-%d |
+
+
+```bash
+date +%Y-%m-%d # Formato anno-mese-giorno
+               # Ovviamente puoi usarne solo uno
+               # o posizionarli come ti sono
+               # più utili
+```
+
+Esempio:
+
+```bash
+$ date +%Y-%m-%d
+2019-05-01
+
+$ data=$(date +%Y-%m-%d); echo $data
+2019-05-01
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Gestione dei permessi sui file
+
+### Visualizzare l'utente in uso
+
+whoami
+
+### Visualizzare il gruppo a cui appartiene l'utente
+
+groups
+
+### Cambiare utente
+
+su nomeutente
+
+### Cambiare i permessi sui file
+
+```
+chmod <permessi> <nomefile>
+```
+
+
+Il modo più semplice per dare i permessi è il seguente:
+
+| Permesso  | Esempio | Significato | 
+| :---: | --- | --- |
+| r | chmod +r <nomefile> | si danno i permessi di lettura al file |
+| w | chmod +w <nomefile> | si danno i permessi di scrittura al file |
+| x | chmod +x <nomefile> | si danno i permessi di esecuzione al file |
+| r | chmod -r <nomefile> | si tolgono i permessi di al file |
+| w | chmod -w <nomefile> | si tolgono i permessi di scrittura al file|
+| x | chmod -x <nomefile> | si tolgono i permessi di esecuzione al file |
+
+
+Esempio:
+
+```bash
+$ chmod +r permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod +w permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rw-r--r--  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod +x permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rwxr-xr-x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$
+$ chmod -r permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+--wx--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod -w permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+---x--x--x  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+$ chmod -x permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+----------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+```
+
+Si possono dare i permessi anche in forma ottale:
+
+| Permesso  | Forma ottale | 
+| :---: | --- |
+| rwx | 7 |
+| rw- | 6 |
+| r-x | 5 |
+| r-- | 4 |
+| -wx | 3 |
+| -w- | 2 |
+| --x | 1 |
+| --- | 0 |
+
+Esempio:
+
+Esempio:
+
+```bash
+$ chmod 700 permessi_sul_file.txt
+$ ls -l permessi_sul_file.txt
+-rwx------  1 giandoe  staff  0  1 Mag 00:00 permessi_sul_file.txt
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2309,517 +2837,19 @@ Cosa contiene la variabile locale? # L'output è vuoto perchè non può leggere 
 
 
 
-## La logica
 
-#### Gli operatori
 
-##### Operatori aritmetici
 
-| Operatore | Sintassi |
-|---|:-:|
-| Addizione | a + b | 
-| Sottrazione | a - b |
-| Moltiplicazione| a * b |
-| Potenza | a ** b|
-| Divisione | a / b|
-| Modulo (cioè il resto della divisione) | a % b|
 
-##### Operatori di confronto
 
-| Operatore  | Significato | Esempio |
-| :---: | :---: | --- |
-| =  | Uguale a | $a = $b |
-| !=  | Diverso da | $a != $b |
-| >  | Maggiore di | $a > $b |
-| >=  | Maggiore od uguale a | $a >= $b |
-| <  | Minore di | $a < $b |
-| <=  | Minore od uguale a | $a <= $b |
 
 
-##### Operatori di confronto su stringhe
 
 
-| Operatore  | Significato | Esempio |
-| :---: | :---: | --- |
-| -z  | Verifica se la stringa è vuota | a="Sono una stringa"; if [[ -z $a ]]; then echo "La stringa è vuota"; else echo "La stringa non è vuota"; fi |
-| -n  | Verifica se la stringa non è vuota | a=""; if [[ -n $a ]]; then echo "La stringa è vuota"; else echo "La stringa non è vuota"; fi |
 
-##### Operatori binari di confronto
 
-| Operatore  | Significato | Esempio |
-| :---: | :---: | --- |
-| -eq  | è uguale | $a -eq $b |
-| -ne  | è diverso da | $a -ne $b |
-| -gt  | è maggiore di | $a -gt $b |
-| -ge  | è maggiore o uguale a | $a -ge $b |
-| -lt  | è minore o uguale a | $a -lt $b |
-| -le  | è minore o uguale a | $a -le $b |
 
 
-##### Operatori di verifica file
-
-| Operatore  | Significato |
-| :---: | :---: |
-| -e | restituisce True se esiste il file |
-| -f | restituisce True se il file non è una directory o un file di dispositivo |
-| -s | restituisce True se il file ha dimensioni maggiori di zero |
-| -d | restituisce True se il file è una directory |
-| -r | restituisce True se per l'utente che esegue la verifica il file ha permessi di letetura |
-| -w | restituisce True se per l'utente che esegue la verifica il file ha permessi di scrittura |
-| -x | restituisce True se per l'utente che esegue la verifica il file ha permessi di esecuzione |
-
-
-##### Operatori logici
-
-| Operatore  | Significato | Esempio |
-| :---: | :---: | --- |
-| && | il secondo comando viene eseguito solo se il primo è stato eseguito con successo  | <comando 1> && <comando 2> |
-| \|\| | Il secondo comando viene eseguito solo se il primo è stato eseguito senza successo | <comando 1> \|\|<comando 2> |
-
-
-##### Operatori booleani
-
-| Operatore  | Significato |
-| :---: | :---: | 
-| true | Restituisce 0 se l'esecuzione di un'istruzione è andata bene |
-| false | Restituisce 1 se l'esecuzione di un'istruzione non è andata bene |
-
-
-#### L'istruzione if
-
-```bash
-if [condizione]
-then
-   <istruzioni>
-else
-   <altre istruzioni>
-fi
-```
-
-Esempio:
-
-```bash
-#!/bin/bash
-
-a=2
-b=3
-
-printf "Confronto se $a è maggiore o uguale a $b.\nValore di a: $a\nValore di b: $b \n"
-
-if [ $a -gt $b ]
-then
-   echo "Qualcosa non funziona!"
-else
-  echo "Difficile che $a sia maggiore o uguale a $b!"
-fi
-```
-
-Output:
-
-```bash
-Confronto se 2 è maggiore o uguale a 3.
-Valore di a: 2
-Valore di b: 3
-Difficile che 2 sia maggiore o uguale a 3!
-```
-
-      
-##### Elif
-
-```bash
-if [condizione]
-then
-   <istruzioni>
-elif [altra condizione]
-then
-   <istruzioni>
-else
-   <istruzioni predefinite>
-
-fi
-```  
-
-Esempio:
-
-```bash
-#!/bin/bash
-
-a=3
-b=3
-
-printf "Confronto se $a è maggiore o uguale a $b.\nValore di a: $a\nValore di b: $b \n"
-
-if [ $a -gt $b ]
-  then
-     echo "Qualcosa non funziona!"
-  elif [ $a -eq $b ]
-    then
-      echo "$a è uguale a $b!"
-  else
-    echo "Difficile che $a sia maggiore o uguale a $b!"
-fi
-```
-
-
-Output:
-
-```bash
-Confronto se 3 è maggiore o uguale a 3.
-Valore di a: 3
-Valore di b: 3
-3 è uguale a 3!
-```
-
-##### L'istruzione if su di una riga
-
-```bash
-if [condizione]; then ; else ; fi
-```  
-
-Esempio:
-
-```bash
-$ a=2; b=3; if [ $a -gt $b ]; then echo "Qualcosa non funziona!"; else echo "Difficile che $a sia maggiore o uguale a $b!"; fi
-```
-
-Output:
-
-```bash
-Difficile che 2 sia maggiore o uguale a 3!
-```
-
-
-#### Il ciclo for
-
-```bash
-for <variabile> in <lista>
-do
-   <istruzioni>
-done
-```
-
-Esempio:
-
-```bash
-for i in {1,2,3}
-  do
-    printf "numero della lista: $i \n"
-  done
-```
-
-Output: 
-```bash
-numero della lista: 1
-numero della lista: 2
-numero della lista: 3
-```
-
-##### Ciclo for in formato c
-
-```bash
-for ((i=1; i<numero_massimo; i++))
-  do
-    <istruzioni>
-  done
-```
-
-Esempio:
-
-```bash
-for ((i=1; i<4; i++))
-  do
-    printf "numero della lista: $i \n"
-  done
-```
-
-Output: 
-```bash
-numero della lista: 1
-numero della lista: 2
-numero della lista: 3
-```
-
-
-##### L'istruzione for su di una riga
-
-```bash
-for i in <lista>; do <istruzioni>; done
-```
-
-Esempio:
-
-```bash
-for ((i=1; i<4; i++))
-  do
-    printf "numero della lista: $i \n"
-  done
-```
-
-Output: 
-```bash
-numero della lista: 1
-numero della lista: 2
-numero della lista: 3
-```
-
-
-#### Verifica delle condizioni di ingresso (Case)  
-
-```bash
-Case <variabile> in
-valore1) <istruzione>;;
-valoren) <istruzione>;;
-*) <istruzione>;;
-esac
-```
-
-Esempio:
-
-```bash
-printf " -- Controllo se un numero è pari o dispari -- \n"
-printf "inserisci un numero: "
-read numero
-
-controllo=$(($numero%2))
-
-case "$controllo" in
-
-0) printf "$numero è un numero pari! \n";;
-*) printf "$numero è un numero dispari! \n";;
-esac
-```
-
-Output: 
-```bash
- -- Controllo se un numero è pari o dispari --
-inserisci un numero: 1
-1 è un numero dispari!
-
- -- Controllo se un numero è pari o dispari --
-inserisci un numero: 2
-2 è un numero pari!
-```
-
-
-#### Il ciclo while
-
-
-```bash
-while [condizione vera]
-do
-    <istruzioni>
-    <Ricordati valutare lo stato della condizione>
-done  
-```
-
-Esempio:
-
-```bash
-CONTATORE=0
-
-while [ $CONTATORE -lt 5 ]
-  do
-     printf "$CONTATORE è ancora < 5! \n"
-     let CONTATORE=CONTATORE+1
-  done
-```
-
-Output: 
-```bash
-0 è ancora < 5!
-1 è ancora < 5!
-2 è ancora < 5!
-3 è ancora < 5!
-4 è ancora < 5!
-```
-
-Attenzione a non sbagliare la condizione, altrimenti entri in
-un ciclo infinito dal quale non ne esci più!
-
-
-##### Ciclo infinito
-
-```bash
-while: # equivale a while true
-do
-    <istruzioni>
-    # Ricordati di valutare la condizione
-    # di uscita altrimenti rimani nel
-    # loop per sempre!
-done  
-```
-
-Esempio:
-
-```bash
-i=0
-
-while true
-  do
-    if [[ i -lt 5  ]]
-      then
-           printf "Sono ancora nel while! \n"
-           i=$((i+1))
-      else
-          break
-    fi
-  done
-printf "Sono uscito dal ciclo while! \n"
-```
-
-Output: 
-```bash
-Sono ancora nel while!
-Sono ancora nel while!
-Sono ancora nel while!
-Sono ancora nel while!
-Sono ancora nel while!
-Sono uscito dal ciclo while!
-```
-
-##### L'istruzione while su di una riga
-
-```bash
-COSTANTE=<valore>; while [condizione]; do <istruzioni> <Ricordati valutare lo stato della condizione>; done
-```
-
-Esempio:
-
-```bash
-CONTATORE=0; while [ $CONTATORE -lt 5 ]; do printf "$CONTATORE è ancora < 5! \n";  let CO
-NTATORE=CONTATORE+1; done
-```
-
-Output: 
-```bash
-0 è ancora < 5!
-1 è ancora < 5!
-2 è ancora < 5!
-3 è ancora < 5!
-4 è ancora < 5!
-```
-
-
-#### Il ciclo until
-
-```bash
-until [condizione falsa]
-do
-    <istruzioni>
-done  
-```
-
-Esempio:
-
-```bash
-i=1
-
-printf "Valore di i: $i \n"
-until [ $i -gt 5 ]
-  do
-    printf "Sono ancora nel ciclo until perchè i vale: $i! \n"
-    i=$((i+1))
-  done
-
-printf "Sono uscito dal ciclo until! \n"
-```
-
-Output: 
-```bash
-Valore di i: 1
-Sono ancora nel ciclo until perchè i vale: 1!
-Sono ancora nel ciclo until perchè i vale: 2!
-Sono ancora nel ciclo until perchè i vale: 3!
-Sono ancora nel ciclo until perchè i vale: 4!
-Sono ancora nel ciclo until perchè i vale: 5!
-Sono uscito dal ciclo until!
-```
-
-
-##### L'istruzione until su di una riga
-
-```bash
- until [ condizione falsa ]; do <istruzioni>; done
-```
-
-Esempio:
-
-```bash
-$ i=1; printf "Valore di i: $i \n"; until [ $i -gt 5 ]; do printf "Sono ancora nel ciclo until perchè i vale: $i! \n"; i=$((i+1)); done; printf "Sono uscito dal ciclo until! \n";
-```
-
-Output: 
-```bash
-Valore di i: 1
-Sono ancora nel ciclo until perchè i vale: 1!
-Sono ancora nel ciclo until perchè i vale: 2!
-Sono ancora nel ciclo until perchè i vale: 3!
-Sono ancora nel ciclo until perchè i vale: 4!
-Sono ancora nel ciclo until perchè i vale: 5!
-Sono uscito dal ciclo until!
-```
-
-
-#### Controlli sul ciclo 
-
-##### Break
-
-```
-Break interrompe l'esecuzione del ciclo in qualsiasi punto ci si trovi
-```
-
-```bash
-break
-```
-
-Esempio:
-
-```bash
-for i in {1,2,3,4}
-  do
-    printf "numero della lista: $i \n"
-    break
-  done
-```
-
-Output: 
-```bash
-numero della lista: 1 # Ho messo subito il break, quindi esco dopo la prima istruzione
-```
-
-
-##### Continue
-
-```
-Continue fa saltare all'iterazione successiva
-```
-
-```bash
-continue
-```
-
-Esempio:
-
-```bash
-printf "Stampo solo i numeri pari! \n"
-for i in {1,2,3,4}
-  do
-
-    if [ $(( i%2 )) == 0 ]
-      then
-          printf "numero della lista: $i \n"
-      else
-          continue
-    fi
-  done
-```
-
-Output: 
-```bash
-Stampo solo i numeri pari!
-numero della lista: 2
-numero della lista: 4
-```
 
 ## DA TROVARE UNA CATEGORIA
 
