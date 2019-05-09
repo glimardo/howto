@@ -1894,8 +1894,8 @@ Elimino l'intero array:
 | :---: | :---: | 
 | echo {<numero iniziale>..<numero finale>} | Stampa a video da <numero iniziale> a <numero finale> |
 | echo {<lettera iniziale>..<lettera finale>} | Stampa a video da <letetera iniziale> a <lettera finale>  |
-|   |   |
-|   |   |
+| echo {<numero iniziale>..<passo>..<numero finale>} | Stampa a video da <numero iniziale> a <numero finale> con passo <passo>  |
+
 
 ## La logica
 
