@@ -2336,6 +2336,32 @@ Sono una frase nuova!
 ```
 
 
+#### Sostituire un comando in una variabile
+
+```bash
+variabile=$(<comando>)
+```
+
+Esempio:
+
+```bash
+# test.sh
+
+#!/usr/bin/env bash
+
+stampa=$(echo "Questo comando è lanciato da una variabile!")
+
+echo $stampa
+```
+
+Output: 
+
+```bash
+$ ./test.sh
+Questo comando è lanciato da una variabile!
+```
+
+
 ### Eseguire uno script
 
 #### Permessi di esecuzione
@@ -2455,13 +2481,6 @@ se la funzione non l'hai ancora definita, non chiamarla!
 ### Definire una funzione
 
 ```bash
-# Definisco la funzione usando function
-function nome_funzione ()
-{
- <istruzioni>
-}
-
-# Posso definire la funzione senza scrivere function
 nome_funzione ()
 {
  <istruzioni>
