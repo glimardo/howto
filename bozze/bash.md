@@ -7,7 +7,7 @@ Indice
 
 <!-- /toc -->
 
-# I FONDAMENTALI
+# Fondamentali
 
 ## Man
 
@@ -312,7 +312,7 @@ natis. Eu augue ut lectus arcu bibendum at. Nullam non nisi est sit amet.
 ```
 
 
-# GESTIONE DELLE CARTELLE
+# Gestione delle cartelle
 
 
 ## Visualizzare il path della cartella in uso
