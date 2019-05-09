@@ -269,6 +269,49 @@ terza riga
 ```
 
 
+## Paginatori
+
+### Mostrare a video un output una pagina alla volta
+
+```bash
+more <nome file>
+<comando> <nome file> | more
+```
+
+Una volta visualizzata la prima pagina, si possono usare i seguenti comandi:
+
+| Comando  | Significato |
+| :---: | --- | 
+| premere spazio | si va alla pagina successiva | 
+| premere return | si procede una riga alla volta  | 
+| premere d  | si va avanti di mezza pagina alla volta  | 
+| premere b | si torna indietro di mezza pagina alla volta  | 
+| premere q | si esce dalla visualizzazione del file | 
+|   |   | 
+
+Esempio:
+
+```bash
+$ more lorem_ipsum.txt
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq
+ua. Non curabitur gravida arcu ac tortor. Et ligula ullamcorper malesuada proin libero. Feugiat nisl pretium fusce id ve
+lit ut tortor pretium viverra. In dictum non consectetur a erat. Nisi quis eleifend quam adipiscing vitae. Leo duis ut d
+iam quam nulla porttitor. Id venenatis a condimentum vitae sapien pellentesque habitant. At elementum eu facilisis sed o
+dio morbi quis commodo. Id volutpat lacus laoreet non curabitur gravida arcu. Quis lectus nulla at volutpat diam ut vene
+natis. Eu augue ut lectus arcu bibendum at. Nullam non nisi est sit amet.
+[...]
+
+$ cat lorem_ipsum.txt | more
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq
+ua. Non curabitur gravida arcu ac tortor. Et ligula ullamcorper malesuada proin libero. Feugiat nisl pretium fusce id ve
+lit ut tortor pretium viverra. In dictum non consectetur a erat. Nisi quis eleifend quam adipiscing vitae. Leo duis ut d
+iam quam nulla porttitor. Id venenatis a condimentum vitae sapien pellentesque habitant. At elementum eu facilisis sed o
+dio morbi quis commodo. Id volutpat lacus laoreet non curabitur gravida arcu. Quis lectus nulla at volutpat diam ut vene
+natis. Eu augue ut lectus arcu bibendum at. Nullam non nisi est sit amet.
+[...]
+```
+
+
 # GESTIONE DELLE CARTELLE
 
 
@@ -1328,26 +1371,9 @@ $ data=$(date +%Y-%m-%d); echo $data
 
 
 
-## Paginatori
 
-### more
-
-more
-
-### less
-
-less
 
 ## Comprimere i file
-
-### Gestire un formato zip
-
-#### comprimere dei file
-gzip
-
-#### decomprimere un file zip
-gunzip
-
 
 ### Gestire un archivio tar.gz
 
