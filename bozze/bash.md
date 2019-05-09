@@ -1,4 +1,4 @@
-BASH (molto bozza)
+BASH (review)
 ====
 
 <!-- toc -- >
@@ -1539,9 +1539,10 @@ Questa è una stringa su cui posso fare esperimenti
 
 #### Maiuscolo
 
-```bash
-echo ${stringa^^}
-```
+| Comando  | Significato |
+| :---: | :---: | 
+| ${<variabile>^} | Rende maiuscola la prima lettera contenuta in <variabile> |
+| ${<variabile>^^} | Rende maiuscolo tutto il contenuto di <variabile> |
 
 Esempio:
 
@@ -1557,9 +1558,10 @@ QUESTA È UNA STRINGA CON CUI POSSO FARE ESPERIMENTI
 
 #### Minuscolo
 
-```bash
-echo ${stringa,,}
-```
+| Comando  | Significato |
+| :---: | :---: | 
+| ${<variabile,>} | Rende minuscola la prima lettera contenuta in <variabile> |
+| ${<variabile,,>} | Rende minuscolo tutto il contenuto di <variabile> |
 
 Esempio:
 
@@ -1574,6 +1576,7 @@ Output:
 Stringa tutta in minuscolo:
 questa è una stringa con cui posso fare esperimenti
 ```
+       
 
 ### Estrarre delle sottostringhe
 
@@ -1884,6 +1887,15 @@ Elimino l'intero array:
 | true | Restituisce 0 se l'esecuzione di un'istruzione è andata bene |
 | false | Restituisce 1 se l'esecuzione di un'istruzione non è andata bene |
 
+
+## I range
+
+| Range  | Significato |
+| :---: | :---: | 
+| echo {<numero iniziale>..<numero finale>} | Stampa a video da <numero iniziale> a <numero finale> |
+| echo {<lettera iniziale>..<lettera finale>} | Stampa a video da <letetera iniziale> a <lettera finale>  |
+|   |   |
+|   |   |
 
 ## La logica
 
