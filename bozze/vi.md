@@ -81,7 +81,17 @@ Per editare il testo scritto, puoi usare i seguenti tasti:
 | p | incolla il carattere/parola/riga che hai cancellato precedentemente |
 
 
-### Ricercare nel testo
+### Ricercare nel testo  
+
+Per ricercare nel testo, puoi usare le seguenti combinazioni:
+
+| Tasto  | Significato | 
+| :---: | --- | 
+| /<testo da ricercare> | cerca dalla posizione in cui ti trovi in giù |
+| ?<testo da ricercare> | cerca dalla posizione in cui ti trovi in sù |
+| n | continua a cercare dal testo in cui ti trovi in giù |
+| N | continua a cercare dal testo in cui ti trovi in sù |
+
 
 ### Uscire da Vi
 
