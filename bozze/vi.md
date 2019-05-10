@@ -60,7 +60,26 @@ usando i seguenti tasti:
 | CTRL + b  | muove il cursore di una pagina su |
 
 
-### Editare il testo
+### Editare il testo  
+
+Per editare il testo scritto, puoi usare i seguenti tasti:
+
+| Tasto  | Significato | 
+| :---: | --- | 
+| i | permette di inserire il testo in Vi |
+| a | aggiungi del testo dopo la parola su cui sei (vai in "append") |
+| r | modifica il carattere su cui ti trovi |
+| o | va alla riga successiva a quella corrente e permette subito di scrivere |
+| x | cancella la lettera su cui ci si trova |
+| d | cancella la parola su cui ci si trova |
+| dd | cancella la riga su cui ci si trova |
+| d^ | cancella dalla posizione corrente fino all'inizio della riga |
+| d$ | cancella dalla posizione corrente fino alla fine della riga |
+| dw | cancella dalla posizione corrente fino alla fine della parola |
+|<numero>dd | cancella il <numero> di righe indicate |
+| u | annulla l'ultima cancellazione effettuata |
+| p | incolla il carattere/parola/riga che hai cancellato precedentemente |
+
 
 ### Ricercare nel testo
 
