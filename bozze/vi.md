@@ -14,6 +14,7 @@ vi <nome file> # Se non esiste il file lo crea.
                # Altrimenti lo apre come nuovo
 ```
 
+
 ## Modalità di utilizzo
 
 ### Comando  
@@ -24,6 +25,7 @@ In questa modalità potrai:
 * cancellare testo
 * sostituire testo
 e dare tutti i comandi che ti permettono di gestire al meglio il testo che hai di fronte.
+
 
 ### Inserimento  
 
@@ -83,7 +85,8 @@ Per editare il testo scritto, puoi usare i seguenti tasti:
 
 ### Ricercare nel testo  
 
-Per ricercare nel testo, puoi usare le seguenti combinazioni:
+Per ricercare nel testo, puoi usare le seguenti combinazioni
+(ricordati di premere prima ESC!):
 
 | Tasto  | Significato | 
 | :---: | --- | 
@@ -93,26 +96,19 @@ Per ricercare nel testo, puoi usare le seguenti combinazioni:
 | N | continua a cercare dal testo in cui ti trovi in sù |
 
 
-### Uscire da Vi
+### Uscire da Vi  
 
-#### Uscire senza salvare
+Se vuoi salvare o meno il file editato, in Vi devi usare uno dei seguenti comandi
+(ricordati di premere ESC prima di digitare questi comandi!):
 
-:q!
-
-#### Salvare il file
-
-:w!
-
-#### Salvare con nome
-
-:w nuovo_nome_file
-
-#### Uscire e salvare il file
-
-ZZ
-
-
-
-```
-
-```
+| Tasto  | Significato | 
+| :---: | --- | 
+| :q! | esci senza salvare  |
+| :w | salva il file |
+| :w <nome file> | salva il file con un altro nome |
+| :e | ricarica il file salvato  |
+| :wq | salva ed esce da Vi |  
+| ZZ | salva ed esce da Vi |
+  
+  
+### 
