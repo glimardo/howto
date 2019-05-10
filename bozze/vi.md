@@ -4,7 +4,16 @@ VI
 <!-- toc -->
 Indice
 ======
-
+- [Aprire un file](#aprire-un-file)
+- [Modalità di utilizzo](#modalità-di-utilizzo)
+  * [Comando](#comando)
+  * [Inserimento](#inserimento)
+  * [Spostarsi tra le due modalità](#spostarsi-tra-le-due-modalità)
+- [Muoversi dentro vi](#muoversi-dentro-vi)
+- [Editare il testo](#editare-il-testo)
+- [Ricercare nel testo](#ricercare-nel-testo)
+- [Uscire da Vi](#uscire-da-vi)
+- [Configurazioni utili](#configurazioni-utili)
 <!-- /toc -->
 
 ## Aprire un file
