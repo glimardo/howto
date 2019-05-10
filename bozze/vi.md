@@ -38,9 +38,7 @@ In basso a sinistra dell'editor, vedrai apparire la scritta "-- INSERT --"
 Per spostarti dalla modalità inserimento a quella comandi, premi esc.
 
 
-## Gestione di un file
-
-### Muoversi dentro vi  
+## Muoversi dentro vi  
 
 Vi è nato prima delle frecce posizionali della tastiera (!), pertanto è possibile spostarsi nel file
 usando i seguenti tasti:
@@ -62,7 +60,7 @@ usando i seguenti tasti:
 | CTRL + b  | muove il cursore di una pagina su |
 
 
-### Editare il testo  
+## Editare il testo  
 
 Per editare il testo scritto, puoi usare i seguenti tasti:
 
@@ -83,7 +81,7 @@ Per editare il testo scritto, puoi usare i seguenti tasti:
 | p | incolla il carattere/parola/riga che hai cancellato precedentemente |
 
 
-### Ricercare nel testo  
+## Ricercare nel testo  
 
 Per ricercare nel testo, puoi usare le seguenti combinazioni
 (ricordati di premere prima ESC!):
@@ -96,7 +94,7 @@ Per ricercare nel testo, puoi usare le seguenti combinazioni
 | N | continua a cercare dal testo in cui ti trovi in sù |
 
 
-### Uscire da Vi  
+## Uscire da Vi  
 
 Se vuoi salvare o meno il file editato, in Vi devi usare uno dei seguenti comandi
 (ricordati di premere ESC prima di digitare questi comandi!):
@@ -111,7 +109,7 @@ Se vuoi salvare o meno il file editato, in Vi devi usare uno dei seguenti comand
 | ZZ | salva ed esce da Vi |
   
   
-### Configurazioni utili  
+## Configurazioni utili  
 
 Vi può essere configurato utilizzando i seguenti comandi:
 
