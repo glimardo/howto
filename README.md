@@ -15,6 +15,10 @@ Indice degli HowTo
   * [SQL](https://github.com/glimardo/howto/blob/master/learning/database/sql.md)
 
 - Development tools
+  * Gestione di un sistema Linux
+    + [Bash scripting](https://github.com/glimardo/howto/blob/master/learning/development%20tools/bash.md)
+  * Editor di testo
+    + [Vi](https://github.com/glimardo/howto/blob/master/learning/development%20tools/vi.md)
   * Versionamento del codice
     + [Git](https://github.com/glimardo/howto/blob/master/learning/development%20tools/git.md) 
   * Linguaggi di markup
