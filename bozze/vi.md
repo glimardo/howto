@@ -1,4 +1,4 @@
-VI (bozza)
+VI
 ===
 
 <!-- toc -->
@@ -118,8 +118,8 @@ Vi può essere configurato utilizzando i seguenti comandi:
 | Comando  | Significato | 
 | :---: | --- | 
 | :set all | visualizza tutte le configurazioni che possono essere applicate |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| :set ai | auto-indenta il codice |
+| :set bg=dark | cambia il contrasto di Vi |
+| :set nu | visualizza il numero di ogni riga |
+| :set expandtab | converte i tab in spazi  |
+| :set ruler | visualizza sempre dove si trova il cursore |
