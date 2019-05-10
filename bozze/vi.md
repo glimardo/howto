@@ -101,7 +101,7 @@ Per ricercare nel testo, puoi usare le seguenti combinazioni
 Se vuoi salvare o meno il file editato, in Vi devi usare uno dei seguenti comandi
 (ricordati di premere ESC prima di digitare questi comandi!):
 
-| Tasto  | Significato | 
+| Comando  | Significato | 
 | :---: | --- | 
 | :q! | esci senza salvare  |
 | :w | salva il file |
@@ -111,4 +111,15 @@ Se vuoi salvare o meno il file editato, in Vi devi usare uno dei seguenti comand
 | ZZ | salva ed esce da Vi |
   
   
-### 
+### Configurazioni utili  
+
+Vi può essere configurato utilizzando i seguenti comandi:
+
+| Comando  | Significato | 
+| :---: | --- | 
+| :set all | visualizza tutte le configurazioni che possono essere applicate |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
