@@ -10,10 +10,11 @@ Indice degli HowTo
 
 - [Licenza degli HowTo](https://github.com/glimardo/howto/blob/master/LICENSE)
 - Algoritmi e strutture dati
+  * coming soon
 - Data analysis
+  * coming soon
 - Database
   * [SQL](https://github.com/glimardo/howto/blob/master/learning/database/sql.md)
-
 - Development tools
   * Gestione di un sistema Linux
     + [Bash scripting](https://github.com/glimardo/howto/blob/master/learning/development%20tools/bash.md)
@@ -30,6 +31,9 @@ Indice degli HowTo
     +  [Package Manager](https://github.com/glimardo/howto/blob/master/learning/python/python_package_manager.md)
     +  [Ambienti virtuali](https://github.com/glimardo/howto/blob/master/learning/python/python_virtual_env.md)
   * Ruby
+    + coming soon
 - Quality assurance
+  * coming soon
 - Web development
+  * coming soon
 <!-- /toc -->
