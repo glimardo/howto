@@ -1,10 +1,44 @@
-AWK (bozza)
+AWK
 ===
 
 <!-- toc -->
 Indice
 ======
-
+- [Modi di usare awk](#modi-di-usare-awk)
+- [Tipi di istruzioni](#tipi-di-istruzioni)
+- [Stampare a video il contenuto di un file](#stampare-a-video-il-contenuto-di-un-file)
+  * [Come stampare le righe di un file](#come-stampare-le-righe-di-un-file)
+    + [Stampare tutte le righe](#stampare-tutte-le-righe)
+    + [Stampare solo le colonne che interessano](#stampare-solo-le-colonne-che-interessano)
+  * [Ordinamento delle colonne](#ordinamento-delle-colonne)
+  * [Importanza di come si stampano le colonne](#importanza-di-come-si-stampano-le-colonne)
+  * [Cambiare l'output di una colonna](#cambiare-loutput-di-una-colonna)
+  * [Lunghezza di una colonna](#lunghezza-di-una-colonna)
+- [Variabili](#variabili)
+  * [BEGIN ed END](#begin-ed-end)
+  * [Nome del file che si sta leggendo](#nome-del-file-che-si-sta-leggendo)
+  * [Separatore di campo interno al file](#separatore-di-campo-interno-al-file)
+  * [Numero di campi presenti in ogni riga nel file](#numero-di-campi-presenti-in-ogni-riga-nel-file)
+  * [Numero di righe in ogni file](#numero-di-righe-in-ogni-file)
+  * [Separatore di campo in output](#separatore-di-campo-in-output)
+  * [Separatore di righe in output](#separatore-di-righe-in-output)
+- [Operatori](#operatori)
+  * [Operatori aritmetici](#operatori-aritmetici)
+  * [Operatori di confronto](#operatori-di-confronto)
+  * [Operatori logici](#operatori-logici)
+- [Logica](#logica)
+  * [if](#if)
+  * [for](#for)
+  * [while](#while)
+  * [break](#break)
+  * [continue](#continue)
+  * [exit](#exit)
+- [Array](#array)
+  * [Creare un array](#creare-un-array)
+  * [Visualizzare un elemento di un array](#visualizzare-un-elemento-di-un-array)
+  * [Visualizzare tutti gli elementi di un array](#visualizzare-tutti-gli-elementi-di-un-array)
+  * [Associare un nuovo valore ad un elemento di un array](#associare-un-nuovo-valore-ad-un-elemento-di-un-array)
+  * [Cancellare un array](#cancellare-un-array)
 <!-- /toc -->
 
 ## Modi di usare awk
@@ -482,64 +516,222 @@ $ awk BEGIN'{ a=2; b=2; print (a<=b) }'
 
 | Operatore | Descrizione | Sintassi |
 |---|---|:-:|
-| && | |
-| \|\| | |
-| !(not) | |
+| <espressione 1> && <espressione 2>| E logico. Ritorna 1 se entrambe le espressioni sono vere. Altrimenti 0. <espressione 2> è valutata se e solo se <espressione 1> è vera |
+| <espressione 1> \|\| <espressione 2> | O logico. Ritorna 1 se almeno una tra <espressione 1> o <espressione 2> sono vere. Altrimenti 0. <espressione 2> è valutata se e solo se <espressione 1> è falsa |
+| !(<espressione>) | Negazione logica. Ritorna 0 se <espressione> è vera. Altrimenti 1|  
+
+Esempio:
+
+```bash
+$ awk BEGIN'{ print (2>1 && 3>2) }'
+1
+$ awk BEGIN'{ print (2<1 && 3>2) }'
+0
+$
+$ awk BEGIN'{ print (2>1 ||  3>2) }'
+1
+$ awk BEGIN'{ print (1>2 ||  3>2) }'
+1
+$ awk BEGIN'{ print (1>2 ||  3<2) }'
+0
+$
+$ awk BEGIN'{ print !1 }'
+0
+$ awk BEGIN'{ print !0 }'
+1
+```
 
 
-### concatenare
-a
-b
-c = a b
-print c
+## Logica
+
+### if  
+
+```bash
+awk '{if (<condizione>) <espressione 1>;  else <espressione 2>}' <nome file>
+```
+
+Esempio:
+
+```bash
+$ cat numeri.txt
+1
+2
+3
+4
+$
+$ awk '{ if ($1 % 2 == 0) print $1 " è un numero pari!"; else print $1 " è un numero dispari!" }' numeri.txt
+1 è un numero dispari!
+2 è un numero pari!
+3 è un numero dispari!
+4 è un numero pari!
+```
+
+
+### for  
+
+```bash
+awk '{ for (<inizializzo variabile>; <condizione>; incremento/decremento <variabile>) <espressione> }' <nome file>
+```
+
+Esempio:
+
+```bash
+$ awk BEGIN'{ for (i=0; i<4; i++) print i }'
+0
+1
+2
+3
+```
+
+  
+### while  
+
+```bash
+awk '{ <inizializzo variabile>; while (<condizione>) { <espressione> } }' <nome file>
+```
+
+Esempio:
+
+```bash
+$ awk BEGIN'{ i=4; while (i > 0) { print i; i--}  }'
+4
+3
+2
+1
+```
+
+
+### break  
+
+```bash
+<condizione> break; # esce subito dal ciclo non
+                    # appena si verifica una
+                    # condizione
+```
+
+Esempio:
+
+```bash
+$ awk BEGIN'{ for (i=0; i<10; i++) { if (i == 4) break; else print i } }'
+0
+1
+2
+3
+```
+
+
+### continue  
+
+```bash
+<condizione> continue; # salta al ciclo successivo
+                       # non appena si verifica la
+                       # condizione
+```
+
+Esempio:
+
+```bash
+$ awk BEGIN'{ for (i=0; i<10; i++) { if (i %2 == 0) print i; else continue } }'
+0
+2
+4
+6
+8
+```
+
+
+### exit  
+
+```bash
+<condizione> exit(<stato>); # Esce da AWK se 
+                            # si verifica una 
+                            # certa condizione
+```
+
+Esempio:
+
+```bash
+$ awk BEGIN'{ for (i=0; i<10; i++) { if (i == 6) exit(1); else print i } }'
+0
+1
+2
+3
+4
+5
+```
+
 
 ## Array
 
 ### Creare un array  
 
-a[0] = "John";
+```bash
+awk '{ array[<indice>] = "valore"}'
+```
 
-### Cancellare un array
+Esempio:
 
-delete a[0]
-
-### Creare un array multidimensionale
-
-a["0,0"] = "John"
-
-
-## Logica
-
-### if
-
-if (<condizione>)  <istruzini>; 
-  
-### if else
-
-if (<condizione>) <istruzini>;  else <istruzioni>
+```bash
+$ awk BEGIN'{ colori[0] = "Rosso"; colori[1] = "Giallo"; colori[2] = "Verde";}'
+```
 
 
-### for
+### Visualizzare un elemento di un array
 
-for (inizializzazione; condizione; incremento/decremento) <istruzioni>
-  
-### while
+```bash
+awk '{ <definisco l\'array>; print array[<indice>] }'
+```
 
-while (condizione) {<istruzioni>}
-  
+Esempio:
 
-### break
+```bash
+$ awk BEGIN'{ colori[0] = "Rosso"; colori[1] = "Giallo"; colori[2] = "Verde"; print colori[0] }'
+Rosso
+```
 
 
-### continue
+### Visualizzare tutti gli elementi di un array
+
+```bash
+awk '{ <definisco l\'array>; for (i in array ){ print array[i]} }'
+```
+
+Esempio:
+
+```bash
+awk BEGIN'{ colori[0] = "Rosso"; colori[1] = "Giallo"; colori[2] = "Verde"; for (i in colori){ print colori[i]} }'
+Verde
+Rosso
+Giallo
+```
 
 
-### exit
+### Associare un nuovo valore ad un elemento di un array
 
-## Funzioni
+```bash
+awk '{ <definisco l\'array>; array[<indice>] = "nuovo valore" }'
+```
 
-function <nome funzione> (<parametro 1>< parametro n>)
-  {
-    <istruzioni>
-  }
-  
+Esempio:
+
+```bash
+$ awk BEGIN'{ colori[0] = "Rosso"; colori[1] = "Giallo"; print  colori[0]; colori[0] = "Arancione"; print colori[0] }'
+Rosso
+Arancione
+```
+
+
+### Cancellare un array  
+
+```bash
+awk '{ <definisco l\'array>; delete array[<indice>] }'
+
+```
+
+Esempio:
+
+```bash
+$ awk BEGIN'{ colori[0] = "Rosso"; colori[1] = "Giallo"; print colori[0]; delete colori[0]; print colori[0] }'
+Rosso
+
+```
