@@ -18,6 +18,7 @@ Indice degli HowTo
 - Development tools
   * Gestione di un sistema Linux
     + [Bash scripting](https://github.com/glimardo/howto/blob/master/learning/development%20tools/bash.md)
+    + [AWK](https://github.com/glimardo/howto/blob/master/learning/development%20tools/awk.md)
   * Editor di testo
     + [Vi](https://github.com/glimardo/howto/blob/master/learning/development%20tools/vi.md)
   * Versionamento del codice
